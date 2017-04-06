@@ -8,3 +8,8 @@ Feature: Home Page
     When I visit the homepage
     Then I should see a link for the main artist page
     And I should see a link for the main developer page
+
+  Scenario: Following Artist link
+    Given I am a normal user
+    When I click the 'Artist' link
+    Then I should go to the main artist page

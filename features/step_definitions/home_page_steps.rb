@@ -13,3 +13,12 @@ end
 And(/^I should see a link for the main developer page$/) do
   expect(page).to have_link('Developer')
 end
+
+When(/^I click the 'Artist' link$/) do
+  visit root_path
+  click_link('Artist')
+end
+
+Then(/^I should go to the main artist page$/) do
+  expect(page).to have_current_path(artist_home_path)
+end

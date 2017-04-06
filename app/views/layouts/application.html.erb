@@ -9,7 +9,7 @@
   </head>
 
   <body>
-  
+
   <% if controller_name == "artist_static_pages" %>
     <%= render 'partials/artist_navbar' %>
   <% elsif controller_name == "developer_static_pages" %>
@@ -19,6 +19,14 @@
   <% end %>
 
     <%= yield %>
+
+  <% if controller_name == "artist_static_pages" %>
+    <%= render 'partials/artist_footer' %>
+  <% elsif controller_name == "developer_static_pages" %>
+    <%= render 'partials/developer_footer' %>
+  <% else %>
+    <%= render 'partials/initial_footer' %>
+  <% end %>
   
   </body>
 </html>
