@@ -1,0 +1,2 @@
+module ArtistStaticPagesHelper
+end

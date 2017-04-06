@@ -2,15 +2,21 @@
 <html>
   <head>
     <title>Jesse Farber</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   
-  <%= render 'partials/navbar' %>
+  <% if controller_name == "artist_static_pages" %>
+    <%= render 'partials/artist_navbar' %>
+  <% elsif controller_name == "developer_static_pages" %>
+    <%= render 'partials/developer_navbar' %>
+  <% else %>
+    <%= render 'partials/initial_navbar' %>
+  <% end %>
 
     <%= yield %>
   
