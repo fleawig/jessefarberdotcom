@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :works
     resources :book_pages
     resources :rnl_issues
+    resources :news_items
   end
 end

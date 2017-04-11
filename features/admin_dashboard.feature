@@ -22,3 +22,7 @@ Background:
   Scenario: POST RNL ISSUE link
     When I click the POST RNL ISSUE link
     Then I want to see a form that lets me post info about a new issue of RNL
+
+  Scenario: POST NEWS link
+    When I click the POST NEWS link
+    Then I want to see a form that lets me post a news item

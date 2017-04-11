@@ -31,5 +31,13 @@ When(/^I click the POST RNL ISSUE link$/) do
 end
 
 Then(/^I want to see a form that lets me post info about a new issue of RNL$/) do
-  expect(page).to have_content 'Upload RNL issue info'
+  expect(page).to have_content 'Upload RNL Issue Info'
+end
+
+When(/^I click the POST NEWS link$/) do
+  click_link 'POST NEWS'
+end
+
+Then(/^I want to see a form that lets me post a news item$/) do
+  expect(page).to have_content 'Upload A News Item'
 end
