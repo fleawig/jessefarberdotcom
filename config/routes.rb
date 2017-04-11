@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get 'artist', to: 'artist_static_pages#home', as: 'artist_home'
   namespace :admin do
     resources :works
+    resources :book_pages
+    resources :rnl_issues
   end
 end
