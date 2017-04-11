@@ -1,0 +1,15 @@
+<div class="container">
+  <br />
+  <h1>Upload A Work</h1>
+  <br />
+  <%= simple_form_for @work, url: admin_works_path do |f| %>
+    <%= f.input :title %>
+    <%= f.input :year, start_year: 2000, end_year: Date.today.year + 1, discard_day: true, discard_month: true %>
+    <%= f.input :medium %>
+    <%= f.input :dimensions %>
+    <%= f.input :type %>
+    <br />
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <br />
+    <% end %>
+</div>

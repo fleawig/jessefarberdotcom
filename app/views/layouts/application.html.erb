@@ -14,7 +14,7 @@
     <%= render 'partials/artist_navbar' %>
   <% elsif controller_name == "developer_static_pages" %>
     <%= render 'partials/developer_navbar' %>
-<% elsif controller_name == "admin_dashboards" %>
+<% elsif controller_path.include?('admin') %>
     <%= render 'partials/admin_dashboard_navbar' %>
   <% else %>
     <%= render 'partials/initial_navbar' %>
@@ -37,7 +37,7 @@
 
     <%= yield %>
 
-  <% if controller_name == "artist_static_pages" %>
+  <% if controller_path.include?('admin') || controller_path.include?('artist') %>
     <%= render 'partials/artist_footer' %>
   <% elsif controller_name == "developer_static_pages" %>
     <%= render 'partials/developer_footer' %>

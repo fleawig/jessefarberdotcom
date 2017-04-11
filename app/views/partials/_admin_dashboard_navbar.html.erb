@@ -7,13 +7,16 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
           <li class="nav-item active">
-            <a class="nav-link" href="#">ADMIN HOME</a>
+            <%= link_to 'ADMIN HOME', admin_dashboard_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">POST IMAGES</a>
+            <%= link_to 'POST WORKS', new_admin_work_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">POST BOOKS</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">POST RNL ISSUE</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">POST NEWS</a>
@@ -21,7 +24,7 @@
         </ul>
         <ul class="navbar-nav mr-auto pull-right">
           <li class="nav-item">
-            <%= link_to 'Main Site', root_path, class: "nav-link admin" %>
+            <%= link_to 'Main Site', artist_home_path, class: "nav-link admin" %>
           </li>
           <li class="nav-item">
             <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, class: "nav-link admin" %>
