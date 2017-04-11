@@ -14,6 +14,8 @@
     <%= render 'partials/artist_navbar' %>
   <% elsif controller_name == "developer_static_pages" %>
     <%= render 'partials/developer_navbar' %>
+<% elsif controller_name == "admin_dashboards" %>
+    <%= render 'partials/admin_dashboard_navbar' %>
   <% else %>
     <%= render 'partials/initial_navbar' %>
   <% end %>

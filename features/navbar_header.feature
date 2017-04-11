@@ -20,3 +20,17 @@ Feature: Navbar
     When I am on the main artist page
     Then I should see a link for the admin dashboard
     And I should see a link for signing out
+
+  Scenario: Admin signs out
+    Given I am signed in as an admin user
+    And I am on the main artist page
+    When I click the sign out link
+    Then I should not see the link for the admin dashboard
+    And I should not see a link for signing out
+
+  Scenario: Admin visits Admin Dashboard
+    Given I am signed in as an admin user
+    And I am on the main artist page
+    When I click on the Admin Dashboard link
+    Then I should see the Admin Dashboard page
+    And the navbar should switch to the admin navbar

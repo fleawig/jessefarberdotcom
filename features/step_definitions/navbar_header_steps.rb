@@ -30,9 +30,33 @@ Given(/^I am signed in as an admin user$/) do
 end
 
 Then(/^I should see a link for the admin dashboard$/) do
-  expect(page).to have_link('Admin Dashboard')
+  expect(page).to have_link 'Admin Dashboard'
 end
 
 Then(/^I should see a link for signing out$/) do
-  expect(page).to have_link('Sign Out')
+  expect(page).to have_link 'Sign Out'
+end
+
+When(/^I click the sign out link$/) do
+  click_link 'Sign Out'
+end
+
+Then(/^I should not see the link for the admin dashboard$/) do
+  expect(page).not_to have_link 'Admin Dashboard'
+end
+
+Then(/^I should not see a link for signing out$/) do
+  expect(page).not_to have_link 'Sign Out'
+end
+
+When(/^I click on the Admin Dashboard link$/) do
+  click_link 'Admin Dashboard'
+end
+
+Then(/^I should see the Admin Dashboard page$/) do
+  expect(page).to have_content 'Admin Home'
+end
+
+Then(/^the navbar should switch to the admin navbar$/) do
+  expect(page).to have_css '.navbar-admin'
 end
