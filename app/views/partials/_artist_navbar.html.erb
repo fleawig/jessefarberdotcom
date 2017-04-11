@@ -28,5 +28,15 @@
             <a class="nav-link" href="#">NEWS</a>
           </li>
         </ul>
+        <% if current_admin %>
+          <ul class="navbar-nav mr-auto pull-right">
+            <li class="nav-item">
+              <%= link_to 'Admin Dashboard', '#', class: "nav-link admin" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Out', '#', class: "nav-link admin" %>
+            </li>
+          </ul>
+        <% end %>
       </div>
     </nav>

@@ -14,3 +14,9 @@ Feature: Navbar
     When I am on the main artist page
     Then I should see the artist links in the navbar
     And I should still see the email link
+
+  Scenario: Admin is signed in
+    Given I am signed in as an admin user
+    When I am on the main artist page
+    Then I should see a link for the admin dashboard
+    And I should see a link for signing out

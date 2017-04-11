@@ -7,7 +7,7 @@ Then(/^I should see the navbar$/) do
 end
 
 Then(/^I should not see any artist links in the navbar$/) do
-  artist_links = ["2D WORKS", "3D WORKS", "BOOK WORKS", "CEPH", "RNL", "CV", "NEWS"]
+  artist_links = ['2D WORKS', '3D WORKS', 'BOOK WORKS', 'CEPH', 'RNL', 'CV', 'NEWS']
   artist_links.each { |link| expect(page).not_to have_link(link) }
 end
 
@@ -16,6 +16,23 @@ When(/^I am on the main artist page$/) do
 end
 
 Then(/^I should see the artist links in the navbar$/) do
-  artist_links = ["2D WORKS", "3D WORKS", "BOOK WORKS", "CEPH", "RNL", "CV", "NEWS"]
+  artist_links = ['2D WORKS', '3D WORKS', 'BOOK WORKS', 'CEPH', 'RNL', 'CV', 'NEWS']
   artist_links.each { |link| expect(page).to have_link(link) }
+end
+
+Given(/^I am signed in as an admin user$/) do
+  visit new_admin_registration_path
+  fill_in 'Email', with: 'jesse@example.com'
+  fill_in 'Password', with: 'password', match: :prefer_exact
+  fill_in 'Password confirmation', with: 'password'
+  click_button 'Sign up'
+  # admin is now signed up
+end
+
+Then(/^I should see a link for the admin dashboard$/) do
+  expect(page).to have_link('Admin Dashboard')
+end
+
+Then(/^I should see a link for signing out$/) do
+  expect(page).to have_link('Sign Out')
 end
