@@ -77,3 +77,18 @@ end
 Then(/^I want to see a message that says the new book was created$/) do
   expect(page).to have_content 'New book page was added successfully.'
 end
+
+Given(/^I am on the POST RNL ISSUE page$/) do
+  click_link 'POST RNL ISSUE'
+end
+
+When(/^I fill in the form with valid RNL issue data$/) do
+  fill_in('Issue number', with: '2')
+  fill_in('Title', with: 'Riotous Noxious Lethargy')
+  fill_in('Description', with: 'This is a description for the latest issue of RNL. 
+                                In this issue we explore various things and stuff.')
+end
+
+Then(/^I want to see a message that says the new issue was created$/) do
+  expect(page).to have_content 'New RNL issue was added successfully.'
+end
