@@ -32,3 +32,9 @@ Background:
     When I fill in the form with valid data
     And press the 'Submit' button
     Then I want to see a message that says the new work was created
+
+  Scenario: Posting a new book
+    Given I am on the POST BOOKS page
+    When I fill in the form with valid book data
+    And press the 'Submit' button
+    Then I want to see a message that says the new book was created

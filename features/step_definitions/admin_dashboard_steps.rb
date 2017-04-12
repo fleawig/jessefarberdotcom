@@ -61,3 +61,19 @@ end
 Then(/^I want to see a message that says the new work was created$/) do
   expect(page).to have_content 'New work was added successfully.'
 end
+
+Given(/^I am on the POST BOOKS page$/) do
+  click_link 'POST BOOKS'
+end
+
+When(/^I fill in the form with valid book data$/) do
+  fill_in('Book title', with: 'Test Book')
+  fill_in('Page number', with: '2')
+  select('2017', from: 'Year')
+  fill_in('Dimensions', with: '6 in. x 6 in.')
+  check('Portfolio')
+end
+
+Then(/^I want to see a message that says the new book was created$/) do
+  expect(page).to have_content 'New book page was added successfully.'
+end
