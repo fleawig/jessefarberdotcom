@@ -17,6 +17,6 @@ class Admin::WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:title, :year, :medium, :dimensions, :type)
+    params.require(:work).permit(:title, :year, :medium, :dimensions, :work_type)
   end
 end

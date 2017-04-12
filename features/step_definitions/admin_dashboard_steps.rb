@@ -92,3 +92,16 @@ end
 Then(/^I want to see a message that says the new issue was created$/) do
   expect(page).to have_content 'New RNL issue was added successfully.'
 end
+
+Given(/^I am on the POST NEWS page$/) do
+  click_link 'POST NEWS'
+end
+
+When(/^I fill in the form with valid news data$/) do
+  fill_in('Headline', with: 'MOMA buys out my entire studio')
+  fill_in('Content', with: 'You\'re not going to believe this, folks...')
+end
+
+Then(/^I want to see a message that says the new news item was created$/) do
+  expect(page).to have_content 'New news item was added successfully.'
+end

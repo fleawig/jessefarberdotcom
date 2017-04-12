@@ -44,3 +44,9 @@ Scenario: Posting a new RNL issue
     When I fill in the form with valid RNL issue data
     And press the 'Submit' button
     Then I want to see a message that says the new issue was created
+
+Scenario: Posting a new news item
+    Given I am on the POST NEWS page
+    When I fill in the form with valid news data
+    And press the 'Submit' button
+    Then I want to see a message that says the new news item was created
