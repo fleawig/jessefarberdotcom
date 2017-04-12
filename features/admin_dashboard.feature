@@ -26,3 +26,9 @@ Background:
   Scenario: POST NEWS link
     When I click the POST NEWS link
     Then I want to see a form that lets me post a news item
+
+  Scenario: Posting a new work
+    Given I am on the POST WORKS page
+    When I fill in the form with valid data
+    And press the 'Submit' button
+    Then I want to see a message that says the new work was created
