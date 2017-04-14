@@ -14,6 +14,22 @@ class Admin::WorksController < ApplicationController
     @works = Work.all
   end
 
+  def edit
+    @work = Work.find_by_id(params[:id])
+    return render_not_found if @work.blank?
+  end
+
+  def update
+    @work = Work.find_by_id(params[:id])
+    return render_not_found if @work.blank?
+    @work.update_attributes(work_params)
+    if @work.valid?
+      redirect_to admin_works_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def work_params

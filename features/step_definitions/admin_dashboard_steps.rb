@@ -109,7 +109,7 @@ end
 Given(/^there are some works in the database$/) do
   click_link 'MANAGE WORKS'
   click_link 'Post a new work'
-  fill_in('Title', with: 'Test Work')
+  fill_in('Title', with: 'First Test Work')
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Digital C-Print')
   fill_in('Dimensions', with: '100 in. x 100 in.')
@@ -130,9 +130,23 @@ When(/^I click the MANAGE WORKS link$/) do
 end
 
 Then(/^I want to see a page that displays all those works$/) do
-  (expect(page).to have_content 'Test Work') && (expect(page).to have_content 'Test Sculpture')
+  (expect(page).to have_content 'First Test Work') && (expect(page).to have_content 'Test Sculpture')
 end
 
 Then(/^each work should have a button to edit or remove the work$/) do
   (expect(page).to have_css(".fa-pencil")) && (expect(page).to have_css(".fa-remove"))
 end
+
+Given(/^I am on the MANAGE WORKS page$/) do
+  click_link 'MANAGE WORKS'
+end
+
+When(/^I click the edit button for a work$/) do
+    first('.btn-warning').click
+
+end
+
+Then(/^I want to see the form to edit the work$/) do
+  (expect(page).to have_content 'Edit A Work') && (expect(find_field('Title').value).to eq 'First Test Work')
+end
+

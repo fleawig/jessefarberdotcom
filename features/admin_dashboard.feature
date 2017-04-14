@@ -56,3 +56,9 @@ Background:
     When I click the MANAGE WORKS link
     Then I want to see a page that displays all those works
     And each work should have a button to edit or remove the work
+
+    Scenario: Deleting a work
+    Given there are some works in the database
+    And I am on the MANAGE WORKS page
+    When I click the edit button for a work
+    Then I want to see the form to edit the work
