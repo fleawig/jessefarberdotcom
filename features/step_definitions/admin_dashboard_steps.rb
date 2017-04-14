@@ -143,10 +143,18 @@ end
 
 When(/^I click the edit button for a work$/) do
     first('.btn-warning').click
-
 end
 
 Then(/^I want to see the form to edit the work$/) do
   (expect(page).to have_content 'Edit A Work') && (expect(find_field('Title').value).to eq 'First Test Work')
 end
+
+When(/^I click the delete button for a work$/) do
+  first('.btn-danger').click
+end
+
+Then(/^I want the work to be removed from the page$/) do
+  expect(page).not_to have_content 'First Test Work'
+end
+
 

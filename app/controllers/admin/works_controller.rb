@@ -30,6 +30,13 @@ class Admin::WorksController < ApplicationController
     end
   end
 
+  def destroy
+    @work = Work.find_by_id(params[:id])
+    return render_not_found if @work.blank?
+    @work.destroy
+    redirect_to admin_works_path
+  end
+
   private
 
   def work_params
