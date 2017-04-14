@@ -1,0 +1,12 @@
+<div class="container">
+  <br />
+  <h1>Edit A News Item</h1>
+  <br />
+  <%= simple_form_for @news_item, url: admin_news_item_path do |f| %>
+    <%= f.input :headline %>
+    <%= f.input :content %>
+    <br />
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <br />
+    <% end %>
+</div>

@@ -104,3 +104,22 @@ Background:
     And I am on the MANAGE RNL ISSUES page
     When I click the delete button for an issue
     Then I want the issue to be removed from the page
+
+    Scenario: Managing News Posts
+    Given there are some news posts in the database
+    When I click the MANAGE NEWS link
+    Then I want to see a page that displays all those news posts
+    And each post should have a button to edit or remove the post
+
+    Scenario: Editing News Posts
+    Given there are some news posts in the database
+    And I am on the MANAGE NEWS link
+    When I click the edit button for a post
+    Then I want to see the form to edit the post
+
+    Scenario: Deleting RNL Issues
+    Given there are some news posts in the database
+    And I am on the MANAGE NEWS link
+    When I click the delete button for a post
+    Then I want the post to be removed from the page
+

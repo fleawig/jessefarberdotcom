@@ -263,3 +263,48 @@ Then(/^I want the issue to be removed from the page$/) do
   expect(page).not_to have_content 'Riotous Noxious Lethargy'
 end
 
+Given(/^there are some news posts in the database$/) do
+  click_link 'MANAGE NEWS'
+  click_link 'Post a new news item'
+  fill_in('Headline', with: 'MOMA buys out my entire studio')
+  fill_in('Content', with: 'You\'re not going to believe this, folks...')
+  click_button('Submit')
+  click_link 'MANAGE NEWS'
+  click_link 'Post a new news item'
+  fill_in('Headline', with: 'Tate wants to preserve my studio as a museum')
+  fill_in('Content', with: 'I just don\'t even know what to say!')
+  click_button('Submit')
+end
+
+When(/^I click the MANAGE NEWS link$/) do
+  click_link 'MANAGE NEWS'
+end
+
+Then(/^I want to see a page that displays all those news posts$/) do
+  headlines = ["MOMA buys out my entire studio", "Tate wants to preserve my studio as a museum"]
+  headlines.each { |headline| expect(page).to have_content(headline) }
+end
+
+Then(/^each post should have a button to edit or remove the post$/) do
+  (expect(page).to have_css(".fa-pencil")) && (expect(page).to have_css(".fa-remove"))
+end
+
+Given(/^I am on the MANAGE NEWS link$/) do
+  click_link 'MANAGE NEWS'
+end
+
+When(/^I click the edit button for a post$/) do
+  first('.btn-warning').click
+end
+
+Then(/^I want to see the form to edit the post$/) do
+  (expect(page).to have_content 'Edit A News Item') && (expect(find_field('Headline').value).to eq 'MOMA buys out my entire studio')
+end
+
+When(/^I click the delete button for a post$/) do
+  first('.btn-danger').click
+end
+
+Then(/^I want the post to be removed from the page$/) do
+  expect(page).not_to have_content 'MOMA buys out my entire studio'
+end
