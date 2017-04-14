@@ -87,3 +87,20 @@ Background:
     When I click the delete button for a book page
     Then I want the book page to be removed from the page
 
+    Scenario: Managing RNL Issues
+    Given there are some RNL issues in the database
+    When I click the MANAGE RNL ISSUES link
+    Then I want to see a page that displays all those issues
+    And each issue should have a button to edit or remove the issue
+
+    Scenario: Editing RNL Issues
+    Given there are some RNL issues in the database
+    And I am on the MANAGE RNL ISSUES page
+    When I click the edit button for an issue
+    Then I want to see the form to edit the issue
+
+    Scenario: Deleting RNL Issues
+    Given there are some RNL issues in the database
+    And I am on the MANAGE RNL ISSUES page
+    When I click the delete button for an issue
+    Then I want the issue to be removed from the page

@@ -213,3 +213,53 @@ Then(/^I want the book page to be removed from the page$/) do
   expect(page).not_to have_content 'The Nocturnal Affirnal, 2017\n page 1'
 end
 
+Given(/^there are some RNL issues in the database$/) do
+  click_link 'MANAGE RNL ISSUES'
+  click_link 'Post a new issue'
+  fill_in('Issue number', with: '1')
+  fill_in('Title', with: 'Riotous Noxious Lethargy')
+  fill_in('Description', with: 'This is a description for the latest issue of RNL.
+                                In this issue we explore various things and stuff.')
+  click_button('Submit')
+  click_link 'MANAGE RNL ISSUES'
+  click_link 'Post a new issue'
+  fill_in('Issue number', with: '2')
+  fill_in('Title', with: 'Ridicule Never Listens')
+  fill_in('Description', with: 'This is a description for the next issue of RNL.
+                                In this issue we explore various wings and fluff.')
+  click_button('Submit')
+end
+
+When(/^I click the MANAGE RNL ISSUES link$/) do
+  click_link 'MANAGE RNL ISSUES'
+end
+
+Then(/^I want to see a page that displays all those issues$/) do
+  titles = ["Riotous Noxious Lethargy", "Ridicule Never Listens"]
+  titles.each { |title| expect(page).to have_content(title) }
+end
+
+Then(/^each issue should have a button to edit or remove the issue$/) do
+  (expect(page).to have_css(".fa-pencil")) && (expect(page).to have_css(".fa-remove"))
+end
+
+Given(/^I am on the MANAGE RNL ISSUES page$/) do
+  click_link 'MANAGE RNL ISSUES'
+end
+
+When(/^I click the edit button for an issue$/) do
+  first('.btn-warning').click
+end
+
+Then(/^I want to see the form to edit the issue$/) do
+  (expect(page).to have_content 'Edit An RNL Issue') && (expect(find_field('Title').value).to eq 'Riotous Noxious Lethargy')
+end
+
+When(/^I click the delete button for an issue$/) do
+  first('.btn-danger').click
+end
+
+Then(/^I want the issue to be removed from the page$/) do
+  expect(page).not_to have_content 'Riotous Noxious Lethargy'
+end
+

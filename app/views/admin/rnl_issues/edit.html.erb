@@ -1,0 +1,13 @@
+<div class="container">
+  <br />
+  <h1>Edit An RNL Issue</h1>
+  <br />
+  <%= simple_form_for @rnl_issue, url: admin_rnl_issue_path do |f| %>
+    <%= f.input :issue_number %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <br />
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <br />
+    <% end %>
+</div>
