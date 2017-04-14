@@ -142,7 +142,7 @@ Given(/^I am on the MANAGE WORKS page$/) do
 end
 
 When(/^I click the edit button for a work$/) do
-    first('.btn-warning').click
+  first('.btn-warning').click
 end
 
 Then(/^I want to see the form to edit the work$/) do
@@ -157,4 +157,59 @@ Then(/^I want the work to be removed from the page$/) do
   expect(page).not_to have_content 'First Test Work'
 end
 
+Given(/^there are some book pages in the database$/) do
+  click_link 'MANAGE BOOKS'
+  click_link 'Post a new book page'
+  fill_in('Book title', with: 'The Nocturnal Affirnal')
+  fill_in('Page number', with: '1')
+  select('2017', from: 'Year')
+  fill_in('Dimensions', with: '10 in. x 10 in.')
+  click_button('Submit')
+  click_link 'MANAGE BOOKS'
+  click_link 'Post a new book page'
+  fill_in('Book title', with: 'The Nocturnal Affirnal')
+  fill_in('Page number', with: '2')
+  select('2017', from: 'Year')
+  fill_in('Dimensions', with: '10 in. x 10 in.')
+  click_button('Submit')
+  click_link 'MANAGE BOOKS'
+  click_link 'Post a new book page'
+  fill_in('Book title', with: 'The Nocturnal Affirnal')
+  fill_in('Page number', with: '3')
+  select('2017', from: 'Year')
+  fill_in('Dimensions', with: '10 in. x 10 in.')
+  click_button('Submit')
+end
+
+When(/^I click the MANAGE BOOKS link$/) do
+  click_link 'MANAGE BOOKS'
+end
+
+Then(/^I want to see a page that displays all those book_pages$/) do
+  (1..3).each { |n| expect(page).to have_content "The Nocturnal Affirnal, 2017\n page #{n}" }
+end
+
+Then(/^each book_page should have a button to edit or remove the page$/) do
+  (expect(page).to have_css(".fa-pencil")) && (expect(page).to have_css(".fa-remove"))
+end
+
+Given(/^I am on the MANAGE BOOKS link$/) do
+  click_link 'MANAGE BOOKS'
+end
+
+When(/^I click the edit button for a book$/) do
+  first('.btn-warning').click
+end
+
+Then(/^I want to see the form to edit the book page$/) do
+  (expect(page).to have_content 'Edit A Book Page') && (expect(find_field('Book title').value).to eq 'The Nocturnal Affirnal')
+end
+
+When(/^I click the delete button for a book page$/) do
+  first('.btn-danger').click
+end
+
+Then(/^I want the book page to be removed from the page$/) do
+  expect(page).not_to have_content 'The Nocturnal Affirnal, 2017\n page 1'
+end
 

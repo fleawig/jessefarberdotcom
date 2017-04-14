@@ -69,3 +69,21 @@ Background:
     When I click the delete button for a work
     Then I want the work to be removed from the page
 
+    Scenario: Managing books
+    Given there are some book pages in the database
+    When I click the MANAGE BOOKS link
+    Then I want to see a page that displays all those book_pages
+    And each book_page should have a button to edit or remove the page
+
+    Scenario: Editing a book page
+    Given there are some book pages in the database
+    And I am on the MANAGE BOOKS link
+    When I click the edit button for a book
+    Then I want to see the form to edit the book page
+
+    Scenario: Deleting a book page
+    Given there are some book pages in the database
+    And I am on the MANAGE BOOKS link
+    When I click the delete button for a book page
+    Then I want the book page to be removed from the page
+

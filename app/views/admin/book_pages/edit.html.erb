@@ -1,0 +1,15 @@
+<div class="container">
+  <br />
+  <h1>Edit A Book Page</h1>
+  <br />
+  <%= simple_form_for @book_page, url: admin_book_page_path do |f| %>
+    <%= f.input :book_title %>
+    <%= f.input :page_number %>
+    <%= f.input :year, start_year: 2000, end_year: Date.today.year + 1, discard_day: true, discard_month: true %>
+    <%= f.input :dimensions %>
+    <%= f.input :portfolio %>
+    <br />
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <br />
+    <% end %>
+</div>

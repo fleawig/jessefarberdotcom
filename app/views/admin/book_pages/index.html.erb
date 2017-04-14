@@ -1,1 +1,31 @@
-<h1>Books</h1>
+<div class="container">
+  <br />
+  <div class="row align-items-center">
+    <div class="col">
+      <h1>Manage Books</h1>
+    </div>
+    <div class="col col-sm-3">
+      <%= link_to 'Post a new book page', new_admin_book_page_path, class: 'btn btn-primary float-sm-right' %>
+    </div>
+  </div>
+  <hr />
+  <div class="row-align-items-start">
+    <% @book_pages.each do |book_page| %>
+      <div class="col-lg-4 work">
+        <%= book_page.book_title %>, <%= book_page.year.year %>
+        page <%= book_page.page_number %>
+        <br />
+        <%= book_page.dimensions %>
+        <br class="clear" />
+        <%= link_to edit_admin_book_page_path(book_page), class: 'btn btn-warning float-left' do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
+        <%= link_to admin_book_page_path(book_page), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger float-right' do %>
+          <i class="fa fa-remove"></i>
+        <% end %>
+      </div>
+      <br class="clear"/>
+      <br />
+    <% end %>
+  </div>
+</div>
