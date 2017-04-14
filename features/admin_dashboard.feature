@@ -39,14 +39,20 @@ Background:
     And press the 'Submit' button
     Then I want to see a message that says the new book was created
 
-Scenario: Posting a new RNL issue
+  Scenario: Posting a new RNL issue
     Given I am on the POST RNL ISSUE page
     When I fill in the form with valid RNL issue data
     And press the 'Submit' button
     Then I want to see a message that says the new issue was created
 
-Scenario: Posting a new news item
+  Scenario: Posting a new news item
     Given I am on the POST NEWS page
     When I fill in the form with valid news data
     And press the 'Submit' button
     Then I want to see a message that says the new news item was created
+
+  Scenario: Managing Works
+    Given there are some works in the database
+    When I click the MANAGE WORKS link
+    Then I want to see a page that displays all those works
+    And each work should have a button to edit or remove the work

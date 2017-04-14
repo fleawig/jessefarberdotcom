@@ -1,1 +1,32 @@
-<h1>Works</h1>
+<div class="container">
+  <br />
+  <div class="row align-items-center">
+    <div class="col">
+      <h1>Manage Works</h1>
+    </div>
+    <div class="col col-sm-3">
+      <%= link_to 'Post a new work', new_admin_work_path, class: 'btn btn-primary float-sm-right' %>
+    </div>
+  </div>
+  <hr />
+  <div class="row-align-items-start">
+    <% @works.each do |work| %>
+      <div class="col-lg-4 work">
+        <%= work.title %>, <%= work.year %>
+        <br />
+        <%= work.medium %>
+        <br />
+        <%= work.dimensions %>
+        <br class="clear" />
+        <%= link_to edit_admin_work_path(work), class: 'btn btn-warning float-left' do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
+        <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger float-right' do %>
+          <i class="fa fa-remove"></i>
+        <% end %>
+      </div>
+      <br class="clear"/>
+      <br />
+    <% end %>
+  </div>
+</div>

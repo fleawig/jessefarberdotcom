@@ -85,7 +85,7 @@ end
 When(/^I fill in the form with valid RNL issue data$/) do
   fill_in('Issue number', with: '2')
   fill_in('Title', with: 'Riotous Noxious Lethargy')
-  fill_in('Description', with: 'This is a description for the latest issue of RNL. 
+  fill_in('Description', with: 'This is a description for the latest issue of RNL.
                                 In this issue we explore various things and stuff.')
 end
 
@@ -104,4 +104,35 @@ end
 
 Then(/^I want to see a message that says the new news item was created$/) do
   expect(page).to have_content 'New news item was added successfully.'
+end
+
+Given(/^there are some works in the database$/) do
+  click_link 'MANAGE WORKS'
+  click_link 'Post a new work'
+  fill_in('Title', with: 'Test Work')
+  select('2017', from: 'Year')
+  fill_in('Medium', with: 'Digital C-Print')
+  fill_in('Dimensions', with: '100 in. x 100 in.')
+  fill_in('Work type', with: '2D')
+  click_button('Submit')
+  click_link 'MANAGE WORKS'
+  click_link 'Post a new work'
+  fill_in('Title', with: 'Test Sculpture')
+  select('2017', from: 'Year')
+  fill_in('Medium', with: 'Mixed Media')
+  fill_in('Dimensions', with: '100 in. x 100 in. x 100 in.')
+  fill_in('Work type', with: '3D')
+  click_button('Submit')
+end
+
+When(/^I click the MANAGE WORKS link$/) do
+  click_link 'MANAGE WORKS'
+end
+
+Then(/^I want to see a page that displays all those works$/) do
+  (expect(page).to have_content 'Test Work') && (expect(page).to have_content 'Test Sculpture')
+end
+
+Then(/^each work should have a button to edit or remove the work$/) do
+  (expect(page).to have_css(".fa-pencil")) && (expect(page).to have_css(".fa-remove"))
 end

@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'font-awesome-sass'
 
 gem 'rubocop', require: false
 gem 'rubocop-rspec'
