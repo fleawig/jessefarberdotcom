@@ -11,42 +11,50 @@ Background:
     When I click on the ADMIN HOME link
     Then I want to go back to the dashboard
 
-  Scenario: POST WORKS link
-    When I click on the POST WORKS link
+  Scenario: MANAGE WORKS link
+    When I click on the MANAGE WORKS link
+    And I click on the 'Post a new work' link
     Then I want to see a form that lets me post a new work
   
-  Scenario: POST BOOKS link
-    When I click the POST BOOKS link
+  Scenario: MANAGE BOOKS link
+    When I click the MANAGE BOOKS link
+    And I click on the 'Post a new book page' link
     Then I want to see a form that lets me post new book pages
 
-  Scenario: POST RNL ISSUE link
-    When I click the POST RNL ISSUE link
+  Scenario: MANAGE RNL ISSUES link
+    When I click the MANAGE RNL ISSUES link
+    And I click the 'Post a new issue' link
     Then I want to see a form that lets me post info about a new issue of RNL
 
-  Scenario: POST NEWS link
-    When I click the POST NEWS link
+  Scenario: MANAGE NEWS link
+    When I click the MANAGE NEWS link
+    And I click the 'Post a new news item' link
     Then I want to see a form that lets me post a news item
 
   Scenario: Posting a new work
-    Given I am on the POST WORKS page
+    Given I am on the MANAGE WORKS page
+    And I click on the 'Post a new work' link
     When I fill in the form with valid data
     And press the 'Submit' button
     Then I want to see a message that says the new work was created
 
   Scenario: Posting a new book
-    Given I am on the POST BOOKS page
+    Given I am on the MANAGE BOOKS page
+    And I click on the 'Post a new book page' link
     When I fill in the form with valid book data
     And press the 'Submit' button
     Then I want to see a message that says the new book was created
 
   Scenario: Posting a new RNL issue
-    Given I am on the POST RNL ISSUE page
+    Given I am on the MANAGE RNL ISSUES page
+    And I click the 'Post a new issue' link
     When I fill in the form with valid RNL issue data
     And press the 'Submit' button
     Then I want to see a message that says the new issue was created
 
   Scenario: Posting a new news item
-    Given I am on the POST NEWS page
+    Given I am on the MANAGE NEWS page
+    And I click the 'Post a new news item' link
     When I fill in the form with valid news data
     And press the 'Submit' button
     Then I want to see a message that says the new news item was created

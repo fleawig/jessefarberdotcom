@@ -10,40 +10,49 @@ Then(/^I want to go back to the dashboard$/) do
   expect(page).to have_content 'Admin Home'
 end
 
-When(/^I click on the POST WORKS link$/) do
-  click_link "POST WORKS"
+When(/^I click on the MANAGE WORKS link$/) do
+  click_link 'MANAGE WORKS'
+end
+
+When(/^I click on the 'Post a new work' link$/) do
+  click_link 'Post a new work'
 end
 
 Then(/^I want to see a form that lets me post a new work$/) do
   expect(page).to have_content 'Upload A Work'
 end
 
-When(/^I click the POST BOOKS link$/) do
-  click_link 'POST BOOKS'
+When(/^I click on the 'Post a new book page' link$/) do
+  click_link 'Post a new book page'
+end
+
+Given(/^I am on the MANAGE BOOKS page$/) do
+  click_link 'MANAGE BOOKS'
 end
 
 Then(/^I want to see a form that lets me post new book pages$/) do
   expect(page).to have_content 'Upload A Book Page'
 end
 
-When(/^I click the POST RNL ISSUE link$/) do
-  click_link 'POST RNL ISSUE'
+When(/^I click the 'Post a new issue' link$/) do
+  click_link 'Post a new issue'
 end
+
 
 Then(/^I want to see a form that lets me post info about a new issue of RNL$/) do
   expect(page).to have_content 'Upload RNL Issue Info'
 end
 
-When(/^I click the POST NEWS link$/) do
-  click_link 'POST NEWS'
+Given(/^I am on the MANAGE NEWS page$/) do
+  click_link 'MANAGE NEWS'
+end
+
+Given(/^I click the 'Post a new news item' link$/) do
+  click_link 'Post a new news item'
 end
 
 Then(/^I want to see a form that lets me post a news item$/) do
   expect(page).to have_content 'Upload A News Item'
-end
-
-Given(/^I am on the POST WORKS page$/) do
-  click_link 'POST WORKS'
 end
 
 When(/^I fill in the form with valid data$/) do
@@ -62,10 +71,6 @@ Then(/^I want to see a message that says the new work was created$/) do
   expect(page).to have_content 'New work was added successfully.'
 end
 
-Given(/^I am on the POST BOOKS page$/) do
-  click_link 'POST BOOKS'
-end
-
 When(/^I fill in the form with valid book data$/) do
   fill_in('Book title', with: 'Test Book')
   fill_in('Page number', with: '2')
@@ -78,10 +83,6 @@ Then(/^I want to see a message that says the new book was created$/) do
   expect(page).to have_content 'New book page was added successfully.'
 end
 
-Given(/^I am on the POST RNL ISSUE page$/) do
-  click_link 'POST RNL ISSUE'
-end
-
 When(/^I fill in the form with valid RNL issue data$/) do
   fill_in('Issue number', with: '2')
   fill_in('Title', with: 'Riotous Noxious Lethargy')
@@ -91,10 +92,6 @@ end
 
 Then(/^I want to see a message that says the new issue was created$/) do
   expect(page).to have_content 'New RNL issue was added successfully.'
-end
-
-Given(/^I am on the POST NEWS page$/) do
-  click_link 'POST NEWS'
 end
 
 When(/^I fill in the form with valid news data$/) do
