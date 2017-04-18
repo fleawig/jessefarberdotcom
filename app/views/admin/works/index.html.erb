@@ -10,23 +10,47 @@
   </div>
   <hr />
   <div class="row-align-items-start">
-    <% @works.each do |work| %>
-      <div class="col-lg-4 work">
-        <%= work.title %>, <%= work.year.year %>
+    <div class="two-d">
+      <h2>2D WORKS</h2>
+      <% @works.two_d.each do |work| %>
+        <div class="col-lg-4 two-d-work">
+          <%= work.title %>, <%= work.year.year %>
+          <br />
+          <%= work.medium %>
+          <br />
+          <%= work.dimensions %>
+          <br class="clear" />
+          <%= link_to edit_admin_work_path(work), class: 'btn btn-warning float-left' do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger float-right' do %>
+            <i class="fa fa-remove"></i>
+          <% end %>
+        </div>
+        <br class="clear"/>
         <br />
-        <%= work.medium %>
+      <% end %>
+    </div>
+    <div class="three-d">
+      <h2>3D WORKS</h2>
+      <% @works.three_d.each do |work| %>
+        <div class="col-lg-4 three-d-work">
+          <%= work.title %>, <%= work.year.year %>
+          <br />
+          <%= work.medium %>
+          <br />
+          <%= work.dimensions %>
+          <br class="clear" />
+          <%= link_to edit_admin_work_path(work), class: 'btn btn-warning float-left' do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger float-right' do %>
+            <i class="fa fa-remove"></i>
+          <% end %>
+        </div>
+        <br class="clear"/>
         <br />
-        <%= work.dimensions %>
-        <br class="clear" />
-        <%= link_to edit_admin_work_path(work), class: 'btn btn-warning float-left' do %>
-          <i class="fa fa-pencil"></i>
-        <% end %>
-        <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger float-right' do %>
-          <i class="fa fa-remove"></i>
-        <% end %>
-      </div>
-      <br class="clear"/>
-      <br />
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

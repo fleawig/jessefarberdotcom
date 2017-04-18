@@ -305,3 +305,33 @@ end
 Then(/^I want the post to be removed from the page$/) do
   expect(page).not_to have_content 'MOMA buys out my entire studio'
 end
+
+When(/^I submit some (\d+)D works in the database$/) do |arg1|
+  click_link 'Post a new work'
+  fill_in('Title', with: 'First Test Work')
+  select('2017', from: 'Year')
+  fill_in('Medium', with: 'Mixed Media')
+  fill_in('Dimensions', with: '100 in. x 100 (and maybe x 100) in.')
+  fill_in('Work type', with: arg1+'D')
+  click_button('Submit')
+  click_link 'Post a new work'
+  fill_in('Title', with: 'Second Test Work')
+  select('2017', from: 'Year')
+  fill_in('Medium', with: 'Mixed Media')
+  fill_in('Dimensions', with: '100 in. x 100 (and maybe x 100) in.')
+  fill_in('Work type', with: arg1+'D')
+  click_button('Submit')
+end
+
+Then(/^I want to see them in the (\d+)D section$/) do |arg1|
+  dims_hash = { '2D' => '.two-d', '3D' => '.three-d' }
+  dims = dims_hash[(arg1+"D").to_s]
+  expect(find(:css, "#{dims}")).to have_css("#{dims}-work")
+end
+
+Then(/^not in the (\d+)D section$/) do |arg1|
+  dims_hash = { '2D' => '.two-d', '3D' => '.three-d' }
+  dims = dims_hash[(arg1+"D").to_s]
+  expect(find(:css, "#{dims}")).not_to have_css("#{dims}-work")
+end
+
