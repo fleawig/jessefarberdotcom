@@ -22,6 +22,7 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -41,6 +42,10 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'pry'
 gem 'simple_form'
 gem 'devise'
+gem 'ranked-model'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -61,6 +66,8 @@ group :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem "rspec-expectations"
+  gem 'selenium-webdriver'
+  gem 'poltergeist'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

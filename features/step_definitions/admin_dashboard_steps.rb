@@ -335,3 +335,19 @@ Then(/^not in the (\d+)D section$/) do |arg1|
   expect(find(:css, "#{dims}")).not_to have_css("#{dims}-work")
 end
 
+When(/^I change their order using drag and drop$/) do
+  page.execute_script %Q{
+    $('.two-d-work:first').simulateDragSortable({move: 1});
+  }
+end
+
+Then(/^the works should appear in the new order$/) do
+  expect(first('.two-d-work')).to have_content('First Test Work')
+end
+
+Then(/^the new order should be preserved when the page is reloaded$/) do
+  click_link 'MANAGE WORKS'
+  expect(first('.two-d-work')).to have_content('First Test Work')
+end
+
+

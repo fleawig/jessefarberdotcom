@@ -30,6 +30,13 @@ class Admin::WorksController < ApplicationController
     end
   end
 
+  def reorder
+    @work = Work.find_by_id(params[:id])
+    @work.update_attributes(work_params)
+    render plain: 'updated!'
+    
+  end
+
   def destroy
     @work = Work.find_by_id(params[:id])
     return render_not_found if @work.blank?
@@ -40,6 +47,6 @@ class Admin::WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:title, :year, :medium, :dimensions, :work_type)
+    params.require(:work).permit(:title, :year, :medium, :dimensions, :work_type, :row_order_position)
   end
 end

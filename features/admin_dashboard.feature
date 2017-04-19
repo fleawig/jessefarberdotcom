@@ -143,3 +143,11 @@ Feature: Admin Dashboard
       Then I want to see them in the 3D section
       And not in the 2D section
 
+      @javascript
+      Scenario: Reordering works
+      Given I am on the MANAGE WORKS page
+      When I submit some 2D works in the database
+      And I change their order using drag and drop
+      Then the works should appear in the new order
+      And the new order should be preserved when the page is reloaded 
+

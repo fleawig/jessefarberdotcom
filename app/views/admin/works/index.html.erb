@@ -12,8 +12,9 @@
   <div class="row-align-items-start">
     <div class="two-d">
       <h2>2D WORKS</h2>
-      <% @works.two_d.each do |work| %>
-        <div class="col-lg-4 two-d-work">
+      <% @works.two_d.rank(:row_order).each do |work| %>
+        <br />
+        <div class="col-lg-4 two-d-work" data-update-url=<%= admin_work_path(work) %>>
           <%= work.title %>, <%= work.year.year %>
           <br />
           <%= work.medium %>
@@ -26,15 +27,19 @@
           <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger float-right' do %>
             <i class="fa fa-remove"></i>
           <% end %>
+          <br class="clear" />
         </div>
         <br class="clear"/>
         <br />
       <% end %>
+      <br />
     </div>
+    <br />
     <div class="three-d">
       <h2>3D WORKS</h2>
-      <% @works.three_d.each do |work| %>
-        <div class="col-lg-4 three-d-work">
+      <% @works.three_d.rank(:row_order).each do |work| %>
+        <br />
+        <div class="col-lg-4 three-d-work" data-update-url=<%= admin_work_path(work) %>>
           <%= work.title %>, <%= work.year.year %>
           <br />
           <%= work.medium %>
@@ -47,6 +52,7 @@
           <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger float-right' do %>
             <i class="fa fa-remove"></i>
           <% end %>
+          <br class="clear" />
         </div>
         <br class="clear"/>
         <br />
@@ -54,3 +60,30 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(function() {
+    $('.two-d').sortable({
+      update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { work: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
+  });
+  $(function() {
+    $('.three-d').sortable({
+      update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { work: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
+  });
+</script>
