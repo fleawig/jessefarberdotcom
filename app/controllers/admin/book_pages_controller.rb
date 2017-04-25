@@ -40,6 +40,6 @@ class Admin::BookPagesController < ApplicationController
   private
 
   def book_page_params
-    params.require(:book_page).permit(:book_title, :page_number, :year, :dimensions, :portfolio)
+    params.require(:book_page).permit(:book_title, :page_number, :year, :dimensions, :portfolio, :row_order_position, :image)
   end
 end

@@ -17,6 +17,10 @@
         <%= issue.title %>
         <br />
         <%= issue.description %>
+        <br />
+        <%= image_tag issue.cover_image %>
+        <br />
+        <%= image_tag issue.background_image %>
         <br class="clear" />
         <%= link_to edit_admin_rnl_issue_path(issue), class: 'btn btn-warning float-left' do %>
           <i class="fa fa-pencil"></i>

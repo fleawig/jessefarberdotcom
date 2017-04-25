@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418171830) do
+ActiveRecord::Schema.define(version: 20170424153044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,10 @@ ActiveRecord::Schema.define(version: 20170418171830) do
     t.boolean  "portfolio"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "row_order"
+    t.string   "image"
     t.index ["book_title"], name: "index_book_pages_on_book_title", using: :btree
+    t.index ["row_order"], name: "index_book_pages_on_row_order", using: :btree
   end
 
   create_table "news_items", force: :cascade do |t|
@@ -48,14 +51,17 @@ ActiveRecord::Schema.define(version: 20170418171830) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image"
   end
 
   create_table "rnl_issues", force: :cascade do |t|
     t.integer  "issue_number"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "cover_image"
+    t.string   "background_image"
   end
 
   create_table "works", force: :cascade do |t|
@@ -67,6 +73,7 @@ ActiveRecord::Schema.define(version: 20170418171830) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "row_order"
+    t.string   "image"
     t.index ["row_order"], name: "index_works_on_row_order", using: :btree
     t.index ["work_type"], name: "index_works_on_work_type", using: :btree
   end

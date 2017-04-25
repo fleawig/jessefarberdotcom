@@ -9,53 +9,51 @@
     </div>
   </div>
   <hr />
+  <h2>2D WORKS</h2>
   <div class="row-align-items-start">
     <div class="two-d">
-      <h2>2D WORKS</h2>
       <% @works.two_d.rank(:row_order).each do |work| %>
         <br />
         <div class="col-lg-4 two-d-work" data-update-url=<%= admin_work_path(work) %>>
+          <%= image_tag work.image, class: 'img-fluid' %>
           <%= work.title %>, <%= work.year.year %>
           <br />
           <%= work.medium %>
           <br />
           <%= work.dimensions %>
           <br class="clear" />
-          <%= link_to edit_admin_work_path(work), class: 'btn btn-warning float-left' do %>
+          <%= link_to edit_admin_work_path(work), class: 'btn btn-warning' do %>
             <i class="fa fa-pencil"></i>
           <% end %>
-          <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger float-right' do %>
+          <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' do %>
             <i class="fa fa-remove"></i>
           <% end %>
-          <br class="clear" />
         </div>
-        <br class="clear"/>
-        <br />
       <% end %>
-      <br />
     </div>
-    <br />
+  </div>
+  <br />
+  <h2>3D WORKS</h2>
+  <div class="row-align-items-start">
     <div class="three-d">
-      <h2>3D WORKS</h2>
       <% @works.three_d.rank(:row_order).each do |work| %>
         <br />
         <div class="col-lg-4 three-d-work" data-update-url=<%= admin_work_path(work) %>>
+          <%= image_tag work.image, class: 'img-fluid' %>
+          <br class="clear" />
           <%= work.title %>, <%= work.year.year %>
           <br />
           <%= work.medium %>
           <br />
           <%= work.dimensions %>
           <br class="clear" />
-          <%= link_to edit_admin_work_path(work), class: 'btn btn-warning float-left' do %>
+          <%= link_to edit_admin_work_path(work), class: 'btn btn-warning' do %>
             <i class="fa fa-pencil"></i>
           <% end %>
-          <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger float-right' do %>
+          <%= link_to admin_work_path(work), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' do %>
             <i class="fa fa-remove"></i>
           <% end %>
-          <br class="clear" />
         </div>
-        <br class="clear"/>
-        <br />
       <% end %>
     </div>
   </div>

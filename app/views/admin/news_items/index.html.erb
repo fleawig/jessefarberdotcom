@@ -14,6 +14,10 @@
       <div class="col-lg-12">
         <%= item.headline %>
         <br />
+        <%= item.created_at.strftime('%B %d, %Y') %>
+        <br />
+        <%= image_tag item.image, class: 'img-fluid' %>
+        <br />
         <%= item.content %>
         <br class="clear" />
         <%= link_to edit_admin_news_item_path(item), class: 'btn btn-warning float-left' do %>

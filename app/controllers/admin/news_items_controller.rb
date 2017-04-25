@@ -4,7 +4,7 @@ class Admin::NewsItemsController < ApplicationController
   def new
     @news_item = NewsItem.new
   end
-  
+
   def create
     @news_item = NewsItem.create(news_item_params)
     redirect_to admin_news_items_path, notice: 'New news item was added successfully.'
@@ -13,6 +13,7 @@ class Admin::NewsItemsController < ApplicationController
   def index
     @news_items = NewsItem.all
   end
+  
   def edit
     @news_item = NewsItem.find_by_id(params[:id])
     return render_not_found if @news_item.blank?
@@ -39,6 +40,6 @@ class Admin::NewsItemsController < ApplicationController
   private
 
   def news_item_params
-    params.require(:news_item).permit(:headline, :content)
+    params.require(:news_item).permit(:headline, :content, :image)
   end
 end

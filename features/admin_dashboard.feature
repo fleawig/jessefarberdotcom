@@ -80,8 +80,8 @@ Feature: Admin Dashboard
       Scenario: Managing books
       Given there are some book pages in the database
       When I click the MANAGE BOOKS link
-      Then I want to see a page that displays all those book_pages
-      And each book_page should have a button to edit or remove the page
+      Then I want to see a page that displays the covers for those books
+      And each book cover should have a button to edit or remove the book
 
       Scenario: Editing a book page
       Given there are some book pages in the database
@@ -150,4 +150,4 @@ Feature: Admin Dashboard
       And I change their order using drag and drop
       Then the works should appear in the new order
       And the new order should be preserved when the page is reloaded 
-
+      

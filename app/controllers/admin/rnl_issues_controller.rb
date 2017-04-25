@@ -36,9 +36,10 @@ class Admin::RnlIssuesController < ApplicationController
     @rnl_issue.destroy
     redirect_to admin_rnl_issues_path
   end
+  
   private
 
   def rnl_issue_params
-    params.require(:rnl_issue).permit(:issue_number, :title, :description)
+    params.require(:rnl_issue).permit(:issue_number, :title, :description, :cover_image, :background_image)
   end
 end

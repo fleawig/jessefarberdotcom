@@ -38,7 +38,6 @@ When(/^I click the 'Post a new issue' link$/) do
   click_link 'Post a new issue'
 end
 
-
 Then(/^I want to see a form that lets me post info about a new issue of RNL$/) do
   expect(page).to have_content 'Upload RNL Issue Info'
 end
@@ -162,17 +161,15 @@ Given(/^there are some book pages in the database$/) do
   select('2017', from: 'Year')
   fill_in('Dimensions', with: '10 in. x 10 in.')
   click_button('Submit')
-  click_link 'MANAGE BOOKS'
   click_link 'Post a new book page'
-  fill_in('Book title', with: 'The Nocturnal Affirnal')
-  fill_in('Page number', with: '2')
+  fill_in('Book title', with: 'Spurnal Conturnal')
+  fill_in('Page number', with: '1')
   select('2017', from: 'Year')
   fill_in('Dimensions', with: '10 in. x 10 in.')
   click_button('Submit')
-  click_link 'MANAGE BOOKS'
   click_link 'Post a new book page'
-  fill_in('Book title', with: 'The Nocturnal Affirnal')
-  fill_in('Page number', with: '3')
+  fill_in('Book title', with: 'Burbles')
+  fill_in('Page number', with: '1')
   select('2017', from: 'Year')
   fill_in('Dimensions', with: '10 in. x 10 in.')
   click_button('Submit')
@@ -182,11 +179,12 @@ When(/^I click the MANAGE BOOKS link$/) do
   click_link 'MANAGE BOOKS'
 end
 
-Then(/^I want to see a page that displays all those book_pages$/) do
-  (1..3).each { |n| expect(page).to have_content "The Nocturnal Affirnal, 2017\n page #{n}" }
+Then(/^I want to see a page that displays the covers for those books$/) do
+  covers = ['The Nocturnal Affirnal', 'Spurnal Conturnal', 'Burbles']
+  covers.each { |cover| expect(page).to have_content cover }
 end
 
-Then(/^each book_page should have a button to edit or remove the page$/) do
+Then(/^each book cover should have a button to edit or remove the book$/) do
   (expect(page).to have_css(".fa-pencil")) && (expect(page).to have_css(".fa-remove"))
 end
 
@@ -312,31 +310,31 @@ When(/^I submit some (\d+)D works in the database$/) do |arg1|
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Mixed Media')
   fill_in('Dimensions', with: '100 in. x 100 (and maybe x 100) in.')
-  fill_in('Work type', with: arg1+'D')
+  fill_in('Work type', with: arg1 + 'D')
   click_button('Submit')
   click_link 'Post a new work'
   fill_in('Title', with: 'Second Test Work')
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Mixed Media')
   fill_in('Dimensions', with: '100 in. x 100 (and maybe x 100) in.')
-  fill_in('Work type', with: arg1+'D')
+  fill_in('Work type', with: arg1 + 'D')
   click_button('Submit')
 end
 
 Then(/^I want to see them in the (\d+)D section$/) do |arg1|
   dims_hash = { '2D' => '.two-d', '3D' => '.three-d' }
-  dims = dims_hash[(arg1+"D").to_s]
+  dims = dims_hash[(arg1 + "D").to_s]
   expect(find(:css, "#{dims}")).to have_css("#{dims}-work")
 end
 
 Then(/^not in the (\d+)D section$/) do |arg1|
   dims_hash = { '2D' => '.two-d', '3D' => '.three-d' }
-  dims = dims_hash[(arg1+"D").to_s]
+  dims = dims_hash[(arg1 + "D").to_s]
   expect(find(:css, "#{dims}")).not_to have_css("#{dims}-work")
 end
 
 When(/^I change their order using drag and drop$/) do
-  page.execute_script %Q{
+  page.execute_script %{
     $('.two-d-work:first').simulateDragSortable({move: 1});
   }
 end
@@ -349,5 +347,42 @@ Then(/^the new order should be preserved when the page is reloaded$/) do
   click_link 'MANAGE WORKS'
   expect(first('.two-d-work')).to have_content('First Test Work')
 end
+
+When(/^I submit some books in the database$/) do
+  click_link 'Post a new book page'
+  fill_in('Book title', with: 'First Test Book')
+  fill_in('Page number', with: '1')
+  select('2017', from: 'Year')
+  fill_in('Dimensions', with: '10 in. x 10 in.')
+  click_button('Submit')
+  click_link 'Post a new book page'
+  fill_in('Book title', with: 'Second Test Book')
+  fill_in('Page number', with: '1')
+  select('2017', from: 'Year')
+  fill_in('Dimensions', with: '10 in. x 10 in.')
+  click_button('Submit')
+end
+
+When(/^I change the book order using drag and drop$/) do
+  expect(page.all('.book-cover')[0].text).to have_content 'First'
+  expect(page.all('.book-cover')[1].text).to have_content 'Second'
+  binding.pry
+
+  page.execute_script %{
+    $('.books:nth-child(2)').simulateDragSortable({move: -10});
+  }
+end
+
+Then(/^the books should appear in the new order$/) do
+  # expect(page.all('.book-cover')[0].text).to have_content 'Second'
+  expect(first('.book-cover')).to have_content 'Second'
+end
+
+Then(/^the new order should be preserved when books page is reloaded$/) do
+  click_link 'MANAGE BOOKS'
+  expect(page.all('.book-cover')[0].text).to have_content 'Second'
+end
+
+
 
 

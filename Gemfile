@@ -46,6 +46,10 @@ gem 'ranked-model'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
+gem 'carrierwave', '~> 1.0'
+gem 'figaro'
+gem 'fog'
+gem "mini_magick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
