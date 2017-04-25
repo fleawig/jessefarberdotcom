@@ -44,7 +44,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'ranked-model'
 source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.1.0'
+  gem 'rails-assets-tether', '>= 1.3.3'
 end
 gem 'carrierwave', '~> 1.0'
 gem 'figaro'
