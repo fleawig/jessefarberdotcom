@@ -22,7 +22,7 @@ end
 
 Given(/^I am signed in as an admin user$/) do
   visit new_admin_registration_path
-  fill_in 'Email', with: 'jesse@example.com'
+  fill_in 'Email', with: ENV["MY_EMAIL_ADDRESS"]
   fill_in 'Password', with: 'password', match: :prefer_exact
   fill_in 'Password confirmation', with: 'password'
   click_button 'Sign up'
@@ -60,3 +60,45 @@ end
 Then(/^the navbar should switch to the admin navbar$/) do
   expect(page).to have_css '.navbar-admin'
 end
+
+Given(/^an admin user already exists$/) do
+  visit new_admin_registration_path
+  fill_in 'Email', with: ENV["MY_EMAIL_ADDRESS"]
+  fill_in 'Password', with: 'password', match: :prefer_exact
+  fill_in 'Password confirmation', with: 'password'
+  click_button 'Sign up'
+end
+
+When(/^I try to create another admin account$/) do
+  click_link 'Artist'
+  click_link 'Sign Out'
+  visit new_admin_registration_path
+  fill_in 'Email', with: 'jesse@example.com'
+  fill_in 'Password', with: 'password', match: :prefer_exact
+  fill_in 'Password confirmation', with: 'password'
+  click_button 'Sign up'
+end
+
+Then(/^I am told that I do not have permission to do that$/) do
+  expect(page).to have_content 'You do not have permission to do that.'
+end
+
+Given(/^I delete my admin account$/) do
+  click_link 'Artist'
+  visit edit_admin_registration_path
+  click_link 'Cancel my account'
+end
+
+When(/^I create a new one that uses my actual email address$/) do
+  visit new_admin_registration_path
+  fill_in 'Email', with: ENV["MY_EMAIL_ADDRESS"]
+  fill_in 'Password', with: 'password', match: :prefer_exact
+  fill_in 'Password confirmation', with: 'password'
+  click_button 'Sign up'
+end
+
+Then(/^I am able to sign in as an admin again$/) do
+  visit artist_home_path
+  expect(page).to have_content 'Admin Dashboard'
+end
+

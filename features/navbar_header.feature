@@ -34,3 +34,14 @@ Feature: Navbar
     When I click on the Admin Dashboard link
     Then I should see the Admin Dashboard page
     And the navbar should switch to the admin navbar
+
+  Scenario: Limiting Admin Signup
+    Given an admin user already exists
+    When I try to create another admin account
+    Then I am told that I do not have permission to do that
+
+  Scenario: Deleting and recreating Admin account
+    Given an admin user already exists
+    And I delete my admin account
+    When I create a new one that uses my actual email address
+    Then I am able to sign in as an admin again
