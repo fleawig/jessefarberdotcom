@@ -12,9 +12,9 @@
   <div class="row-align-items-start">
     <div class="books">
       <% @book_pages.rank(:row_order).each do |book_page| %>
-        <% if book_page.page_number == 1 %>
+        <% if book_page.page_number == 0 %>
           <div class="col-lg-4 book-cover" data-update-url=<%= admin_book_page_path(book_page) %>>
-            <%= image_tag book_page.image, class: 'img-fluid' %>
+            <%= link_to image_tag(book_page.image, class: 'img-fluid'), admin_show_book_path(book_page) %>
             <br class="clear" />
             <%= book_page.book_title %>, <%= book_page.year.year %>
             <br />

@@ -11,7 +11,7 @@ class Admin::NewsItemsController < ApplicationController
   end
 
   def index
-    @news_items = NewsItem.all
+    @news_items = NewsItem.all.order(updated_at: :desc)
   end
   
   def edit

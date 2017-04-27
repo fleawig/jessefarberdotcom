@@ -15,12 +15,12 @@ class Admin::BookPagesController < ApplicationController
   end
 
   def edit
-    @book_page = BookPage.find_by_id(params[:id])
+    @book_page = BookPage.friendly.find(params[:id])
     return render_not_found if @book_page.blank?
   end
 
   def update
-    @book_page = BookPage.find_by_id(params[:id])
+    @book_page = BookPage.friendly.find(params[:id])
     return render_not_found if @book_page.blank?
     @book_page.update_attributes(book_page_params)
     if @book_page.valid?
@@ -31,10 +31,15 @@ class Admin::BookPagesController < ApplicationController
   end
 
   def destroy
-    @book_page = BookPage.find_by_id(params[:id])
+    @book_page = BookPage.friendly.find(params[:id])
     return render_not_found if @book_page.blank?
     @book_page.destroy
     redirect_to admin_book_pages_path
+  end
+
+  def show_book
+    @book_page = BookPage.friendly.find(params[:book_title])
+    @book = @book_page.book.order("page_number")
   end
 
   private

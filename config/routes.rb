@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :book_pages
     resources :rnl_issues
     resources :news_items
+    get 'books/:book_title', to: 'book_pages#show_book', as: 'show_book'
   end
 end

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row-align-items-start">
+    <div class="book-display">
+      <% @book.each do |book_page| %>
+          <div class="col-lg-4">
+            <%= image_tag book_page.image, class: 'img-fluid' %>
+            <h4><%= page_number_or_cover(book_page) %></h4>
+            <br class="clear" />
+            <%= link_to edit_admin_book_page_path(book_page), class: 'btn btn-warning' do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <%= link_to admin_book_page_path(book_page), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' do %>
+              <i class="fa fa-remove"></i>
+            <% end %>
+          </div>
+          <br />
+      <% end %>
+    </div>
+  </div>
+</div>

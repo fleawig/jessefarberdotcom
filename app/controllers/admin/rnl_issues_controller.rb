@@ -11,7 +11,7 @@ class Admin::RnlIssuesController < ApplicationController
   end
 
   def index
-    @rnl_issues = RnlIssue.all
+    @rnl_issues = RnlIssue.all.order(:issue_number)
   end
 
   def edit

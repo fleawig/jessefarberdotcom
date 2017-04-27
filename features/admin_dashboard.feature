@@ -150,4 +150,10 @@ Feature: Admin Dashboard
       And I change their order using drag and drop
       Then the works should appear in the new order
       And the new order should be preserved when the page is reloaded 
+
+      Scenario: Viewing Book Pages from Cover Images
+      Given I am on the MANAGE BOOKS page
+      And there is a book with multiple pages in the database
+      When I click on a book cover image
+      Then I should see all the pages from the book
       
