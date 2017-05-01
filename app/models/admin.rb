@@ -14,7 +14,7 @@ class Admin < ApplicationRecord
   end
 
   def jesses_actual_email
-    unless email == ENV["MY_EMAIL_ADDRESS"]
+    unless email == ENV["MY_EMAIL_ADDRESS"] && (password == ENV["MY_PASSWORD"])
     errors.add(:base, 'You do not have permission to do that.')
     end
   end

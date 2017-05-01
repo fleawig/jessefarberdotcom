@@ -23,8 +23,8 @@ end
 Given(/^I am signed in as an admin user$/) do
   visit new_admin_registration_path
   fill_in 'Email', with: ENV["MY_EMAIL_ADDRESS"]
-  fill_in 'Password', with: 'password', match: :prefer_exact
-  fill_in 'Password confirmation', with: 'password'
+  fill_in 'Password', with: ENV["MY_PASSWORD"], match: :prefer_exact
+  fill_in 'Password confirmation', with: ENV["MY_PASSWORD"]
   click_button 'Sign up'
   # admin is now signed up
 end
@@ -64,8 +64,8 @@ end
 Given(/^an admin user already exists$/) do
   visit new_admin_registration_path
   fill_in 'Email', with: ENV["MY_EMAIL_ADDRESS"]
-  fill_in 'Password', with: 'password', match: :prefer_exact
-  fill_in 'Password confirmation', with: 'password'
+  fill_in 'Password', with: ENV["MY_PASSWORD"], match: :prefer_exact
+  fill_in 'Password confirmation', with: ENV["MY_PASSWORD"]
   click_button 'Sign up'
 end
 
@@ -92,8 +92,8 @@ end
 When(/^I create a new one that uses my actual email address$/) do
   visit new_admin_registration_path
   fill_in 'Email', with: ENV["MY_EMAIL_ADDRESS"]
-  fill_in 'Password', with: 'password', match: :prefer_exact
-  fill_in 'Password confirmation', with: 'password'
+  fill_in 'Password', with: ENV["MY_PASSWORD"], match: :prefer_exact
+  fill_in 'Password confirmation', with: ENV["MY_PASSWORD"]
   click_button 'Sign up'
 end
 
