@@ -2,7 +2,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
+.navbar-brand a:hover {
+  text-decoration: none;
+}
 
 .navbar-admin {
   background-color: #BA5E53;
@@ -17,5 +19,12 @@
 
 .two-d-work {
   background-color: #F7F7F5;
-  padding: 20px;
+  padding: 10px;
+}
+
+
+.two-d {
+  background-color: #F7F7F5;
+  padding: 2px;
+  min-height: 400px;
 }

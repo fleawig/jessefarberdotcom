@@ -45,3 +45,4 @@ Feature: Navbar
     And I delete my admin account
     When I create a new one that uses my actual email address
     Then I am able to sign in as an admin again
+    
