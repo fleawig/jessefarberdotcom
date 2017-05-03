@@ -14,7 +14,11 @@
             <% end %>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">3D WORKS</a>
+           <%= link_to artist_three_d_works_path, class: 'nav-link' do %>
+              <i class="fa fa-cube fa-2x" aria-hidden="true"></i>
+              <br />
+              <small>3D</small>
+            <% end %>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">BOOK WORKS</a>
