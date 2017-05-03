@@ -21,7 +21,11 @@
             <% end %>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">BOOK WORKS</a>
+           <%= link_to artist_books_path, class: 'nav-link' do %>
+              <i class="fa fa-book fa-2x" aria-hidden="true"></i>
+              <br />
+              <small>BK</small>
+            <% end %>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">CEPH</a>

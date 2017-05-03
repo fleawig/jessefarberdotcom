@@ -30,3 +30,15 @@ Then(/^I should see a grid of (\d+)D artworks$/) do |arg1|
     expect(page).to have_css('.three-d')
   end
 end
+
+When(/^I click the link for books$/) do
+  click_link "BK"
+end
+
+Then(/^I should be taken to the books page$/) do
+  expect(page).to have_current_path(artist_books_path)
+end
+
+Then(/^I should see a grid of book covers$/) do
+  expect(page).to have_css('.book-cover-grid')
+end

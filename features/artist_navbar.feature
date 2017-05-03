@@ -20,3 +20,8 @@ Feature: Artist Navbar
     When I click the link for 3D works
     Then I should be taken to the 3D work page
     And I should see a grid of 3D artworks
+
+  Scenario: Books link
+    When I click the link for books
+    Then I should be taken to the books page
+    And I should see a grid of book covers

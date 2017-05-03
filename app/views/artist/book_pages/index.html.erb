@@ -1,0 +1,12 @@
+<div class="row-align-items-start">
+    <div class="book-cover-grid">
+      <% @book_pages.rank(:row_order).each do |book_page| %>
+        <% if book_page.page_number == 0 %>
+          <div class="col-lg-4 book-cover">
+            <%= image_tag(book_page.image, class: 'img-fluid') %>
+          </div>
+          <br />
+        <% end %>
+      <% end %>
+    </div>
+  </div>
