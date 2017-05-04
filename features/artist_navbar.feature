@@ -25,3 +25,8 @@ Feature: Artist Navbar
     When I click the link for books
     Then I should be taken to the books page
     And I should see a grid of book covers
+
+  Scenario: 4D (CEPH and Audio) link
+    When I click the link for 4D works
+    Then I should be taken to the CEPH and audio page
+    And I should see information about CEPH and audio works

@@ -7,7 +7,7 @@ Then(/^I should see the navbar$/) do
 end
 
 Then(/^I should not see any artist links in the navbar$/) do
-  artist_links = ['2D WORKS', '3D WORKS', 'BOOK WORKS', 'CEPH', 'RNL', 'CV', 'NEWS']
+  artist_links = ['2D', '3D', 'BK', '4D', '5D', 'CV', 'NEWS']
   artist_links.each { |link| expect(page).not_to have_link(link) }
 end
 
@@ -16,7 +16,7 @@ When(/^I am on the main artist page$/) do
 end
 
 Then(/^I should see the artist links in the navbar$/) do
-  artist_links = ['2D WORKS', '3D WORKS', 'BOOK WORKS', 'CEPH', 'RNL', 'CV', 'NEWS']
+  artist_links = ['2D', '3D', 'BK', '4D', '5D', 'CV', 'NEWS']
   artist_links.each { |link| expect(page).to have_link(link) }
 end
 

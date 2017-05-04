@@ -42,3 +42,11 @@ end
 Then(/^I should see a grid of book covers$/) do
   expect(page).to have_css('.book-cover-grid')
 end
+
+Then(/^I should be taken to the CEPH and audio page$/) do
+  expect(page).to have_current_path(artist_audio_works_path)
+end
+
+Then(/^I should see information about CEPH and audio works$/) do
+  expect(page).to have_content 'CEPH'
+end
