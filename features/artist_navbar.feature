@@ -31,7 +31,12 @@ Feature: Artist Navbar
     Then I should be taken to the CEPH and audio page
     And I should see information about CEPH and audio works
 
-  Scenario: 5D (RNL Magazine)
+  Scenario: 5D (RNL Magazine) link
     When I click the link for 5D works
     Then I should be taken to the RNL page
     And I should see information about RNL issues
+
+  Scenario: CV link
+    When I click the link for CV
+    Then I should be taken to the CV page
+    And I should see the CV information

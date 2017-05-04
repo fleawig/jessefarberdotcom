@@ -4,4 +4,6 @@ class Artist::StaticPagesController < ApplicationController
 
   def audio; end
 
+  def cv; end
+
 end

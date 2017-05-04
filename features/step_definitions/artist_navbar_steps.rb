@@ -58,3 +58,17 @@ end
 Then(/^I should see information about RNL issues$/) do
   expect(page).to have_content 'RNL'
 end
+
+When(/^I click the link for CV$/) do
+  click_link 'CV'
+end
+
+Then(/^I should be taken to the CV page$/) do
+  expect(page).to have_current_path(artist_cv_path)
+end
+
+Then(/^I should see the CV information$/) do
+  headers = %w( Education Exhibitions Awards )
+  headers.each { |header| expect(page).to have_content "#{header}" }
+end
+
