@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'works/3D', to: 'works#index_three_d', as: 'three_d_works'
     get 'books', to: 'book_pages#index', as: 'books'
     get 'audio', to: 'static_pages#audio', as: 'audio_works'
-    get 'RNL', to: 'static_pages#rnl', as: 'rnl'
+    get 'RNL', to: 'rnl_issues#index', as: 'rnl'
   end
   namespace :admin do
     resources :works

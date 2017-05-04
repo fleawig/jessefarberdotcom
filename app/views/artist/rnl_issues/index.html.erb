@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>RNL</h1>
+    <div class="row-align-items-start">
+        <% @rnl_issues.each do |issue| %>
+          <div class="col-lg-12">
+            <%= issue.issue_number %>
+            <br />
+            <%= issue.title %>
+            <br />
+            <%= issue.description %>
+            <br />
+            <%= image_tag issue.cover_image %>
+            <br />
+            <%= image_tag issue.background_image %>
+            </div>
+        <% end %>
+    </div>
+</div>
