@@ -50,3 +50,11 @@ end
 Then(/^I should see information about CEPH and audio works$/) do
   expect(page).to have_content 'CEPH'
 end
+
+Then(/^I should be taken to the RNL page$/) do
+  expect(page).to have_current_path(artist_rnl_path)
+end
+
+Then(/^I should see information about RNL issues$/) do
+  expect(page).to have_content 'RNL'
+end

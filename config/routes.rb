@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'works/3D', to: 'works#index_three_d', as: 'three_d_works'
     get 'books', to: 'book_pages#index', as: 'books'
     get 'audio', to: 'static_pages#audio', as: 'audio_works'
+    get 'RNL', to: 'static_pages#rnl', as: 'rnl'
   end
   namespace :admin do
     resources :works
@@ -19,8 +20,3 @@ Rails.application.routes.draw do
     get 'books/:book_title', to: 'book_pages#show_book', as: 'show_book'
   end
 end
-
-
-# NOTE TO SELF -- TODO 1ST TODAY -- 
-# ARTIST STATIC PAGES CONTROLLER MAYBE SHOULD BE MOVED INTO ARTIST NAMESPACE
-# BUT THIS WILL MEAN RE-WRITING SOME OLDER STUFF

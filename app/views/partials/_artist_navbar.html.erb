@@ -35,7 +35,11 @@
             <% end %>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">5D</a>
+            <%= link_to artist_rnl_path, class: 'nav-link' do %>
+              <i class="fa fa-file-audio-o fa-2x" aria-hidden="true"></i>
+              <br />
+              <small>5D</small>
+            <% end %>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="#">CV</a>
