@@ -40,3 +40,8 @@ Feature: Artist Navbar
     When I click the link for CV
     Then I should be taken to the CV page
     And I should see the CV information
+
+  Scenario: NEWS link
+    When I click the link for NEWS
+    Then I should be taken to the News blog page
+    And I should see the News posts

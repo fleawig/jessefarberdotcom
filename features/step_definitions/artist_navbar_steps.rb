@@ -72,3 +72,15 @@ Then(/^I should see the CV information$/) do
   headers.each { |header| expect(page).to have_content "#{header}" }
 end
 
+When(/^I click the link for NEWS$/) do
+  click_link 'NEWS'
+end
+
+Then(/^I should be taken to the News blog page$/) do
+  expect(page).to have_current_path(artist_news_path)
+end
+
+Then(/^I should see the News posts$/) do
+  expect(page).to have_css('.news')
+end
+

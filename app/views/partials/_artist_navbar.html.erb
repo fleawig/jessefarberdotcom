@@ -47,10 +47,13 @@
               <br />
               <small>CV</small>
             <% end %>
-            
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">NEWS</a>
+            <%= link_to artist_news_path, class: 'nav-link' do %>
+              <i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i>
+              <br />
+              <small>NEWS</small>
+            <% end %>
           </li>
         </ul>
         <% if current_admin %>

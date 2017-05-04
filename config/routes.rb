@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'audio', to: 'static_pages#audio', as: 'audio_works'
     get 'RNL', to: 'rnl_issues#index', as: 'rnl'
     get 'CV', to: 'static_pages#cv', as: 'cv'
+    get 'news', to: 'news_items#index', as: 'news'
   end
   namespace :admin do
     resources :works

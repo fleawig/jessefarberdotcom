@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row-align-items-start news">
+    <% @news_items.each do |item| %>
+      <div class="news-item col-lg-12">
+        <%= item.headline %>
+        <br />
+        <%= item.created_at.strftime('%B %d, %Y') %>
+        <br />
+        <%= image_tag item.image, class: 'img-fluid' %>
+        <br />
+        <%= item.content %>
+        <br class="clear" />
+      </div>
+      <br class="clear"/>
+      <br />
+    <% end %>
+  </div>
+</div>
