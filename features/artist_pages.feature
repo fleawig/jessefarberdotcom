@@ -20,3 +20,8 @@ Feature: Artist Pages
     And I am on the books page
     When I click on a book cover or main portfolio image
     Then I should see the full book or portfolio
+
+  Scenario: 4D page
+    Given I am in the artist site
+    When I click the 4D link
+    Then I want to see info about audio works, CEPH, and a bandcamp link

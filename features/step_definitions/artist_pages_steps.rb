@@ -77,3 +77,16 @@ end
 Then(/^I should see the full book or portfolio$/) do
   expect(page).to have_text "1\nFirst Test Book, 2017"
 end
+
+Given(/^I am in the artist site$/) do
+  visit artist_home_path
+end
+
+When(/^I click the (\d+)D link$/) do |arg1|
+  click_link "#{arg1}D"
+end
+
+Then(/^I want to see info about audio works, CEPH, and a bandcamp link$/) do
+  expect(page).to have_css('iframe')
+end
+
