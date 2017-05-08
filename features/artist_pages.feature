@@ -14,3 +14,9 @@ Feature: Artist Pages
     And I am on the 3D page
     When I click on a work
     Then I should see text which gives more info about the work
+
+  Scenario: Books page
+    Given there are some books and/or portfolios in the database
+    And I am on the books page
+    When I click on a book cover or main portfolio image
+    Then I should see the full book or portfolio

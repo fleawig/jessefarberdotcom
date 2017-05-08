@@ -4,7 +4,7 @@ module Admin::BookPagesHelper
     unless book_page.portfolio?
       if book_page.page_number == 0
         'Front'
-      elsif book_page.page_number == @book.maximum(:page_number)
+      elsif book_page.page_number == book_page.book.maximum(:page_number)
         'Back'
       else
         book_page.page_number

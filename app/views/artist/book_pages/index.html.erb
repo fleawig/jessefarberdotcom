@@ -1,10 +1,26 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row-align-items-start">
       <div class="book-cover-grid">
         <% @book_pages.rank(:row_order).each do |book_page| %>
           <% if book_page.page_number == 0 %>
-            <div class="col-lg-4 book-cover">
-              <%= image_tag(book_page.image, class: 'img-fluid') %>
+            <div role="button" class="col-sm-3 book-cover" data-toggle="modal" data-target="#modal-<%= book_page.id %>">
+              <%= image_tag book_page.image, class: 'thumbnail img-fluid' %>
+            </div>
+            <!-- Modal fullscreen -->
+            <div class="modal modal-fullscreen fade" id="modal-<%= book_page.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel<%= book_page.id %>" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                  <!-- Find the parent book of the book_page, then iterate through all of its pages -->
+                    <% book_page.book.each do |book_page| %>
+                      <%= image_tag book_page.image, class: 'img-fluid full-image' %>
+                      <h4><%= page_number_or_cover(book_page) %></h4>
+                      <h4><%= book_page.book_title %>, <%= book_page.year.year %></h4>
+                      <h4><%= book_page.dimensions %></h4>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
             <br />
           <% end %>
