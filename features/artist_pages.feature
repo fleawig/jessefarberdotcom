@@ -8,3 +8,9 @@ Feature: Artist Pages
     And I am on the 2D page
     When I click on a work
     Then I should see text which gives more info about the work
+
+  Scenario: 3D works page
+    Given there are some 3D works in the database
+    And I am on the 3D page
+    When I click on a work
+    Then I should see text which gives more info about the work
