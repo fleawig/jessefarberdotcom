@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Jesse Farber</title>
+    <%= favicon_link_tag 'favicon.ico' %>
+      <% if yield(:title).present? %>
+        <title><%= yield(:title) %> | Jesse Farber</title>
+      <% else %>
+        <title>Jesse Farber</title>
+      <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -41,10 +46,26 @@
   <div id="footer">
     <div class="container">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-        <li class="nav-item active"><%= link_to 'Email', 'mailto:jesse@jessefarber.com', class: "nav-link" %></li>
-        <li class="nav-item active"><%= link_to 'Instagram', 'http://www.instagram.com/fleashelpkeepitclean/', class: "nav-link" %></li>
-        <li class="nav-item active"><%= link_to 'Bandcamp', 'http://jessefarber.bandcamp.com/', class: "nav-link" %></li>
-        <li class="nav-item active"><%= link_to 'Facebook', 'http://www.facebook.com/jesse.farber.92', class: "nav-link" %></li>
+        <li class="nav-item active">
+          <%= link_to 'mailto:jesse@jessefarber.com', class: "nav-link" do %>
+            <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+          <% end %>
+        </li>
+        <li class="nav-item active">
+        <%= link_to 'http://www.instagram.com/fleashelpkeepitclean/', class: "nav-link" do %>
+          <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+        <% end %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'http://jessefarber.bandcamp.com/', class: "nav-link" do %>
+            <i class="fa fa-bandcamp fa-2x" aria-hidden="true"></i>
+          <% end %>
+          </li>
+        <li class="nav-item active">
+        <%= link_to 'http://www.facebook.com/jesse.farber.92', class: "nav-link" do %>
+          <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
@@ -52,7 +73,11 @@
     <div id="footer">
       <div class="container">
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-          <li class="nav-item active"><%= link_to 'Email', 'mailto:jesse@jessefarber.com', class: "nav-link" %></li>
+          <li class="nav-item active">
+            <%= link_to 'mailto:jesse@jessefarber.com', class: "nav-link" do %>
+              <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
@@ -60,7 +85,11 @@
   <div id="footer">
     <div class="container">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-        <li class="nav-item active"><%= link_to 'Email', 'mailto:jesse@jessefarber.com', class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to 'mailto:jesse@jessefarber.com', class: "nav-link" do %>
+            <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+          <% end %>
+        </li>
         </li>
       </ul>
     </div>

@@ -1,9 +1,11 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+<div class="navcontainer">  
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <div class="navbar-header navbar-header-center">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <span class='navbar-brand'><%= link_to 'JESSE FARBER', root_path %></span>
-
+      <br />
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
           <li class="nav-item active">
@@ -55,16 +57,20 @@
               <small>NEWS</small>
             <% end %>
           </li>
-        </ul>
-        <% if current_admin %>
-          <ul class="navbar-nav mr-auto pull-right">
-            <li class="nav-item">
-              <%= link_to 'Admin Dashboard', admin_dashboard_path, class: "nav-link admin" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, class: "nav-link admin" %>
-            </li>
-          </ul>
+          <% if current_admin %>
+          <div class="navbar-header navbar-header-center">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <%= link_to 'Admin Dashboard', admin_dashboard_path, class: "nav-link admin" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, class: "nav-link admin" %>
+              </li>
+            </ul>
+          </div>
         <% end %>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
+</div>
