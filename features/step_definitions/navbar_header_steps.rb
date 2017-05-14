@@ -54,7 +54,7 @@ When(/^I click on the Admin Dashboard link$/) do
 end
 
 Then(/^I should see the Admin Dashboard page$/) do
-  expect(page).to have_content 'Admin Home'
+  expect(page).to have_title 'Admin Home | Jesse Farber'
 end
 
 Then(/^the navbar should switch to the admin navbar$/) do

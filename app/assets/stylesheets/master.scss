@@ -2,6 +2,24 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+body {
+  background: image_url('blank-background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+  background-color: black;
+  color: white;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-inverse > a {
+  opacity: 1;
+}
+
 .navbar-brand a {
   text-decoration: none;
   color: white;
@@ -24,15 +42,8 @@
   padding: 4px;
 }
 
-
 .two-d {
   padding: 2px;
-}
-
-body {
-  background-color: black;
-  color: white;
-
 }
 
 .inline-links {
@@ -57,14 +68,6 @@ body {
   .navbar .navbar-collapse {
     text-align: center;
   }
-}
-
-.navbar-nav > ul {
-  float: left;
-}
-
-.footer {
-  display: inline;
 }
 
 /* .modal-fullscreen */
@@ -95,10 +98,6 @@ body {
 
 }
 
-.clear {
-  clear: both;
-}
-
 /* .modal-fullscreen size: we use Bootstrap media query breakpoints */
 
 .modal-fullscreen .modal-dialog {
@@ -121,4 +120,9 @@ body {
   .modal-fullscreen .modal-dialog {
      width: 1170px;
   }
+}
+
+small {
+  font-weight: 100;
+  font-size: 11px;
 }

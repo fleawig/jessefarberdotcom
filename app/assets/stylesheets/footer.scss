@@ -15,8 +15,8 @@ body {
 #footer {
   position: relative;
   width: 100%;
-  min-height: 100px;
-  background-color: rgba(36, 32, 33, 0.9);
+  min-height: 80px;
+  background-color: rgba(36, 32, 33, 0.75);
   color: white;
   font-family: "Helvetica Neue", Helvetica;
   padding: 10px 0px;
@@ -26,4 +26,22 @@ body {
 #footer a {
   color: white;
   font-weight: 100;
+  display: inline;
+}
+
+#footer .container .navbar-nav {
+
+}
+
+#footer .container .navbar-nav {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+}
+
+#footer .container .navbar-nav .nav-item {
+  margin: 1em;
 }

@@ -7,7 +7,7 @@ When(/^I click on the ADMIN HOME link$/) do
 end
 
 Then(/^I want to go back to the dashboard$/) do
-  expect(page).to have_content 'Admin Home'
+  expect(page).to have_title "Admin Home | Jesse Farber"
 end
 
 When(/^I click on the MANAGE WORKS link$/) do

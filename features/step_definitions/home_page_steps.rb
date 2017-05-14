@@ -22,3 +22,7 @@ end
 Then(/^I should go to the main artist page$/) do
   expect(page).to have_current_path(artist_home_path)
 end
+
+Then(/^I should see the page title "([^"]*)"$/) do |arg1|
+  expect(page).to have_title "#{arg1}"
+end

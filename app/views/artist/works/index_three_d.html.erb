@@ -1,7 +1,6 @@
 <% provide(:title, "3D") %>
 
-<div class="container-fluid">
-  <h1 class="text-center">3D WORKS</h1>
+<div class="container-fluid text-center">
   <div class="row three-d">
     <% @works.three_d.rank(:row_order).each do |work| %>
       <div role="button" class="col-sm-3 three-d-work" data-toggle="modal" data-target="#modal-<%= work.id %>">
