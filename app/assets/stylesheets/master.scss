@@ -3,17 +3,32 @@
 @import "font-awesome";
 
 body {
-  background: image_url('blank-background.jpg') no-repeat center center fixed;
+/*  background: image_url('blank-background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;  
-  background-color: black;
+  background-size: cover;  */
+  background-color: gray;
   color: white;
+  font-family: 'latohairline', sans-serif;
+
+}
+
+hr {
+  height: 1px;
+  background-color: gray;
 }
 
 .navbar {
-  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 1px 3px #2a2a2a;
+  border-radius: 0;
+  font-weight: 200;
+}
+
+.navbar-inverse {
+  font-weight: 400;
+  border-color: #090909;
+  background-color: rgba(36, 32, 33, 0.75);
 }
 
 .navbar-inverse > a {
@@ -21,9 +36,11 @@ body {
 }
 
 .navbar-brand a {
+  font-family: 'kollektifbold', sans-serif;
   text-decoration: none;
   color: white;
   font-size: 24px;
+  letter-spacing: 2.5px;
 }
 
 .navbar-admin {
@@ -38,12 +55,35 @@ body {
 }
 
 .two-d-work {
-/*  background-color: #2B2C2D;*/
+  background-color: #2B2C2D;
+  padding: 4px;
+/*  border-style: solid;
+  border-width: 4px;
+  border-color: black;*/
+  text-align: center;
+  position: relative;
+}
+
+.two-d-work img {
   padding: 4px;
 }
 
+.two-d-work .btn-danger {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.two-d-work .btn-warning {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  box-shadow: 5px 5px 5px black;
+}
+
 .two-d {
-  padding: 2px;
+/*  padding: 2px;*/
 }
 
 .inline-links {
@@ -51,7 +91,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .navbar-nav.navbar-center, .navbar-header-center {
+  .navbar-nav, .navbar-header-center {
     margin-left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -124,5 +164,20 @@ body {
 
 small {
   font-weight: 100;
-  font-size: 11px;
+  font-size: 10px;
+}
+
+.navbar-toggler {
+  border-style: none;
+  padding-top: .70rem;
+}
+
+.navbar-collapse > ul > li {
+  display: inline-block;
+  font-size: 18px;
+  line-height: .75;
+}
+
+.navbar-collapse {
+  border-color: #101010;
 }

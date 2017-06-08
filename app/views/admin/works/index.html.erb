@@ -10,14 +10,15 @@
       <%= link_to 'Post a new work', new_admin_work_path, class: 'btn btn-primary float-sm-right' %>
     </div>
   </div>
-  <hr />
+  <hr class="clear"/>
   <h2>2D WORKS</h2>
   <div class="row-align-items-start">
     <div class="two-d">
       <% @works.two_d.rank(:row_order).each do |work| %>
         <br />
-        <div class="col-lg-4 two-d-work" data-update-url=<%= admin_work_path(work) %>>
+        <div class="col-sm-3 two-d-work" data-update-url=<%= admin_work_path(work) %>>
           <%= image_tag work.image, class: 'img-fluid' %>
+          <br class="clear"/>
           <%= work.title %>, <%= work.year.year %>
           <br />
           <%= work.medium %>
