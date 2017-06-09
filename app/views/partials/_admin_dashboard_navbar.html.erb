@@ -1,34 +1,33 @@
-<nav class="navbar navbar-toggleable-md navbar-admin">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <span class='navbar-brand'><%= link_to 'JESSE FARBER', root_path %></span>
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-          <li class="nav-item active">
-            <%= link_to 'ADMIN HOME', admin_dashboard_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'MANAGE WORKS', admin_works_path, class: "nav-link" %>
-          </li>
-           <li class="nav-item active">
-            <%= link_to 'MANAGE BOOKS', admin_book_pages_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'MANAGE RNL ISSUES', admin_rnl_issues_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'MANAGE NEWS', admin_news_items_path, class: "nav-link" %>
-          </li>
-        </ul>
-        <ul class="navbar-nav mr-auto pull-right">
-          <li class="nav-item">
-            <%= link_to 'Main Site', artist_home_path, class: "nav-link admin" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, class: "nav-link admin" %>
-          </li>
-        </ul>
-      </div>
-    </nav>
+<nav class="navbar navbar-toggleable-sm navbar-admin">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="fa fa-caret-down"></span>
+  </button>
+  <span class='navbar-brand'><%= link_to 'JESSE FARBER', root_path %></span>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="admin-navbar-ul navbar-nav navbar-center mt-2 mt-md-0">
+      <li class="nav-item active">
+        <%= link_to 'ADMIN HOME', admin_dashboard_path, class: "nav-link small" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'MANAGE WORKS', admin_works_path, class: "nav-link small" %>
+      </li>
+       <li class="nav-item active">
+        <%= link_to 'MANAGE BOOKS', admin_book_pages_path, class: "nav-link small" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'MANAGE RNL ISSUES', admin_rnl_issues_path, class: "nav-link small" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'MANAGE NEWS', admin_news_items_path, class: "nav-link small" %>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <%= link_to 'Main Site', artist_home_path, class: "nav-link admin" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, class: "nav-link admin" %>
+      </li>
+    </ul>
+  </div>
+</nav>
