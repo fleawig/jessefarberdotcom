@@ -8,27 +8,27 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;  */
-  background-color: gray;
+  background-color: #292b2c;
   color: white;
   font-family: 'latohairline', sans-serif;
 
 }
 
 hr {
-  height: 1px;
   background-color: gray;
 }
 
-.navbar {
-  box-shadow: 0px 1px 3px #2a2a2a;
-  border-radius: 0;
-  font-weight: 200;
+p {
+  margin-bottom: 0;
 }
 
-.navbar-inverse {
-  font-weight: 400;
-  border-color: #090909;
-  background-color: rgba(36, 32, 33, 0.75);
+.navbar {
+  box-shadow: 0px 1px 3px #000000;
+  border-radius: 0;
+}
+
+.bg-inverse {
+  background-color: #000000 !important;
 }
 
 .navbar-brand a {
@@ -86,43 +86,73 @@ hr {
 }
 
 .navbar-admin .collapse ul li a {
-  line-height: 125%
+  line-height: 125%;
 }
 
 .clear {
   clear: both;
 }
 
-.two-d-work {
-  background-color: #2B2C2D;
-  padding: 4px;
-/*  border-style: solid;
-  border-width: 4px;
-  border-color: black;*/
+.works {
+  background-color: #444444;
+/*  margin: 0 5px 0 5px;*/
   text-align: center;
   position: relative;
+  padding: 15px;
+  /*border-radius: 5px;*/
 }
 
-.two-d-work img {
-  padding: 4px;
-}
-
-.two-d-work .btn-danger {
+.works .btn-danger {
   position: absolute;
   bottom: 10px;
   right: 20px;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 2px 2px 5px #00000080;
 }
 
-.two-d-work .btn-warning {
+.works .btn-warning {
   position: absolute;
   bottom: 10px;
   left: 20px;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 2px 2px 5px #00000080;
 }
 
-.two-d {
-/*  padding: 2px;*/
+.works-card {
+  box-shadow: 2px 2px 5px #00000080;
+  border-style: solid;
+  border-color: #2B2C2D;
+  border-width: .5px;
+  max-height: 20rem;
+  min-height: 20rem;
+
+}
+
+.works-card:nth-child(4n+1) {
+  clear: left;
+}
+
+.works-card p {
+  line-height: 1rem;
+  font-size: .9rem;
+}
+
+.works-card img {
+  max-height: 10rem;
+  min-height: 10rem;
+}
+
+.works-card hr {
+  margin: 0.5rem;
+}
+
+.edit-del-buttons {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .works {
+    margin-bottom: 8px;
+  }
 }
 
 .inline-links {
@@ -212,14 +242,32 @@ small {
   border-style: none;
   padding-top: .70rem;
   color: white
+
 }
 
 .navbar-collapse > ul {
   font-size: 18px;
   line-height: .75;
-  font-family: 'latolight', sans-serif
+  font-family: 'latolight', sans-serif;
 }
 
-.navbar-collapse {
-  border-color: #101010;
+.navbar-toggler-right.collapsed {
+      border: none;
+      outline: none;
+    }
+
+.navbar-toggler:focus {
+      border: none;
+      outline: none;
+    }
+
+.align-items-center h5 {
+  margin-top: .7rem;
+}
+
+.img-thumbnail {
+  border-radius: 0px;
+  padding: 0px;
+  border-width: 0px;
+  box-shadow: 2px 2px 5px #00000080;
 }

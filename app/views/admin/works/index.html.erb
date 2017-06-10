@@ -4,27 +4,26 @@
   <br />
   <div class="row align-items-center">
     <div class="col">
-      <h1>Manage Works</h1>
+      <h5>Manage Works</h5>
     </div>
     <div class="col col-sm-3">
-      <%= link_to 'Post a new work', new_admin_work_path, class: 'btn btn-primary float-sm-right' %>
+      <%= link_to 'Post a new work', new_admin_work_path, class: 'btn btn-primary float-right' %>
     </div>
   </div>
   <hr class="clear"/>
-  <h2>2D WORKS</h2>
-  <div class="row-align-items-start">
-    <div class="two-d">
-      <% @works.two_d.rank(:row_order).each do |work| %>
+  <h5 class="text-center">2D Works</h5>
+  <br />
+  <div class="row align-items-start">
+    <% @works.two_d.rank(:row_order).each do |work| %>
+      <div class="col-sm-3 works-card works" data-update-url=<%= admin_work_path(work) %>>
+        <%= image_tag work.image, class: 'img-thumbnail' %>
+        <hr />
+        <p><%= work.title %>, <%= work.year.year %></p>
+        <p><%= work.medium %></p>
+        <p><%= work.dimensions %></p>
+        <hr />
         <br />
-        <div class="col-sm-3 two-d-work" data-update-url=<%= admin_work_path(work) %>>
-          <%= image_tag work.image, class: 'img-fluid' %>
-          <br class="clear"/>
-          <%= work.title %>, <%= work.year.year %>
-          <br />
-          <%= work.medium %>
-          <br />
-          <%= work.dimensions %>
-          <br class="clear" />
+        <div class="edit-del-buttons">
           <%= link_to edit_admin_work_path(work), class: 'btn btn-warning' do %>
             <i class="fa fa-pencil"></i>
           <% end %>
@@ -32,24 +31,24 @@
             <i class="fa fa-remove"></i>
           <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
   <br />
-  <h2>3D WORKS</h2>
-  <div class="row-align-items-start">
-    <div class="three-d">
-      <% @works.three_d.rank(:row_order).each do |work| %>
+  <hr />
+  <h5 class="text-center">3D Works</h5>
+  <br />
+  <div class="row align-items-start">
+    <% @works.three_d.rank(:row_order).each do |work| %>
+      <div class="col-sm-3 works-card works" data-update-url=<%= admin_work_path(work) %>>
+        <%= image_tag work.image, class: 'img-thumbnail' %>
+        <hr />
+        <p><%= work.title %>, <%= work.year.year %></p>
+        <p><%= work.medium %></p>
+        <p><%= work.dimensions %></p>
+        <hr />
         <br />
-        <div class="col-lg-4 three-d-work" data-update-url=<%= admin_work_path(work) %>>
-          <%= image_tag work.image, class: 'img-fluid' %>
-          <br class="clear" />
-          <%= work.title %>, <%= work.year.year %>
-          <br />
-          <%= work.medium %>
-          <br />
-          <%= work.dimensions %>
-          <br class="clear" />
+        <div class="edit-del-buttons">
           <%= link_to edit_admin_work_path(work), class: 'btn btn-warning' do %>
             <i class="fa fa-pencil"></i>
           <% end %>
@@ -57,8 +56,9 @@
             <i class="fa fa-remove"></i>
           <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
   </div>
 </div>
 
