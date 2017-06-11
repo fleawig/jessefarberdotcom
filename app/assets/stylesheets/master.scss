@@ -163,7 +163,7 @@ p {
   .navbar-center {
     position: absolute;
     left: 50%;
-    top: 9%;
+    top: 15%;
     transform: translate(-50%);
     margin-top: 0;
   }
@@ -270,4 +270,24 @@ small {
   padding: 0px;
   border-width: 0px;
   box-shadow: 2px 2px 5px #00000080;
+}
+
+@media (min-width: 1097px) {
+  .admin-navbar-ul {
+    top: 28%
+  }
+}
+
+@media (min-width: 768px) and (max-width: 820px) {
+  .admin-navbar-ul {
+    left: 52%;
+  }
+}
+
+.admin-navbar-ul {
+  border: .5px solid #ccc;
+}
+
+.admin-navbar-ul li {
+  top: 15%;
 }
