@@ -1,6 +1,6 @@
 <% provide(:title, "Admin Manage Works") %>
 
-<div class="container">
+<div class="container container-main">
   <br />
   <div class="row align-items-center">
     <div class="col">
@@ -16,7 +16,9 @@
   <div class="row align-items-start two-d">
     <% @works.two_d.rank(:row_order).each do |work| %>
       <div class="col-sm-3 works-card works" data-update-url=<%= admin_work_path(work) %>>
-        <%= image_tag work.image, class: 'img-thumbnail' %>
+        <div class="img-holder">
+          <%= image_tag work.image, class: 'img-thumbnail' %>
+        </div>
         <hr />
         <p><%= work.title %>, <%= work.year.year %></p>
         <p><%= work.medium %></p>
@@ -36,12 +38,23 @@
   </div>
   <br />
   <hr />
+  <div class="row align-items-center">
+    <div class="col">
+      <h5>Manage Works</h5>
+    </div>
+    <div class="col col-sm-3">
+      <%= link_to 'Post a new work', new_admin_work_path, class: 'btn btn-primary float-right' %>
+    </div>
+  </div>
+  <hr class="clear"/>
   <h5 class="text-center">3D Works</h5>
   <br />
   <div class="row align-items-start three-d">
     <% @works.three_d.rank(:row_order).each do |work| %>
       <div class="col-sm-3 works-card works" data-update-url=<%= admin_work_path(work) %>>
-        <%= image_tag work.image, class: 'img-thumbnail' %>
+        <div class="img-holder">
+          <%= image_tag work.image, class: 'img-thumbnail' %>
+        </div>
         <hr />
         <p><%= work.title %>, <%= work.year.year %></p>
         <p><%= work.medium %></p>
@@ -59,8 +72,6 @@
       </div>
     <% end %>
   </div>
-  </div>
-</div>
 
 <script>
   $(function() {

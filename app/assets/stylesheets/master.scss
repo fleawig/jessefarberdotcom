@@ -2,13 +2,15 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+/* for lighter text boxes we'll use #d8d8d8 */
+
 body {
 /*  background: image_url('blank-background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;  */
-  background-color: #292b2c;
+  background-color: #0E0E0E;
   color: white;
   font-family: 'latohairline', sans-serif;
 
@@ -23,12 +25,12 @@ p {
 }
 
 .navbar {
-  box-shadow: 0px 1px 3px #000000;
+  box-shadow: 0px 1px 3px #0E0E0E;
   border-radius: 0;
 }
 
 .bg-inverse {
-  background-color: #000000 !important;
+  background-color: #0E0E0E !important;
 }
 
 .navbar-brand a {
@@ -79,7 +81,7 @@ p {
 }*/
 
 .navbar-admin {
-  background-color: #BA5E53;
+  background-color: #232323;
   a {
     color: white;
   }
@@ -94,7 +96,7 @@ p {
 }
 
 .works {
-  background-color: #444444;
+  background-color: #232323;
 /*  margin: 0 5px 0 5px;*/
   text-align: center;
   position: relative;
@@ -119,7 +121,7 @@ p {
 .works-card {
   box-shadow: 2px 2px 5px #00000080;
   border-style: solid;
-  border-color: #2B2C2D;
+  border-color: #0E0E0E;
   border-width: .5px;
   max-height: 20rem;
   min-height: 20rem;
@@ -135,9 +137,8 @@ p {
   font-size: .9rem;
 }
 
-.works-card img {
-  max-height: 10rem;
-  min-height: 10rem;
+.img-holder {
+  height: 10rem;
 }
 
 .works-card hr {
@@ -270,6 +271,8 @@ small {
   padding: 0px;
   border-width: 0px;
   box-shadow: 2px 2px 5px #00000080;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 @media (min-width: 1097px) {
