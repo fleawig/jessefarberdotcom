@@ -3,22 +3,42 @@
 <div class="container-fluid text-center">
   <div class="row three-d">
     <% @works.three_d.rank(:row_order).each do |work| %>
-      <div role="button" class="col-sm-3 three-d-work" data-toggle="modal" data-target="#modal-<%= work.id %>">
-        <%= image_tag work.image, class: 'thumbnail img-fluid' %>
-      </div>
-      <!-- Modal fullscreen -->
-      <div class="modal modal-fullscreen fade" id="modal-<%= work.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel<%= work.id %>" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <%= image_tag work.image, class: 'img-fluid full-image' %>
-              <h4><%= work.title %>, <%= work.year.year %></h4>
-              <h4><%= work.medium %></h4>
-              <h4><%= work.dimensions %></h4>
-            </div>
-          </div>
-        </div>
+      <div class="col-3 three-d-work" >
+        <%= link_to image_tag(work.image), work.image.url, 'data-title': "<br /><span style='font-family: latohairline_italic'>#{work.title}</span>, #{ work.year.year}<br />#{work.medium}<br />#{work.dimensions}", class: 'img-fluid' %> 
       </div>
     <% end %>
   </div>
-</div>
+</div> 
+
+<script>
+
+$(document).ready(function() {
+  $('.img-fluid').magnificPopup({
+    // Delay in milliseconds before popup is removed
+    removalDelay: 300,
+
+    // Class that is added to popup wrapper and background
+    // make it unique to apply your CSS animations just to this exact popup
+    mainClass: 'mfp-fade',
+    // main options
+    showCloseBtn: false,
+    closeOnContentClick: true,
+    type: 'image',
+    gallery:{
+      enabled:true
+    },
+    image: {
+      titleSrc: 'data-title',
+      markup: '<div class="mfp-figure">'+
+            '<div class="mfp-img"></div>'+
+            '<div class="mfp-bottom-bar">'+
+              '<div class="mfp-title"></div>'+
+            '</div>'+
+          '</div>', // Popup HTML markup. `.mfp-img` div will be replaced with img tag, `.mfp-close` by close button
+      
+      cursor: null
+    }
+  });
+});
+
+</script>

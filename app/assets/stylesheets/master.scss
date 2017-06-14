@@ -182,58 +182,6 @@ p {
   }
 }
 
-/* .modal-fullscreen */
-
-.modal-fullscreen {
-  background: black;
-  position: absolute;
-  display: table;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  border: 0;
-  text-align: center;
-}
-.modal-fullscreen .modal-content {
-  background: black;
-  position: absolute;
-  display: table;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.modal-body {
-
-}
-
-/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
-
-.modal-fullscreen .modal-dialog {
-  margin: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .modal-fullscreen .modal-dialog {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .modal-fullscreen .modal-dialog {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .modal-fullscreen .modal-dialog {
-     width: 1170px;
-  }
-}
-
 small {
   font-weight: 100;
   font-size: 10px;
@@ -293,4 +241,100 @@ small {
 
 .admin-navbar-ul li {
   top: 15%;
+}
+
+.col-3 {
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+
+}
+
+.img-fluid img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* overlay at start */
+.mfp-fade.mfp-bg {
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 1;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content button {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content button {
+  opacity: 0;
+}
+
+
+a:focus, a:hover {
+    border: none;
+    outline: none;
+}
+
+/*.mfp-bottom-bar {
+  text-align: center;
+}
+
+.mfp-arrow-right::before {
+  border-left: 27px solid #FFF !important;
+}
+
+.mfp-arrow-right::after {
+    border-left: none !important;
+    margin-left: none !important;
+}
+
+.mfp-arrow-left::before {
+  border-right: 27px solid #FFF !important;
+}
+
+.mfp-arrow-left::after {
+    border-left: none !important;
+    margin-left: none !important;
+}*/
+
+.mfp-arrow {
+  opacity: 0 !important;
+}
+
+/*.mfp-arrow:before {
+  opacity: 1 !important;
+}*/
+
+.mfp-title {
+  padding-right: 0px !important;
+  color: gray !important;
+  text-align: center !important;
 }

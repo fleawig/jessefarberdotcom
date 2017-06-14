@@ -16,4 +16,5 @@
 //= require jquery-ui
 //= require tether
 //= require bootstrap-sprockets
+//= require magnific-popup
 //= require_tree .
