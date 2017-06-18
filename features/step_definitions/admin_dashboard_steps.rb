@@ -209,14 +209,14 @@ Then(/^I want the book page to be removed from the page$/) do
 end
 
 Given(/^there are some RNL issues in the database$/) do
-  click_link 'MANAGE RNL ISSUES'
+  click_link 'MANAGE RNL'
   click_link 'Post a new issue'
   fill_in('Issue number', with: '1')
   fill_in('Title', with: 'Riotous Noxious Lethargy')
   fill_in('Description', with: 'This is a description for the latest issue of RNL.
                                 In this issue we explore various things and stuff.')
   click_button('Submit')
-  click_link 'MANAGE RNL ISSUES'
+  click_link 'MANAGE RNL'
   click_link 'Post a new issue'
   fill_in('Issue number', with: '2')
   fill_in('Title', with: 'Ridicule Never Listens')
@@ -225,8 +225,8 @@ Given(/^there are some RNL issues in the database$/) do
   click_button('Submit')
 end
 
-When(/^I click the MANAGE RNL ISSUES link$/) do
-  click_link 'MANAGE RNL ISSUES'
+When(/^I click the MANAGE RNL link$/) do
+  click_link 'MANAGE RNL'
 end
 
 Then(/^I want to see a page that displays all those issues$/) do
@@ -238,8 +238,8 @@ Then(/^each issue should have a button to edit or remove the issue$/) do
   (expect(page).to have_css(".fa-pencil")) && (expect(page).to have_css(".fa-remove"))
 end
 
-Given(/^I am on the MANAGE RNL ISSUES page$/) do
-  click_link 'MANAGE RNL ISSUES'
+Given(/^I am on the MANAGE RNL page$/) do
+  click_link 'MANAGE RNL'
 end
 
 When(/^I click the edit button for an issue$/) do

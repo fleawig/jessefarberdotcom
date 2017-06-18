@@ -8,14 +8,12 @@ class Admin < ApplicationRecord
   validate :jesses_actual_email, on: :create
 
   def only_jesse_can_admin
-    if Admin.count >= 1
-      errors.add(:base, 'You do not have permission to do that.')
-    end
+    return if Admin.count >= 1
+    errors.add(:base, 'You do not have permission to do that.')
   end
 
   def jesses_actual_email
-    unless email == ENV["MY_EMAIL_ADDRESS"] && (password == ENV["MY_PASSWORD"])
+    return unless email == ENV['MY_EMAIL_ADDRESS'] && (password == ENV['MY_PASSWORD'])
     errors.add(:base, 'You do not have permission to do that.')
-    end
   end
 end

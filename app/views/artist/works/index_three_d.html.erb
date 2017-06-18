@@ -4,7 +4,7 @@
   <div class="row three-d">
     <% @works.three_d.rank(:row_order).each do |work| %>
       <div class="col-3 three-d-work" >
-        <%= link_to image_tag(work.image), work.image.url, 'data-title': "<br /><span style='font-family: latohairline_italic'>#{work.title}</span>, #{ work.year.year}<br />#{work.medium}<br />#{work.dimensions}", class: 'img-fluid' %> 
+        <%= link_to image_tag(work.image), work.image.url, 'data-title': "<br /><span style='font-family: latohairline_italic'>#{work.title}</span>,   #{ work.year.year}      #{work.medium}      #{work.dimensions}", class: 'img-fluid' %> 
       </div>
     <% end %>
   </div>

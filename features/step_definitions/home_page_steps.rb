@@ -7,16 +7,16 @@ When(/^I visit the homepage$/) do
 end
 
 Then(/^I should see a link for the main artist page$/) do
-  expect(page).to have_link('Artist')
+  expect(page).to have_link('∎ ARTIST ∎')
 end
 
 And(/^I should see a link for the main developer page$/) do
-  expect(page).to have_link('Developer')
+  expect(page).to have_link('∎ DEVELOPER ∎')
 end
 
 When(/^I click the 'Artist' link$/) do
   visit root_path
-  click_link('Artist')
+  click_link('∎ ARTIST ∎')
 end
 
 Then(/^I should go to the main artist page$/) do

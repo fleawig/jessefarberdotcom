@@ -39,7 +39,7 @@ class Admin::BookPagesController < ApplicationController
 
   def show_book
     @book_page = BookPage.friendly.find(params[:book_title])
-    @book = @book_page.book.order("page_number")
+    @book = @book_page.book.order('page_number')
   end
 
   private

@@ -13,7 +13,7 @@ class Admin::NewsItemsController < ApplicationController
   def index
     @news_items = NewsItem.all.order(updated_at: :desc)
   end
-  
+
   def edit
     @news_item = NewsItem.find_by_id(params[:id])
     return render_not_found if @news_item.blank?

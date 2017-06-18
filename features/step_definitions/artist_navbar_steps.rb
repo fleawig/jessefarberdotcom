@@ -7,7 +7,7 @@ When(/^I click the link 'JESSE FARBER'$/) do
 end
 
 Then(/^I should be taken back to the start page$/) do
-  expect(page).to have_link 'Developer'
+  expect(page).to have_link '∎ DEVELOPER ∎'
 end
 
 

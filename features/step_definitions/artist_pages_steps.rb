@@ -21,7 +21,7 @@ Given(/^there are some (\d+)D works in the database$/) do |arg1|
   fill_in('Work type', with: arg1 + 'D')
   click_button('Submit')
   click_link 'Sign Out'
-  click_link 'Artist'
+  click_link '∎ ARTIST ∎'
 end
 
 Given(/^I am on the (\d+)D page$/) do |arg1|
@@ -29,7 +29,7 @@ Given(/^I am on the (\d+)D page$/) do |arg1|
 end
 
 When(/^I click on a work$/) do
-  first('.img-fluid').click
+  find('.img-fluid', text: 'First Test Work').click
 end
 
 Then(/^I should see text which gives more info about the work$/) do
@@ -63,7 +63,7 @@ Given(/^there are some books and\/or portfolios in the database$/) do
   fill_in('Dimensions', with: '10 in. x 10 in.')
   click_button('Submit')
   click_link 'Sign Out'
-  click_link 'Artist'
+  click_link '∎ ARTIST ∎'
 end
 
 Given(/^I am on the books page$/) do

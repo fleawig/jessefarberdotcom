@@ -2,11 +2,11 @@ When(/^I am on the home page$/) do
   visit root_path
 end
 
-Then(/^I should see the navbar$/) do
-  expect(page).to have_css("nav")
+Then(/^I should see the header$/) do
+  expect(page).to have_css(".headline-container")
 end
 
-Then(/^I should not see any artist links in the navbar$/) do
+Then(/^I should not see any artist links in the header$/) do
   artist_links = ['2D', '3D', 'BK', '4D', '5D', 'CV', 'NEWS']
   artist_links.each { |link| expect(page).not_to have_link(link) }
 end
@@ -70,7 +70,7 @@ Given(/^an admin user already exists$/) do
 end
 
 When(/^I try to create another admin account$/) do
-  click_link 'Artist'
+  click_link '∎ ARTIST ∎'
   click_link 'Sign Out'
   visit new_admin_registration_path
   fill_in 'Email', with: 'jesse@example.com'
@@ -84,7 +84,7 @@ Then(/^I am told that I do not have permission to do that$/) do
 end
 
 Given(/^I delete my admin account$/) do
-  click_link 'Artist'
+  click_link '∎ ARTIST ∎'
   visit edit_admin_registration_path
   click_link 'Cancel my account'
 end

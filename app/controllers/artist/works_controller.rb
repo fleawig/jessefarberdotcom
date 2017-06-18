@@ -1,5 +1,4 @@
 class Artist::WorksController < ApplicationController
-
   def index_two_d
     @works = Work.two_d
   end
@@ -15,5 +14,4 @@ class Artist::WorksController < ApplicationController
   def show_three_d
     @work = Work.find(params[:id])
   end
-  
 end

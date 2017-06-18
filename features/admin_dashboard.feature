@@ -21,8 +21,8 @@ Feature: Admin Dashboard
       And I click on the 'Post a new book page' link
       Then I want to see a form that lets me post new book pages
 
-    Scenario: MANAGE RNL ISSUES link
-      When I click the MANAGE RNL ISSUES link
+    Scenario: MANAGE RNL link
+      When I click the MANAGE RNL link
       And I click the 'Post a new issue' link
       Then I want to see a form that lets me post info about a new issue of RNL
 
@@ -46,7 +46,7 @@ Feature: Admin Dashboard
       Then I want to see a message that says the new book was created
 
     Scenario: Posting a new RNL issue
-      Given I am on the MANAGE RNL ISSUES page
+      Given I am on the MANAGE RNL page
       And I click the 'Post a new issue' link
       When I fill in the form with valid RNL issue data
       And press the 'Submit' button
@@ -95,21 +95,21 @@ Feature: Admin Dashboard
       When I click the delete button for a book page
       Then I want the book page to be removed from the page
 
-    Scenario: Managing RNL Issues
+    Scenario: Managing RNL
       Given there are some RNL issues in the database
-      When I click the MANAGE RNL ISSUES link
+      When I click the MANAGE RNL link
       Then I want to see a page that displays all those issues
       And each issue should have a button to edit or remove the issue
 
-    Scenario: Editing RNL Issues
+    Scenario: Editing RNL
       Given there are some RNL issues in the database
-      And I am on the MANAGE RNL ISSUES page
+      And I am on the MANAGE RNL page
       When I click the edit button for an issue
       Then I want to see the form to edit the issue
 
-    Scenario: Deleting RNL Issues
+    Scenario: Deleting RNL
       Given there are some RNL issues in the database
-      And I am on the MANAGE RNL ISSUES page
+      And I am on the MANAGE RNL page
       When I click the delete button for an issue
       Then I want the issue to be removed from the page
 
@@ -125,7 +125,7 @@ Feature: Admin Dashboard
       When I click the edit button for a post
       Then I want to see the form to edit the post
 
-    Scenario: Deleting RNL Issues
+    Scenario: Deleting News Posts
       Given there are some news posts in the database
       And I am on the MANAGE NEWS link
       When I click the delete button for a post

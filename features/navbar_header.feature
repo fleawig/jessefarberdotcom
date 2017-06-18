@@ -1,13 +1,13 @@
 Feature: Navbar
   As a normal visitor
-  I want to see a navbar
+  I want to see a navbar or header
   In order to have access to navigation links
 
   Scenario: Home page
     Given I am a normal user
     When I am on the home page
-    Then I should see the navbar
-    And I should not see any artist links in the navbar
+    Then I should see the header
+    And I should not see any artist links in the header
 
   Scenario: Artist main page
     Given I am a normal user

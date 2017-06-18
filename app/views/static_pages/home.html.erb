@@ -1,2 +1,18 @@
-<%= link_to 'Artist', artist_home_path %>
-<%= link_to 'Developer', '#' %>
+<div class="container container-home">
+  <div class="headline-container">
+      <h1 class="homeheader">JESSE FARBER</h1>
+      <hr class="thickline" />
+  </div>
+  <div class="row link-container">
+    <div class="col-md-6">
+      <%= link_to artist_home_path do %>
+        <h1 class="dark-on-light left-homelink">∎ ARTIST ∎</h1>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <%= link_to '#' do %>
+        <h1 class="dark-on-light right-homelink">∎ DEVELOPER ∎</h1>
+      <% end %>
+    </div>
+  </div>
+</div>

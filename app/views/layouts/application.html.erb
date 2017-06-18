@@ -19,10 +19,8 @@
       <%= render 'partials/artist_navbar' %>
     <% elsif controller_name == "developer_static_pages" %>
       <%= render 'partials/developer_navbar' %>
-  <% elsif controller_path.include?('admin') %>
+    <% elsif controller_path.include?('admin') %>
       <%= render 'partials/admin_dashboard_navbar' %>
-    <% else %>
-      <%= render 'partials/initial_navbar' %>
     <% end %>
 
     <% if notice.present? %>

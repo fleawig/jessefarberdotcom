@@ -18,8 +18,8 @@ Background:
     When I click the MANAGE BOOKS link
     Then I should see the title "Admin Manage Books | Jesse Farber"
 
-  Scenario: MANAGE RNL ISSUES
-    When I click the MANAGE RNL ISSUES link
+  Scenario: MANAGE RNL
+    When I click the MANAGE RNL link
     Then I should see the title "Admin Manage RNL Issues | Jesse Farber"
 
   Scenario: MANAGE NEWS

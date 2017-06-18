@@ -15,7 +15,7 @@
   <br />
   <div class="row align-items-start two-d">
     <% @works.two_d.rank(:row_order).each do |work| %>
-      <div class="col-sm-3 works-card works" data-update-url=<%= admin_work_path(work) %>>
+      <div class="col-sm-3 works-card works two-d-work" data-update-url=<%= admin_work_path(work) %>>
         <div class="img-holder">
           <%= image_tag work.image, class: 'img-thumbnail' %>
         </div>
@@ -42,7 +42,7 @@
   <br />
   <div class="row align-items-start three-d">
     <% @works.three_d.rank(:row_order).each do |work| %>
-      <div class="col-sm-3 works-card works" data-update-url=<%= admin_work_path(work) %>>
+      <div class="col-sm-3 works-card works three-d-work" data-update-url=<%= admin_work_path(work) %>>
         <div class="img-holder">
           <%= image_tag work.image, class: 'img-thumbnail' %>
         </div>
