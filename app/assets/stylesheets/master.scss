@@ -24,6 +24,7 @@ hr {
 
 p {
   margin-bottom: 0;
+  font-size: 85%;
 }
 
 a {
@@ -435,4 +436,13 @@ a:focus, a:hover {
 
 .right-homelink:hover {
   background-color: #2eb2ff;
+}
+
+.audio-container {
+  text-align: center;
+}
+
+.iframe-holder {
+  margin-left: 0;
+  margin-right: 0
 }

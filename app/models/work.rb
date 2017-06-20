@@ -5,4 +5,5 @@ class Work < ApplicationRecord
   scope :two_d, (-> { where(work_type: '2D') })
   scope :three_d, (-> { where(work_type: '3D') })
   mount_uploader :image, ImageUploader
+  validates_inclusion_of :work_type, in: ['2D', '3D'], message: 'Type must be 2D or 3D'
 end
