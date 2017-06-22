@@ -35,6 +35,14 @@ a:hover, a:active, a:visited, a:link {
   text-decoration: none;
 }
 
+.flex-home {
+  background: image_url('blank-background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
+}
+
 .navbar {
   box-shadow: 0px 1px 3px #0E0E0E;
   border-radius: 0;
@@ -420,6 +428,7 @@ a:focus, a:hover {
   text-decoration: none;
   padding: 10px 5px 10px 5px;
   flex-wrap: nowrap;
+  mix-blend-mode: lighten;
 }
 
 .left-homelink {
@@ -431,11 +440,11 @@ a:focus, a:hover {
 }
 
 .left-homelink:hover {
-  background-color: #ff5c5c;
+  background-color: #de6dba;
 }
 
 .right-homelink:hover {
-  background-color: #2eb2ff;
+  background-color: #0bb898;
 }
 
 .audio-container {
