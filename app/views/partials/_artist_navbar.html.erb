@@ -1,10 +1,14 @@
-<nav class="navbar navbar-toggleable-sm navbar-inverse bg-inverse">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="fa fa-caret-down"></span>
-  </button>
-  <span class='navbar-brand'><%= link_to 'JESSE FARBER', root_path %></span>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="list-inline navbar-nav navbar-center mt-2 mt-md-0">
+<nav class="navbar navbar-toggleable-sm navbar-inverse bg-inverse headline-nav">
+  <div class="collapse navbar-collapse">
+    <div class="headline-container">
+        <h1 class="homeheader"><%= link_to 'JESSE FARBER', root_path %></h1>
+        <hr class="thickline" />
+    </div>
+  </div>
+</nav>
+<nav class="navbar navbar-toggleable-sm navbar-inverse bg-inverse links-nav">
+  <div class="collapse navbar-collapse noncollapsing">
+    <ul class="list-inline navbar-nav navbar-center mt-2 mt-sm-0">
       <li class="nav-item active">
         <%= link_to artist_two_d_works_path, class: 'nav-link' do %>
           <i class="fa fa-picture-o" aria-hidden="true"></i>
@@ -55,15 +59,17 @@
         <% end %>
       </li>
     </ul>
-    <% if current_admin %>
-      <ul class="navbar-nav ml-auto mt-2 mt-md-0">
+  </div>
+  <% if current_admin %>
+    <div class="admin-links justify-content-center">
+      <ul class="navbar-nav ml-auto mt-2 mt-sm-0">
         <li class="nav-item">
           <%= link_to 'Admin Dashboard', admin_dashboard_path, class: "nav-link admin" %>
         </li>
         <li class="nav-item">
           <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, class: "nav-link admin" %>
         </li>
-      <% end %>
-    </ul>
-  </div>
+      </ul>
+    </div>
+  <% end %>
 </nav>

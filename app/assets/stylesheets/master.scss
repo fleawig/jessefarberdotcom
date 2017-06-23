@@ -15,6 +15,7 @@ body {
   font-family: 'latohairline', sans-serif;
   line-height: 1.29;
   letter-spacing: 0.05em;
+  overflow-y: scroll;
 
 }
 
@@ -66,12 +67,12 @@ a:hover, a:active, a:visited, a:link {
 }
 
 .admin-navbar-ul {
-    font-size: .9em !important
+    font-size: .8em !important
 }
 
 @media (max-width: 900px) and (min-width: 768px) {
   .admin-navbar-ul {
-    font-size: .9em !important;
+    font-size: .8em !important;
     margin-left: 15px;
   }
 }
@@ -82,6 +83,14 @@ a:hover, a:active, a:visited, a:link {
 }
 
 @media (max-width: 768px) {
+  .navbar-toggleable-sm .navbar-nav .nav-item {
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 790px) {
   .navbar-toggleable-sm .navbar-nav .nav-item {
     padding-right: 5px;
     padding-left: 5px;
@@ -107,6 +116,10 @@ a:hover, a:active, a:visited, a:link {
 }
 
 .navbar-admin .collapse ul li a {
+  line-height: 125%;
+}
+
+.noncollapse ul li a {
   line-height: 125%;
 }
 
@@ -179,7 +192,7 @@ a:hover, a:active, a:visited, a:link {
   display: inline-block;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 790px) {
   .navbar-center {
     position: absolute;
     left: 50%;
@@ -197,6 +210,12 @@ a:hover, a:active, a:visited, a:link {
 
 @media (min-width: 768px) {
   .navbar .navbar-collapse {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar .noncollapse {
     text-align: center;
   }
 }
@@ -219,14 +238,20 @@ small {
   font-family: 'latolight', sans-serif;
 }
 
+.noncollapse > ul {
+  font-size: 18px;
+  line-height: .75;
+  font-family: 'latolight', sans-serif;
+}
+
 .navbar-toggler-right.collapsed {
-      border: none;
-      outline: none;
+  border: none;
+  outline: none;
     }
 
 .navbar-toggler:focus {
-      border: none;
-      outline: none;
+  border: none;
+  outline: none;
     }
 
 .align-items-center h5 {
@@ -398,6 +423,8 @@ a:focus, a:hover {
 .headline-container {
   display: inline-block;
   text-align: center;
+  height: 60px;
+  margin: auto;
 }
 
 .homeheader {
@@ -410,9 +437,13 @@ a:focus, a:hover {
   margin-top: .5rem;
 }
 
+.homeheader a {
+  color: white;
+}
+
 .thickline {
   margin-top: .5rem;
-  margin-bottom: 4rem;
+  /*margin-bottom: 4rem;*/
   border-top: 5px solid #FFF;
 }
 
@@ -454,4 +485,48 @@ a:focus, a:hover {
 .iframe-holder {
   margin-left: 0;
   margin-right: 0
+}
+
+.headline-nav {
+  text-align: center;
+  display: block;
+  padding-top: 0px;
+}
+
+.headline-nav .thickline {
+  margin-bottom: none;
+}
+
+.navbar-links {
+  margin-bottom: 100px;
+}
+
+.link-container {
+  margin-top: 100px;
+}
+
+.links-nav {
+  margin-bottom: 40px;
+}
+
+.navbar-toggleable-sm {
+  text-align: center !important;
+}
+
+.navbar-collapse.noncollapsing {
+  display: block!important;
+}
+
+@media (max-width: 768px) {
+  .headline-nav {
+    display: none;
+  }
+}
+
+.collapse {
+  text-align: center;
+}
+
+.admin-links {
+  margin: auto;
 }
