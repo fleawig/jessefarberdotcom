@@ -10,4 +10,8 @@ class BookPage < ApplicationRecord
   def book
     BookPage.where(book_title: book_title)
   end
+
+  def noncover
+    book.order(:page_number).drop(1)
+  end
 end

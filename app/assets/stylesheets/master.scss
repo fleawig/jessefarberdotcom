@@ -502,7 +502,7 @@ a:focus, a:hover {
 }
 
 .link-container {
-  margin-top: 100px;
+  margin-top: 9%;
 }
 
 .links-nav {
@@ -517,9 +517,9 @@ a:focus, a:hover {
   display: block!important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .headline-nav {
-    display: none;
+    visibility: hidden;
   }
 }
 
@@ -529,4 +529,10 @@ a:focus, a:hover {
 
 .admin-links {
   margin: auto;
+}
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
 }

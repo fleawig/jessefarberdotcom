@@ -1,32 +1,52 @@
 <% provide(:title, "BK") %>
 
-<div class="container-fluid">
-  <div class="row-align-items-start">
-      <div class="book-cover-grid">
-        <% @book_pages.rank(:row_order).each do |book_page| %>
-          <% if book_page.page_number == 0 %>
-            <div role="button" class="col-sm-3 book-cover" data-toggle="modal" data-target="#modal-<%= book_page.id %>">
-              <%= image_tag book_page.image, class: 'thumbnail img-fluid' %>
+<div class="container">
+  <div class="row">
+    <% @book_pages.rank(:row_order).each do |book_page| %>
+      <% if book_page.page_number.zero? %>
+        <div class="col-3 book-cover" >
+        <%= link_to image_tag(book_page.image), book_page.image.url, 'data-title': "<p><br /><span style='font-family: latohairline_italic'>#{book_page.book_title}</span>,   #{book_page.year.year}      #{page_number_or_cover(book_page)}      #{book_page.dimensions}</p>", class: 'img-fluid' %> 
+          <% book_page.noncover.each do |noncov| %>
+            <div class="hide" >
+            <%= link_to image_tag(noncov.image), noncov.image.url, 'data-title': "<p><br /><span style='font-family: latohairline_italic'>#{book_page.book_title}</span>,   #{book_page.year.year}      #{page_number_or_cover(noncov)}      #{book_page.dimensions}</p>", class: 'img-fluid' %> 
             </div>
-            <!-- Modal fullscreen -->
-            <div class="modal modal-fullscreen fade" id="modal-<%= book_page.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel<%= book_page.id %>" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-body">
-                  <!-- Find the parent book of the book_page, then iterate through all of its pages -->
-                    <% book_page.book.each do |book_page| %>
-                      <%= image_tag book_page.image, class: 'img-fluid full-image' %>
-                      <h4><%= page_number_or_cover(book_page) %></h4>
-                      <h4><%= book_page.book_title %>, <%= book_page.year.year %></h4>
-                      <h4><%= book_page.dimensions %></h4>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br />
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
+
+<script>
+$(document).ready(function() {
+  $('.book-cover').each(function() {
+    $(this).magnificPopup({
+      delegate: 'a',
+      // Delay in milliseconds before popup is removed
+      removalDelay: 300,
+      // Class that is added to popup wrapper and background
+      // make it unique to apply your CSS animations just to this exact popup
+      mainClass: 'mfp-fade',
+      // main options
+      showCloseBtn: false,
+      closeOnContentClick: true,
+      type: 'image',
+      gallery:{
+        enabled:true
+      },
+      image: {
+        titleSrc: 'data-title',
+        markup: '<div class="mfp-figure">'+
+              '<div class="mfp-img"></div>'+
+              '<div class="mfp-bottom-bar">'+
+                '<div class="mfp-title"></div>'+
+              '</div>'+
+            '</div>', // Popup HTML markup. `.mfp-img` div will be replaced with img tag, `.mfp-close` by close button
+        
+        cursor: null
+      }
+    });
+  });
+});
+
+</script>
