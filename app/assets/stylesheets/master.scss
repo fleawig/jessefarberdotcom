@@ -11,13 +11,16 @@ body {
   -o-background-size: cover;
   background-size: cover;  */
   background-color: #0E0E0E;
-  color: white;
-  font-family: 'latohairline', sans-serif;
+/*  color: white;*/
+  font-family: 'latolight', sans-serif;
   line-height: 1.29;
-  letter-spacing: 0.075em;
+  letter-spacing: 0.072em;
   overflow-y: scroll;
-  -webkit-text-stroke-width: 0.1px;
+  color: #BDBDBD;
+}
 
+strong {
+  font-family: 'latobold', sans-serif;
 }
 
 hr {
