@@ -1,6 +1,6 @@
 <% provide(:title, "5D") %>
 
-<div class="container audio-container">
+<div class="container artist-container">
 <br />
   <div class="row justify-content-center">
     <div class="col-lg-6">
@@ -8,25 +8,39 @@
       <br /><br />
     </div>
   </div>
-  <br />
   <div class="row justify-content-center body-text">
-    <p>RNL blah blah blah blah<br />
-    </p>
+    <div class="col-sm-6">
+      <p>
+        RNL is a long-running collaborative project for experimental sound, art, and ideas. Its newest outgrowth has emerged in 2017 as a periodic multimedia anthology with a variable philosophy. In each installment, RNL expands its three ciphers into a new platform for the development of meaning, declaring its thematic direction for that phase.
+      </p>
+      <hr class="lightline" />
+      <p>Here you will find previews of each issue as they become available. Ordering details and additional information will be posted shortly.<br />
+      </p>
+    </div>
   </div>
   <br /><br />
-</div>
-
-<div class="container">
-    <div class="row-align-items-start">
-        <% @rnl_issues.each do |issue| %>
-          <div class="col-lg-12">
-            <p><%= issue.issue_number %></p>
-            <p><%= issue.title %></p>
-            <p><%= issue.description %></p>
+  <% @rnl_issues.each do |issue| %>
+    <div class="rnl-issue">
+      <div class="row">
+        <div class="col-md-12 pull-left rnl rnl-title">
+          <h5>ISSUE <%= "#{issue.issue_number}: #{issue.title}" %></h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 pull-left rnl rnl-cover">
+          <div class="img-fluid">
             <%= image_tag issue.cover_image %>
-            <br />
-            <%= image_tag issue.background_image %>
-            </div>
-        <% end %>
+          </div>
+        </div>
+        <div class="col-md-8 pull-right rnl rnl-pages">
+          <div class="img-fluid">
+            <p><%= issue.description.html_safe %></p>
+            <span class="rnl-background"><%= image_tag issue.background_image %></span>
+          </div>
+        </div>
+      </div>
     </div>
+    <br />
+  <% end %>
+  <br />
 </div>

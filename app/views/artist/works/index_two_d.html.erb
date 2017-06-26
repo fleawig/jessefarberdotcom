@@ -1,11 +1,18 @@
 <% provide(:title, "2D") %>
 
 
-<div class="container text-center">
+<div class="container artist-container text-center">
+  <br />
+  <div class="row justify-content-center">
+      <div class="col-sm-6">
+        <h1 class="dark-on-light">∎ 2D ∎</h1>
+        <br /><br />
+      </div>
+    </div>
   <div class="row two-d">
     <% @works.two_d.rank(:row_order).each do |work| %>
-      <div class="col-3 two-d-work" >
-        <%= link_to image_tag(work.image), work.image.url, 'data-title': "<br /><span style='font-family: latohairline_italic'>#{work.title}</span>,   #{ work.year.year}      #{work.medium}      #{work.dimensions}", class: 'img-fluid' %> 
+      <div class="col-md-3 col-sm-4 col-6 two-d-work workgrid" >
+        <%= link_to image_tag(work.image), work.image.url, 'data-title': "<br /><span style='font-family: latolight_italic'>#{work.title}</span>,   #{ work.year.year}      #{work.medium}      #{work.dimensions}", class: 'img-fluid' %> 
       </div>
     <% end %>
   </div>

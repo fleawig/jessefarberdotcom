@@ -14,7 +14,7 @@ body {
   color: white;
   font-family: 'latohairline', sans-serif;
   line-height: 1.29;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.075em;
   overflow-y: scroll;
 
 }
@@ -377,6 +377,7 @@ a:focus, a:hover {
   padding-right: 0px !important;
   color: #BDBDBD !important;
   text-align: center !important;
+  font-family: 'latolight', sans-serif;
 }
 
 @-webkit-keyframes fadeIn {
@@ -478,7 +479,7 @@ a:focus, a:hover {
   background-color: #0bb898;
 }
 
-.audio-container {
+.zzzzzzzzz {
   text-align: center;
 }
 
@@ -509,6 +510,12 @@ a:focus, a:hover {
   margin-bottom: 40px;
 }
 
+@media (max-width: 767px) {
+  .links-nav {
+    margin-bottom: 0px;
+  }
+}
+
 .navbar-toggleable-sm {
   text-align: center !important;
 }
@@ -535,4 +542,63 @@ a:focus, a:hover {
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important;
+}
+
+.artist-container {
+  text-align: center;
+}
+
+.rnl {
+  text-align: left;
+  font-family: latobold, sans-serif;
+}
+
+.rnl-title {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.rnl-issue {
+  background-color: #232323;
+  padding: 1rem;
+}
+
+.lightline {
+  width: 50%;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
+}
+
+.img-fluid p {
+  position: absolute; 
+  width: 100%; 
+  color: #0E0E0E;
+  background-color: #d9d9d9;
+  padding: 2% 3% 2% 3%;
+  top: 0;
+  left: 0;
+  mix-blend-mode: lighten;
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+  font-size: 75%;
+}
+
+.rnl-pages {
+  overflow: hidden;
+}
+
+.rnl-background {
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+}
+
+@media (min-width: 768px) {
+  .home-link {
+    display: none;
+  }
+}
+
+.workgrid {
+  padding-bottom: 30px;
 }

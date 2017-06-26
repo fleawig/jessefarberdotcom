@@ -9,6 +9,13 @@
 <nav class="navbar navbar-toggleable-sm navbar-inverse bg-inverse links-nav">
   <div class="collapse navbar-collapse noncollapsing">
     <ul class="list-inline navbar-nav navbar-center mt-2 mt-sm-0">
+      <li class="nav-item active home-link">
+        <%= link_to root_path, class: 'nav-link' do %>
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <br />
+          <small>JF</small>
+        <% end %>
+      </li>
       <li class="nav-item active">
         <%= link_to artist_two_d_works_path, class: 'nav-link' do %>
           <i class="fa fa-picture-o" aria-hidden="true"></i>
@@ -58,6 +65,13 @@
           <small>NEWS</small>
         <% end %>
       </li>
+<!--       <li class="nav-item active">
+        <%= link_to root_path, class: 'nav-link' do %>
+           <i class="fa fa-home" aria-hidden="true"></i>
+          <br />
+          <small>HOME</small>
+        <% end %>
+      </li> -->
     </ul>
   </div>
   <% if current_admin %>

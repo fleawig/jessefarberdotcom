@@ -1,14 +1,28 @@
 <% provide(:title, "BK") %>
 
-<div class="container">
+<div class="container artist-container">
+  <br />
+  <div class="row justify-content-center">
+      <div class="col-sm-6">
+        <h1 class="dark-on-light">∎ BOOKS ∎</h1>
+        <br /><br />
+      </div>
+    </div>
+  <div class="row justify-content-center body-text">
+    <div class="col-sm-6">
+      <p>This series of handmade book projects has been in progress since around 2005. They are usually bound, but in some cases exist as collections of loose pages. Clicking on a cover image below allows you to view the rest of that project.<br />
+      </p>
+    </div>
+  </div>
+  <br /><br />
   <div class="row">
     <% @book_pages.rank(:row_order).each do |book_page| %>
       <% if book_page.page_number.zero? %>
-        <div class="col-3 book-cover" >
-        <%= link_to image_tag(book_page.image), book_page.image.url, 'data-title': "<p><br /><span style='font-family: latohairline_italic'>#{book_page.book_title}</span>,   #{book_page.year.year}      #{page_number_or_cover(book_page)}      #{book_page.dimensions}</p>", class: 'img-fluid' %> 
+        <div class="col-md-3 col-sm-4 col-6 book-cover workgrid" >
+        <%= link_to image_tag(book_page.image), book_page.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(book_page)})" +  "&nbsp;&nbsp;&nbsp;" + "#{book_page.year.year}" + "&nbsp;&nbsp;&nbsp;" + "#{book_page.dimensions}</p>", class: 'img-fluid' %> 
           <% book_page.noncover.each do |noncov| %>
             <div class="hide" >
-            <%= link_to image_tag(noncov.image), noncov.image.url, 'data-title': "<p><br /><span style='font-family: latohairline_italic'>#{book_page.book_title}</span>,   #{book_page.year.year}      #{page_number_or_cover(noncov)}      #{book_page.dimensions}</p>", class: 'img-fluid' %> 
+            <%= link_to image_tag(noncov.image), noncov.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(noncov)})" +  "&nbsp;&nbsp;&nbsp;" + "#{book_page.year.year}" + "&nbsp;&nbsp;&nbsp;" + "#{book_page.dimensions}</p>", class: 'img-fluid' %> 
             </div>
           <% end %>
         </div>
