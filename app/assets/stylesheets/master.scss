@@ -15,7 +15,7 @@ body {
   font-family: 'latolight', sans-serif;
   line-height: 1.29;
   letter-spacing: 0.072em;
-  overflow-y: scroll;
+/*  overflow-y: scroll;*/
   color: #E3E3E3;
 }
 
@@ -605,4 +605,73 @@ a:focus, a:hover {
 
 .workgrid {
   padding-bottom: 30px;
+}
+
+.description-popup {
+  position: relative;
+  background: #232323;
+  padding: 20px;
+  width: auto;
+  margin: 5% auto;
+  max-width: 800px;
+  text-align: justify;
+  text-justify: inter-character;
+}
+
+.rnl-title.text-center h5 {
+  font-family: 'latolight', sans-serif; 
+  font-size: .9rem;
+  padding-top: 3px;
+}
+
+.rnl-title.text-center h5 a {
+  text-decoration: underline;
+  font-family: 'latolight_italic', sans-serif;
+  color: #E3E3E3;
+}
+
+.body-text {
+  text-align: justify;
+  text-justify: inter-character;
+}
+
+.news-item {
+  background: #232323;
+  text-align: justify;
+  text-justify: inter-character;
+  padding: 10px;
+}
+
+.news-image {
+  padding: 0px;
+    overflow: hidden;
+}
+
+.full-width-line {
+  margin: 0px -10px 10px -10px;
+}
+
+.italic {
+  font-family: 'latolight_italic', sans-serif;
+  font-size: 75%;
+  padding-left: inherit;
+  color: #8C8B8B;
+}
+
+.news-text a {
+  color: #E3E3E3;
+  text-decoration: underline;
+  font-family: 'latolight_italic', sans-serif;
+}
+
+.news-text {
+  padding: 10px 15px 0px 10px;
+}
+
+.news-row {
+  margin: 10px 0px 10px 0px;
+}
+
+.news-image .img-fluid {
+  width: inherit;
 }

@@ -4,8 +4,8 @@
   <br />
   <%= simple_form_for @news_item, url: admin_news_item_path do |f| %>
     <%= f.input :headline %>
-    <%= f.input :content %>
-    <%= f.input :image %>
+    <%= f.input :content, label: 'Content (inline HTML is ok)' %>
+    <%= f.input :image, label: 'Image (Sized To 640 x 480 px)' %>
     <br />
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
     <br />

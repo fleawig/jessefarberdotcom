@@ -1,20 +1,33 @@
 <% provide(:title, "NEWS") %>
 
-<div class="container">
-  <div class="row-align-items-start news">
-    <% @news_items.each do |item| %>
-      <div class="news-item col-lg-12">
-        <%= item.headline %>
-        <br />
-        <%= item.created_at.strftime('%B %d, %Y') %>
-        <br />
-        <%= image_tag item.image, class: 'img-fluid' %>
-        <br />
-        <%= item.content %>
-        <br class="clear" />
-      </div>
-      <br class="clear"/>
-      <br />
-    <% end %>
+<div class="container artist-container">
+  <br />
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <h1 class="dark-on-light">∎ NEWS ∎</h1>
+      <br /><br />
+    </div>
   </div>
+  <div class="row justify-content-center body-text">
+    <div class="col-lg-6 col-md-8">
+      <p>Things that happen on the site, in the real world, and in all other possible worlds.<br />
+      </p>
+    </div>
+  </div>
+  <br /><br />
+  <% @news_items.each do |item| %>
+    <br />
+    <div class="row news-row">
+      <div class="news-image col-lg-4">
+        <%= image_tag item.image, class: 'img-fluid' %>
+      </div>
+      <div class="news-item col-lg-8">
+        <h5><%= item.headline %></h5>
+        <hr class="full-width-line" />
+          <p class="italic"><%= item.created_at.strftime('%B %d, %Y') %></p>
+          <p class="news-text"><%= item.content.html_safe %></p>
+        </div>
+        <br />
+    </div>
+  <% end %>
 </div>

@@ -3,13 +3,13 @@
 <div class="container artist-container">
 <br />
   <div class="row justify-content-center">
-    <div class="col-lg-6">
+    <div class="col-lg-6 col-md-8">
       <h1 class="dark-on-light">∎ RNL ∎</h1>
       <br /><br />
     </div>
   </div>
   <div class="row justify-content-center body-text">
-    <div class="col-sm-6">
+    <div class="col-lg-6 col-md-8">
       <p>
         RNL is a long-running collaborative project for experimental sound, art, and ideas. Its newest outgrowth has emerged in 2017 as a periodic multimedia anthology with a variable philosophy. In each installment, RNL expands its three ciphers into a new platform for the development of meaning, declaring its thematic direction for that phase.
       </p>
@@ -22,8 +22,14 @@
   <% @rnl_issues.each do |issue| %>
     <div class="rnl-issue">
       <div class="row">
-        <div class="col-md-12 pull-left rnl rnl-title">
+        <div class="col-md-4 pull-left rnl rnl-title">
           <h5>ISSUE <%= "#{issue.issue_number}: #{issue.title}" %></h5>
+        </div>
+        <div class="col-md-8 text-center rnl rnl-title">
+          <h5>You may preview this issue’s full introductory manifesto <%= link_to 'here', '#', 'data-mfp-src': "#description-popup", class: 'open-popup-link' %>.</h5>
+          <div id="description-popup" class="description-popup mfp-hide">
+            <p><%= issue.description.html_safe %></p>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -32,9 +38,9 @@
             <%= image_tag issue.cover_image %>
           </div>
         </div>
-        <div class="col-md-8 pull-right rnl rnl-pages">
+        <div class="col-md-8 pull-right rnl rnl-pages">        
           <div class="img-fluid">
-            <p><%= issue.description.html_safe %></p>
+           <!--  <p><%= issue.description.html_safe %></p> -->
             <span class="rnl-background"><%= image_tag issue.background_image %></span>
           </div>
         </div>
@@ -44,3 +50,22 @@
   <% end %>
   <br />
 </div>
+
+<script>
+$(document).ready(function() {
+  $('.open-popup-link').magnificPopup({
+    type:'inline',
+    // Delay in milliseconds before popup is removed
+    removalDelay: 300,
+
+    // Class that is added to popup wrapper and background
+    // make it unique to apply your CSS animations just to this exact popup
+    mainClass: 'mfp-fade',
+    // main options
+    showCloseBtn: false,
+    closeOnContentClick: true,
+    midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+  });
+});
+
+</script>
