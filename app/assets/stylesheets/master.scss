@@ -593,8 +593,7 @@ a:focus, a:hover {
 }
 
 .rnl-background {
-  opacity: 0.3;
-  mix-blend-mode: multiply;
+
 }
 
 @media (min-width: 768px) {
@@ -674,4 +673,13 @@ a:focus, a:hover {
 
 .news-image .img-fluid {
   width: inherit;
+}
+
+.news-item h5 {
+  font-family: latobold, sans-serif;
+}
+
+.rnl-cover, .rnl-pages {
+  padding-left: 0px;
+  padding-right: 0px;
 }
