@@ -19,5 +19,8 @@ module Jessefarberdotcom
     config.assets.precompile += %w( .svg .eot .woff .ttf )
 
     config.serve_static_assets = true
+
+    # Use custom error pages from the app itself, not /public
+    config.exceptions_app = self.routes
   end
 end
