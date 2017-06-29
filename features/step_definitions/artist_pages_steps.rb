@@ -1,8 +1,8 @@
 Given(/^there are some (\d+)D works in the database$/) do |arg1|
   visit new_admin_registration_path
-  fill_in 'Email', with: ENV["MY_EMAIL_ADDRESS"]
-  fill_in 'Password', with: ENV["MY_PASSWORD"], match: :prefer_exact
-  fill_in 'Password confirmation', with: ENV["MY_PASSWORD"]
+  fill_in 'Email', with: Figaro.env.MY_EMAIL_ADDRESS
+  fill_in 'Password', with: Figaro.env.MY_PASSWORD, match: :prefer_exact
+  fill_in 'Password confirmation', with: Figaro.env.MY_PASSWORD
   click_button 'Sign up'
   visit admin_dashboard_path
   click_link 'MANAGE WORKS'
@@ -38,9 +38,9 @@ end
 
 Given(/^there are some books and\/or portfolios in the database$/) do
   visit new_admin_registration_path
-  fill_in 'Email', with: ENV["MY_EMAIL_ADDRESS"]
-  fill_in 'Password', with: ENV["MY_PASSWORD"], match: :prefer_exact
-  fill_in 'Password confirmation', with: ENV["MY_PASSWORD"]
+  fill_in 'Email', with: Figaro.env.MY_EMAIL_ADDRESS
+  fill_in 'Password', with: Figaro.env.MY_PASSWORD, match: :prefer_exact
+  fill_in 'Password confirmation', with: Figaro.env.MY_PASSWORD
   click_button 'Sign up'
   visit admin_dashboard_path
   click_link 'MANAGE BOOKS'

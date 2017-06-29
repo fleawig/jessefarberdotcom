@@ -4,16 +4,7 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validate :only_jesse_can_admin, on: :create
-  validate :jesses_actual_email, on: :create
+  validates_inclusion_of :email, in: [Figaro.env.MY_EMAIL_ADDRESS], message: 'This email address not permitted.', on: :create
+  validates_inclusion_of :password, in: [Figaro.env.MY_PASSWORD], message: 'This password not permitted.', on: :create
 
-  def only_jesse_can_admin
-    return if Admin.count >= 1
-    errors.add(:base, 'You do not have permission to do that.')
-  end
-
-  def jesses_actual_email
-    return unless (email == ENV['MY_EMAIL_ADDRESS']) && (password == ENV['MY_PASSWORD'])
-    errors.add(:base, 'You do not have permission to do that.')
-  end
 end
