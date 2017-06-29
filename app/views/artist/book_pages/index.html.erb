@@ -15,7 +15,7 @@
     </div>
   </div>
   <br /><br />
-  <div class="row">
+  <div class="row book-grid">
     <% @book_pages.rank(:row_order).each do |book_page| %>
       <% if book_page.page_number.zero? %>
         <div class="col-md-3 col-sm-4 col-6 book-cover workgrid" >

@@ -11,14 +11,14 @@ Given(/^there are some (\d+)D works in the database$/) do |arg1|
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Mixed Media')
   fill_in('Dimensions', with: '100 in. x 100 (and maybe x 100) in.')
-  fill_in('Work type', with: arg1 + 'D')
+  select(arg1 + 'D', from: 'Work type')
   click_button('Submit')
   click_link 'Post a new work'
   fill_in('Title', with: 'Second Test Work')
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Mixed Media')
   fill_in('Dimensions', with: '100 in. x 100 (and maybe x 100) in.')
-  fill_in('Work type', with: arg1 + 'D')
+  select(arg1 + 'D', from: 'Work type')
   click_button('Submit')
   click_link 'Sign Out'
   click_link '∎ ARTIST ∎'
@@ -29,11 +29,12 @@ Given(/^I am on the (\d+)D page$/) do |arg1|
 end
 
 When(/^I click on a work$/) do
-  find('.img-fluid', text: 'First Test Work').click
+  first('.img-fluid').click
 end
 
 Then(/^I should see text which gives more info about the work$/) do
-  expect(page).to have_text 'First Test Work'
+  sleep 2
+  expect(page.body).to have_text 'First Test Work'
 end
 
 Given(/^there are some books and\/or portfolios in the database$/) do
@@ -71,7 +72,7 @@ Given(/^I am on the books page$/) do
 end
 
 When(/^I click on a book cover or main portfolio image$/) do
-  first('.thumbnail').click
+  first('.img-fluid').click
 end
 
 Then(/^I should see the full book or portfolio$/) do

@@ -40,7 +40,7 @@ Then(/^I should be taken to the books page$/) do
 end
 
 Then(/^I should see a grid of book covers$/) do
-  expect(page).to have_css('.book-cover-grid')
+  expect(page).to have_css('.book-grid')
 end
 
 Then(/^I should be taken to the CEPH and audio page$/) do
@@ -81,6 +81,6 @@ Then(/^I should be taken to the News blog page$/) do
 end
 
 Then(/^I should see the News posts$/) do
-  expect(page).to have_css('.news')
+  expect(page).to have_content 'NEWS'
 end
 

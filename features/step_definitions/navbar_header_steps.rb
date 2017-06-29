@@ -80,7 +80,7 @@ When(/^I try to create another admin account$/) do
 end
 
 Then(/^I am told that I do not have permission to do that$/) do
-  expect(page).to have_content 'You do not have permission to do that.'
+  expect(page).to have_content 'This email address not permitted.'
 end
 
 Given(/^I delete my admin account$/) do

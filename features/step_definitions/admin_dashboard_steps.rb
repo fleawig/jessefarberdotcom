@@ -59,7 +59,7 @@ When(/^I fill in the form with valid data$/) do
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Digital C-Print')
   fill_in('Dimensions', with: '100 in. x 100 in.')
-  fill_in('Work type', with: '2D')
+  select('2D', from: 'Work type')
 end
 
 When(/^press the 'Submit' button$/) do
@@ -109,7 +109,7 @@ Given(/^there are some works in the database$/) do
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Digital C-Print')
   fill_in('Dimensions', with: '100 in. x 100 in.')
-  fill_in('Work type', with: '2D')
+  select('2D', from: 'Work type')
   click_button('Submit')
   click_link 'MANAGE WORKS'
   click_link 'Post a new work'
@@ -117,7 +117,7 @@ Given(/^there are some works in the database$/) do
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Mixed Media')
   fill_in('Dimensions', with: '100 in. x 100 in. x 100 in.')
-  fill_in('Work type', with: '3D')
+  select('2D', from: 'Work type')
   click_button('Submit')
 end
 
@@ -310,14 +310,14 @@ When(/^I submit some (\d+)D works in the database$/) do |arg1|
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Mixed Media')
   fill_in('Dimensions', with: '100 in. x 100 (and maybe x 100) in.')
-  fill_in('Work type', with: arg1 + 'D')
+  select(arg1 + 'D', from: 'Work type')
   click_button('Submit')
   click_link 'Post a new work'
   fill_in('Title', with: 'Second Test Work')
   select('2017', from: 'Year')
   fill_in('Medium', with: 'Mixed Media')
   fill_in('Dimensions', with: '100 in. x 100 (and maybe x 100) in.')
-  fill_in('Work type', with: arg1 + 'D')
+  select(arg1 + 'D', from: 'Work type')
   click_button('Submit')
 end
 
