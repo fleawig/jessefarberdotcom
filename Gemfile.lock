@@ -425,6 +425,7 @@ DEPENDENCIES
   devise
   figaro
   fog
+  fog-aws
   font-awesome-sass
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)

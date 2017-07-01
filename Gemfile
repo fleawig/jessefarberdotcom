@@ -49,6 +49,7 @@ source 'https://rails-assets.org' do
 end
 gem 'carrierwave', '~> 1.0'
 gem 'fog'
+gem "fog-aws"
 gem "mini_magick"
 gem 'friendly_id', '~> 5.1.0'
 gem 'magnific-popup-rails', '~> 1.1.0'

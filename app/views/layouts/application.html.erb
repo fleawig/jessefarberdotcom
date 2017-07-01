@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link 
+      rel="stylesheet" 
+      href="prism-atom-dark.scss" 
+      type="text/css" 
+      media="screen" 
+    />
     <%= favicon_link_tag 'favicon.ico' %>
       <% if yield(:title).present? %>
         <title><%= yield(:title) %> | Jesse Farber</title>
@@ -8,13 +14,14 @@
         <title>Jesse Farber</title>
       <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jesse Farber is an innovative Visual Artist and Software Developer" 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div id="flex-content-container" class="<%= 'flex-home' unless black_bg_pages?(controller_path) %>">
+    <div id="flex-content-container" class="<%= 'flex-home' unless nopic_bg_pages?(controller_path) %>">
       <% if controller_path.include?('artist') %>
         <%= render 'partials/artist_navbar' %>
       <% elsif controller_path.include?('developer') %>
@@ -67,7 +74,7 @@
       </ul>
     </div>
   </div>
-  <% elsif controller_name == "developer_static_pages" %>
+  <% elsif controller.action_name == "home" %>
     <div id="footer">
       <div class="container">
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
@@ -76,22 +83,11 @@
               <i class="fa fa-envelope-o" aria-hidden="true"></i>
             <% end %>
           </li>
+          </li>
         </ul>
       </div>
     </div>
   <% else %>
-  <div id="footer">
-    <div class="container">
-      <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-        <li class="nav-item active">
-          <%= link_to 'mailto:jesse@jessefarber.com', class: "nav-link" do %>
-            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <% end %>
-        </li>
-        </li>
-      </ul>
-    </div>
-  </div>
 <% end %>
   </body>
 </html>

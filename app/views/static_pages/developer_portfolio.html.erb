@@ -1,0 +1,221 @@
+<% provide(:title, "Software Developer") %>
+<div class="developer-portfolio">
+  <div class="about-container">
+    <ul>
+      <li><a href="#" class="nav-link">ABOUT</a></li>
+      <li><a href="#code-samples" class="nav-link">CODE SAMPLES</a></li>
+      <li><a href="#web-apps" class="nav-link">WEB APPS</a></li>
+      <li><a href="#skills-and-tools" class="nav-link">SKILLS &amp; TOOLS</a></li>
+      <li class="hire-me"><a href="#hire-me" class="nav-link">HIRE ME</a></li>
+    </ul>
+    <div class="about">
+      <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/me.jpg" class="me"/>
+
+      <h1>Jesse Farber</h1>
+      <h2>SOFTWARE DEVELOPER</h2>
+      <hr class="bioline"/>
+      <p class="bio col-sm-4 col-md-6 offset-sm-4 offset-md-3">
+        Jesse Farber brings his award-winning creative talents and passion for detail to his full-stack software and web development, producing elegant solutions with innovative design.
+      </p>
+    </div>
+   </div>
+   <div class="white-background">
+      <h3 id="code-samples">Code Snippets</h3>
+      <hr class="lightgreen">
+
+      <div class="box">
+        <h4>Temperature Conversion</h4>
+          <p>
+            This ruby program will prompt the user for a temperature 
+            in degrees Celsius and let the user know what the 
+            corresponding temperature is in Fahrenheit.
+          </p>
+      </div>
+
+      <div class="box">
+    <pre><code class="language-ruby">def c_to_f(celsius)
+      celsius * 1.8 + 32
+    end
+
+    puts &quot;Enter degrees in Celsius&quot;
+    celsius = gets.chomp.to_f
+    puts &quot;The temperature is #{c_to_f(celsius)} degrees Fahrenheit.&quot;</code></pre>   
+        </div>
+
+        <br class="clear" />
+
+        <div class="box">
+    <pre><code class="language-ruby">puts &quot;Enter a number&quot;
+
+    number = gets.chomp.to_i
+    last_digit = number % 10
+
+    if number &gt;= 11 &amp;&amp; number &lt;= 13
+      suffix = &quot;th&quot;
+    elsif last_digit == 1
+      suffix = &quot;st&quot;
+    elsif last_digit == 2
+      suffix = &quot;nd&quot;
+    elsif last_digit == 3
+      suffix = &quot;rd&quot;
+    else
+      suffix = &quot;th&quot;
+    end
+
+    puts &quot;You live on #{number}#{suffix} street!&quot;</code></pre>
+        </div>
+
+        <div class="box">
+        <h4>Ordinal Challenge</h4>
+         <p>
+           This ruby program will convert a plain number
+           to the ordinal of the number. So for example,
+           if the user enters 2, it will display 2nd, if
+           the user enters 3, it will display 3rd, etc.
+         </p>
+        </div>
+
+        <br class="clear" />
+        <div class="box">
+          <h4>Foobar</h4>
+          <p>
+            This ruby program is an adaptation of a classic technical 
+            interview problem which displays sequences 
+            of the Foobar pattern.
+          </p>
+        </div>
+
+        <div class="box">
+    <pre><code class="language-ruby">def foobar_pattern(n)
+      digits_array = []
+      n.times do |next_digit|
+        next_digit = next_digit + 1
+          if next_digit % 3 == 0 &amp;&amp; next_digit % 5 == 0
+            digits_array &lt;&lt; &quot;Foobar&quot;
+          elsif next_digit % 3 == 0
+            digits_array &lt;&lt; &quot;Foo&quot;
+          elsif next_digit % 5 == 0
+            digits_array &lt;&lt; &quot;Bar&quot;
+          else
+            digits_array &lt;&lt; next_digit
+          end
+      end
+      puts digits_array
+    end
+        
+
+    puts &quot;Welcome to the Foobar game.&quot;
+    puts &quot;How many digits of the pattern would you like to see?&quot;
+
+    n = gets.chomp.to_i
+
+    puts &quot;Ok, here you go:&quot;
+    foobar_pattern(n)</code></pre>
+
+
+        </div>
+
+        <br class="clear" />
+          
+          <h3 id="web-apps">Web Apps</h3>
+          <hr class="lightgreen"/>
+
+          <div class="box">
+            <h4>Quote Generator</h4>
+            <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/splurty.png" class="full-width" />
+          <p>
+            A database-powered quote generator with a mobile-first
+            design, using the Ruby on Rails framework, HTML, and CSS.
+            Uses Git and GitHub for version control, and launched
+            on Heroku.
+          </p>
+          </div>
+            <div class="box">
+        <h4>Yelp Clone</h4>
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/nomster.png" class="full-width" />
+        <p>
+          A Yelp clone that integrates with the Google Maps API 
+          and includes features like user comments, star ratings,
+          image uploading, and user authentication.
+        </p>
+      </div>
+      <br class="clear" />
+
+      <div class="box">
+        <h4>Two-Sided Market Place</h4>
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/flixter.png" class="full-width" />
+        <p>
+          A two-sided, video-streaming marketplace platform that
+          features credit card payment capabilities, user role
+          management, complex user interfaces, and advanced
+          database relationships.
+        </p>
+      </div>
+      <div class="box">
+        <h4>Test Driven Development</h4>
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/grammable.png" class="full-width" />
+        <p>
+          An Instagram clone that was built using industry-standard, test-driven
+          development following numerous red/green/refactor cycles.
+        </p>
+      </div>
+      <br class="clear" />
+      <div class="box">
+        <h4>Single Page Todo Application</h4>
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/todoster.png" class="full-width" />
+        <p>
+          This single-page to-do application features a
+          fluid user interface that&#8211; by using JavaScript&#8211;
+          allows users to rapidly add dynamic content.
+        </p>
+      </div>
+      <div class="box">
+        <h4>Agile Team Project</h4>
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/chess.png" class="full-width" />
+        <p>
+          Worked on an Agile software development team building
+          a chess application. Under the guidance of a senior software engineer,
+          we had weekly Agile team meetings for code reviews, sprint planning,
+          and feature assignments.
+        </p>
+      </div>
+      <br class="clear" />
+      <h3 id="skills-and-tools">Skills &amp; Tools</h3>
+      <hr class="lightgreen" />
+      <p class="skills-and-tools">
+        Jesse has developed proficiency and expertise 
+        in the following programming languages, and 
+        comfort with the following tools.
+      </p>
+        <div class="icons img-fluid">
+        <img src=" https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/github.png" class="icon" />
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/rubocop.png" class="icon" />
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/trello.png" class="icon" />
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/slack.png" class="icon" />
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/codeship.png" class="icon" />
+
+        <br class="clear" />
+        <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/skills.png" class="icon" />
+      </div>
+    </div>
+    <div class="contact-me" id="hire-me">
+    <h3 class="contact-headline">Contact</h3>
+    <hr class="lightgreen" />
+    <p class="contact-info">
+    Currently entertaining new opportunities.
+    Please get in touch via email:
+    </p>
+    <p>
+        <a href="mailto:jesse@jessefarber.com" class="contact-link">
+          jesse@jessefarber.com
+        </a>
+        <br />
+        <%= link_to 'mailto:jesse@jessefarber.com', class: "nav-link" do %>
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <% end %>
+      </p>
+    </div>
+</div>
+
+<script type="text/javascript" src="prism.js"></script>
+<script type="text/javascript" src="prism.ruby.js"></script>  

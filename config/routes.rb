@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
 
-  get 'errors/internal_server_error'
-
   devise_for :admins
   resource :admin_dashboard, only: [:show]
   root 'static_pages#home'
+  get 'developer', to: 'static_pages#developer_portfolio', as: 'developer_portfolio'
   namespace :artist do
     root 'static_pages#home', as: 'home'
     get 'works/2D/:id', to: 'works#show_two_d', as: 'two_d_work'

@@ -33,7 +33,7 @@ When(/^I click on a work$/) do
 end
 
 Then(/^I should see text which gives more info about the work$/) do
-  sleep 2
+  sleep 4
   expect(page.body).to have_text 'First Test Work'
 end
 
@@ -76,6 +76,7 @@ When(/^I click on a book cover or main portfolio image$/) do
 end
 
 Then(/^I should see the full book or portfolio$/) do
+  sleep 4
   expect(page).to have_text "1\nFirst Test Book, 2017"
 end
 
