@@ -1,11 +1,14 @@
 <% provide(:title, "Software Developer") %>
+<script type="text/javascript" src="prism.js"></script>
+<script type="text/javascript" src="prism.ruby.js"></script>  
 <div class="developer-portfolio">
   <div class="about-container">
-    <ul>
+    <ul class="ul-bar">
+      <li><%= link_to 'HOME', root_path, class: "nav-link" %></li>
       <li><a href="#" class="nav-link">ABOUT</a></li>
-      <li><a href="#code-samples" class="nav-link">CODE SAMPLES</a></li>
+      <li><a href="#code-samples" class="nav-link">CODE</a></li>
       <li><a href="#web-apps" class="nav-link">WEB APPS</a></li>
-      <li><a href="#skills-and-tools" class="nav-link">SKILLS &amp; TOOLS</a></li>
+      <li><a href="#skills-and-tools" class="nav-link">SKILLS</a></li>
       <li class="hire-me"><a href="#hire-me" class="nav-link">HIRE ME</a></li>
     </ul>
     <div class="about">
@@ -216,6 +219,3 @@
       </p>
     </div>
 </div>
-
-<script type="text/javascript" src="prism.js"></script>
-<script type="text/javascript" src="prism.ruby.js"></script>  
