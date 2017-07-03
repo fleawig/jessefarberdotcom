@@ -4,13 +4,13 @@
   <div class="about-container">
     <ul class="ul-bar">
       <li><%= link_to 'HOME', root_path, class: "nav-link" %></li>
-      <li><a href="#" class="nav-link">ABOUT</a></li>
+      <li><a href="#about" class="nav-link">ABOUT</a></li>
       <li><a href="#code-samples" class="nav-link">CODE</a></li>
       <li><a href="#web-apps" class="nav-link">WEB APPS</a></li>
       <li><a href="#skills-and-tools" class="nav-link">SKILLS</a></li>
       <li class="hire-me"><a href="#hire-me" class="nav-link">HIRE ME</a></li>
     </ul>
-    <div class="about">
+    <div id="about" class="about">
       <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/me.jpg" class="me"/>
 
       <h1>Jesse Farber</h1>
@@ -265,6 +265,7 @@ end</code></pre>
 
 <script>
 $(document).ready(function() {
+  Prism.highlightAll();
   var $root = $('html, body');
   $('a').click(function() {
       $root.animate({
