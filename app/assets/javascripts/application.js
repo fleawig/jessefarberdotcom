@@ -17,4 +17,5 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require magnific-popup
+//= require prism
 //= require_tree .

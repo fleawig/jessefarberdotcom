@@ -53,6 +53,16 @@
     }
   }
 
+  @media (max-width: 460px) {
+    li {
+      font-size: 11px;
+      margin-top: 0px !important;
+    }
+    .ul-bar {
+      padding-bottom: 15px !important;
+    }
+  }
+
   .ul-bar {
     width: 100%;
     background: rgba(43,42,48, 0.3);

@@ -1,6 +1,5 @@
 <% provide(:title, "Software Developer") %>
-<script type="text/javascript" src="prism.js"></script>
-<script type="text/javascript" src="prism.ruby.js"></script>  
+
 <div class="developer-portfolio">
   <div class="about-container">
     <ul class="ul-bar">
@@ -27,93 +26,136 @@
       <hr class="lightgreen">
 
       <div class="box">
-        <h4>Temperature Conversion</h4>
+        <h4>Luhn Algorithm</h4>
           <p>
-            This ruby program will prompt the user for a temperature 
-            in degrees Celsius and let the user know what the 
-            corresponding temperature is in Fahrenheit.
+            This ruby program checks a number with the Luhn algorithm, a method for determining valid and invalid numbers for credit cards and other identification purposes. It is meant to prevent users from accidental errors. 
           </p>
       </div>
 
       <div class="box">
-    <pre><code class="language-ruby">def c_to_f(celsius)
-      celsius * 1.8 + 32
+    <pre><code class="language-ruby">module Luhn
+  def self.is_valid?(number)
+    revnumber = number.to_s.reverse
+    split_revnumber = revnumber.split('').map { |digit| digit.to_i }
+    split_revnumber.length.times do |n|
+      if n.odd?
+        split_revnumber[n] *= 2
+        if split_revnumber[n] &gt; 9
+          split_revnumber[n] -= 9
+        end
+      end
+    end 
+    digit_sum = split_revnumber.inject(0){|sum,x| sum + x }
+    if digit_sum % 10 == 0
+      puts true
+    else 
+      puts false
     end
+  end
+end
 
-    puts &quot;Enter degrees in Celsius&quot;
-    celsius = gets.chomp.to_f
-    puts &quot;The temperature is #{c_to_f(celsius)} degrees Fahrenheit.&quot;</code></pre>   
+Luhn.is_valid?(4194560385008504)</code></pre>   
         </div>
 
         <br class="clear" />
 
         <div class="box">
-    <pre><code class="language-ruby">puts &quot;Enter a number&quot;
-
-    number = gets.chomp.to_i
-    last_digit = number % 10
-
-    if number &gt;= 11 &amp;&amp; number &lt;= 13
-      suffix = &quot;th&quot;
-    elsif last_digit == 1
-      suffix = &quot;st&quot;
-    elsif last_digit == 2
-      suffix = &quot;nd&quot;
-    elsif last_digit == 3
-      suffix = &quot;rd&quot;
+    <pre><code class="language-ruby">class Fib_sequence
+  def recursive_fib(n)
+    if n &lt; 2
+      n
     else
-      suffix = &quot;th&quot;
+      recursive_fib(n - 1) + recursive_fib(n - 2)
     end
+  end
 
-    puts &quot;You live on #{number}#{suffix} street!&quot;</code></pre>
+  def iterative_fib(num)
+    fib_numbers = [0, 1]
+    (1..num).each do |n|
+      if n &lt; 2
+        fib_numbers[n] = n
+      else 
+        fib_numbers[n] = fib_numbers[n - 1] + fib_numbers[n - 2]
+        n += 1
+      end   
+    end
+    fib_numbers.last
+  end
+end
+
+f = Fib_sequence.new
+
+num = 35
+puts f.recursive_fib(num)
+puts f.iterative_fib(num)
+
+Benchmark.bm do |x|
+  x.report(&quot;recursive_fib&quot;) { f.recursive_fib(num) }
+  x.report(&quot;iterative_fib&quot;) { f.iterative_fib(num) }
+end</code></pre>
         </div>
 
         <div class="box">
-        <h4>Ordinal Challenge</h4>
+        <h4>Recursive and Iterative Fibonacci Sequences</h4>
          <p>
-           This ruby program will convert a plain number
-           to the ordinal of the number. So for example,
-           if the user enters 2, it will display 2nd, if
-           the user enters 3, it will display 3rd, etc.
+           This ruby program provides two different methods to find the Fibonacci sequence value for a particular number: one recursive solution, and one iterative solution. It also uses Ruby's Benchmark module to show which method finds the value more efficiently.
          </p>
         </div>
 
         <br class="clear" />
         <div class="box">
-          <h4>Foobar</h4>
+          <h4>Linked Lists</h4>
           <p>
-            This ruby program is an adaptation of a classic technical 
-            interview problem which displays sequences 
-            of the Foobar pattern.
+            This ruby program provides methods for working with a Linked List data structure, including building the list and printing the series of values, reversing the node sequence, and using the Floyd's Cycle Detection Algorithm (aka Tortoise and Hare) to check whether the list contains a loop.
           </p>
         </div>
 
         <div class="box">
-    <pre><code class="language-ruby">def foobar_pattern(n)
-      digits_array = []
-      n.times do |next_digit|
-        next_digit = next_digit + 1
-          if next_digit % 3 == 0 &amp;&amp; next_digit % 5 == 0
-            digits_array &lt;&lt; &quot;Foobar&quot;
-          elsif next_digit % 3 == 0
-            digits_array &lt;&lt; &quot;Foo&quot;
-          elsif next_digit % 5 == 0
-            digits_array &lt;&lt; &quot;Bar&quot;
-          else
-            digits_array &lt;&lt; next_digit
-          end
-      end
-      puts digits_array
-    end
-        
+    <pre><code class="language-ruby">class LinkedListNode
+  attr_accessor :value, :next_node
 
-    puts &quot;Welcome to the Foobar game.&quot;
-    puts &quot;How many digits of the pattern would you like to see?&quot;
+  def initialize(value, next_node=nil)
+    @value = value
+    @next_node = next_node
+  end
+end
 
-    n = gets.chomp.to_i
+def print_values(list_node)
+  if list_node
+    print &quot;#{list_node.value} --&gt; &quot;
+    print_values(list_node.next_node)
+  else
+    print &quot;nil\n&quot;
+    return
+  end
+end
 
-    puts &quot;Ok, here you go:&quot;
-    foobar_pattern(n)</code></pre>
+def reverse_list(list, previous=nil)
+  while list
+    new_list = LinkedListNode.new(list.value, previous)
+    list = list.next_node
+    previous = new_list
+  end
+  list = new_list
+end
+
+def jump_two_spaces(h)
+  h = h.next_node.next_node
+end
+
+def jump_one_space(t)
+  t = t.next_node
+end
+
+def has_infinite_loop?(list)
+  tortoise = hare = list
+  while hare &amp;&amp; hare.next_node
+    hare = hare.next_node.next_node
+    tortoise = tortoise.next_node
+    return true if hare == tortoise
+  end
+  return false
+end</code></pre>
 
 
         </div>
@@ -168,8 +210,7 @@
         <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/todoster.png" class="full-width" />
         <p>
           This single-page to-do application features a
-          fluid user interface that&#8211; by using JavaScript&#8211;
-          allows users to rapidly add dynamic content.
+          fluid user interface that uses JavaScript to allow users to rapidly add dynamic content.
         </p>
       </div>
       <div class="box">
@@ -183,6 +224,7 @@
         </p>
       </div>
       <br class="clear" />
+      <br /><br />
       <h3 id="skills-and-tools">Skills &amp; Tools</h3>
       <hr class="lightgreen" />
       <p class="skills-and-tools">
@@ -200,6 +242,7 @@
         <br class="clear" />
         <img src="https://s3.amazonaws.com/fleawigjessefarberdotcom/uploads/developer/skills.png" class="icon" />
       </div>
+      <br /><br /> 
     </div>
     <div class="contact-me" id="hire-me">
     <h3 class="contact-headline">Contact</h3>
@@ -219,3 +262,15 @@
       </p>
     </div>
 </div>
+
+<script>
+$(document).ready(function() {
+  var $root = $('html, body');
+  $('a').click(function() {
+      $root.animate({
+          scrollTop: $( $.attr(this, 'href') ).offset().top
+      }, 500);
+      return false;
+  });
+});
+</script>
