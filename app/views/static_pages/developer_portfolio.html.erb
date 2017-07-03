@@ -264,7 +264,7 @@ end</code></pre>
 </div>
 
 <script>
-$(document).ready(function() {
+$(document).on('ready page:load', function() {
   Prism.highlightAll();
   var $root = $('html, body');
   $('a').click(function() {
