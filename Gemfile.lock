@@ -418,6 +418,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bootstrap (~> 4.0.0.alpha6)
   byebug
   carrierwave (~> 1.0)

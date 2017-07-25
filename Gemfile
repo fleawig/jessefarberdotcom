@@ -54,6 +54,7 @@ gem "mini_magick"
 gem 'friendly_id', '~> 5.1.0'
 gem 'magnific-popup-rails', '~> 1.1.0'
 gem 'prism-rails'
+gem "autoprefixer-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

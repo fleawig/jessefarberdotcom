@@ -8,7 +8,7 @@
         <br /><br />
       </div>
     </div>
-  <div class="row three-d">
+  <div class="row align-items-center three-d">
     <% @works.three_d.rank(:row_order).each do |work| %>
       <div class="col-md-3 col-sm-4 col-6 three-d-work workgrid">
         <%= link_to image_tag(work.image), work.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{work.title}</span>,   #{ work.year.year}      #{work.medium}      #{work.dimensions}</p>", class: 'img-fluid' %> 
