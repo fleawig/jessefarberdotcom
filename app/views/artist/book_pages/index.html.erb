@@ -19,10 +19,10 @@
     <% @book_pages.rank(:row_order).each do |book_page| %>
       <% if book_page.page_number.zero? %>
         <div class="col-md-3 col-sm-4 col-6 book-cover workgrid" >
-        <%= link_to image_tag(book_page.image), book_page.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(book_page)})" +  "&nbsp;&nbsp;&nbsp;" + "#{book_page.year.year}" + "&nbsp;&nbsp;&nbsp;" + "#{book_page.dimensions}</p>", class: 'img-fluid' %> 
+        <%= link_to image_tag(book_page.image), book_page.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(book_page)})" +  "&nbsp;&nbsp;&nbsp;" + "#{book_page.year.year}" + "&nbsp;&nbsp;&nbsp;" + "#{book_page.dimensions}</p>", 'data-coverstatus': "#{page_number_or_cover(book_page)}", class: 'img-fluid' %> 
           <% book_page.noncover.each do |noncov| %>
             <div class="hide" >
-            <%= link_to image_tag(noncov.image), noncov.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(noncov)})" +  "&nbsp;&nbsp;&nbsp;" + "#{book_page.year.year}" + "&nbsp;&nbsp;&nbsp;" + "#{book_page.dimensions}</p>", class: 'img-fluid' %> 
+            <%= link_to image_tag(noncov.image), noncov.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(noncov)})" +  "&nbsp;&nbsp;&nbsp;" + "#{book_page.year.year}" + "&nbsp;&nbsp;&nbsp;" + "#{book_page.dimensions}</p>", 'data-coverstatus': "#{page_number_or_cover(noncov)}", class: 'img-fluid' %> 
             </div>
           <% end %>
         </div>
@@ -51,14 +51,31 @@ $(document).ready(function() {
       },
       image: {
         titleSrc: 'data-title',
-        markup: '<div class="mfp-figure">'+
-              '<div class="mfp-img"></div>'+
-              '<div class="mfp-bottom-bar">'+
-                '<div class="mfp-title"></div>'+
-              '</div>'+
-            '</div>', // Popup HTML markup. `.mfp-img` div will be replaced with img tag, `.mfp-close` by close button
-        
+        markup:
+            '<div class="mfp-figure">'+
+                '<div class="mfp-img"></div>'+
+                '<div class="mfp-bottom-bar">'+
+                  '<div class="mfp-title"></div>'+
+                '</div>'+
+              '</div>', // Popup HTML markup. `.mfp-img` div will be replaced with img tag, `.mfp-close` by close button
         cursor: null
+      }, 
+      callbacks: {
+        change: function() {
+          coversArray = ['Front', 'Back'];
+          coverStatus = this.currItem.el.attr('data-coverstatus')
+          console.log(coverStatus);
+          var halveSizeWithCss = function () {
+            $('.mfp-img').css('max-width', '50%');
+            // $('.mfp-figure').css('background', 'none');
+          };
+          $(document).on('click', function() {
+            if (coversArray.includes(coverStatus)) {
+              console.log("this should be half-sized");
+              halveSizeWithCss();
+            }
+          });
+        }
       }
     });
   });

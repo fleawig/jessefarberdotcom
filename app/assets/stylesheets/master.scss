@@ -425,8 +425,13 @@ a:focus, a:hover {
     animation-fill-mode: both;
 }
 
-.mfp-figure{
-    @extend %fadeIn;
+.mfp-figure {
+  @extend %fadeIn;
+
+}
+
+.mfp-figure::before, .mfp-figure::after, .mfp-figure {
+  background: none !important;
 }
 
 .headline-container {
