@@ -64,15 +64,14 @@ $(document).ready(function() {
         change: function() {
           coversArray = ['Front', 'Back'];
           coverStatus = this.currItem.el.attr('data-coverstatus')
-          console.log(coverStatus);
+          // console.log(coverStatus);
           var halveSizeWithCss = function () {
-            $('.mfp-content').css('width', '100%');
+            $('.mfp-content').css('max-width', '100%');
             $('.mfp-img').css('max-width', '50%');
-            // $('.mfp-figure').css('background', 'none');
           };
           $(document).on('click', function() {
             if (coversArray.includes(coverStatus)) {
-              console.log("this should be half-sized");
+              // console.log("this should be half-sized");
               halveSizeWithCss();
             }
           });
