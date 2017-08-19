@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426134928) do
+ActiveRecord::Schema.define(version: 20170807130347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170426134928) do
 
   create_table "book_pages", force: :cascade do |t|
     t.string   "book_title"
-    t.integer  "page_number"
+    t.string   "page_number"
     t.date     "year"
     t.string   "dimensions"
     t.boolean  "portfolio"

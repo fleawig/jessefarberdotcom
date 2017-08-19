@@ -14,7 +14,7 @@
   <div class="row-align-items-start">
     <div class="books">
       <% @book_pages.rank(:row_order).each do |book_page| %>
-        <% if book_page.page_number == 0 %>
+        <% if book_page.page_number.to_i.zero? %>
           <div class="col-lg-4 book-cover" data-update-url=<%= admin_book_page_path(book_page) %>>
             <%= link_to image_tag(book_page.image, class: 'img-fluid'), admin_show_book_path(book_page) %>
             <br class="clear" />

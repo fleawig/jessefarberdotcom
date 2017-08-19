@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row-align-items-start">
     <div class="book-display">
-      <% @book.each do |book_page| %>
+      <% @book_page.book.each do |book_page| %>
           <div class="col-lg-4">
             <%= image_tag book_page.image, class: 'img-fluid' %>
             <h4><%= page_number_or_cover(book_page) %></h4>

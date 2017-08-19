@@ -8,10 +8,11 @@ class BookPage < ApplicationRecord
   friendly_id :book_title, use: :slugged
 
   def book
-    BookPage.where(book_title: book_title)
+    unsorted_book = BookPage.where(book_title: book_title)
+    unsorted_book.sort_by{ |book_page| book_page.page_number.to_i }
   end
 
   def noncover
-    book.order(:page_number).drop(1)
+    book.drop(1)
   end
 end
