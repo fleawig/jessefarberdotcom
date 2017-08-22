@@ -10,29 +10,28 @@ Then(/^I should be taken back to the start page$/) do
   expect(page).to have_link '∎ DEVELOPER ∎'
 end
 
-
 When(/^I click the link for (\d+)D works$/) do |arg1|
   click_link "#{arg1}D"
 end
 
 Then(/^I should be taken to the (\d+)D work page$/) do |arg1|
-  if arg1 == "2"
+  if arg1 == '2'
     expect(page).to have_current_path(artist_two_d_works_path)
-  elsif arg1 == "3"
+  elsif arg1 == '3'
     expect(page).to have_current_path(artist_three_d_works_path)
   end
 end
 
 Then(/^I should see a grid of (\d+)D artworks$/) do |arg1|
-  if arg1 == "2"
+  if arg1 == '2'
     expect(page).to have_css('.two-d')
-  elsif arg1 == "3"
+  elsif arg1 == '3'
     expect(page).to have_css('.three-d')
   end
 end
 
 When(/^I click the link for books$/) do
-  click_link "BK"
+  click_link 'BK'
 end
 
 Then(/^I should be taken to the books page$/) do
@@ -68,7 +67,7 @@ Then(/^I should be taken to the CV page$/) do
 end
 
 Then(/^I should see the CV information$/) do
-  headers = %w( Education Exhibitions Awards )
+  headers = %w[Education Exhibitions Awards]
   headers.each { |header| expect(page).to have_content "#{header}" }
 end
 
@@ -83,4 +82,3 @@ end
 Then(/^I should see the News posts$/) do
   expect(page).to have_content 'NEWS'
 end
-

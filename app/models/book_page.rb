@@ -9,7 +9,7 @@ class BookPage < ApplicationRecord
 
   def book
     unsorted_book = BookPage.where(book_title: book_title)
-    unsorted_book.sort_by{ |book_page| book_page.page_number.to_i }
+    unsorted_book.sort_by { |book_page| book_page.page_number.to_i }
   end
 
   def noncover

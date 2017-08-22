@@ -65,21 +65,21 @@ $(document).ready(function() {
         change: function() {
           coversArray = ['Front', 'Back'];
           coverStatus = this.currItem.el.attr('data-coverstatus')
-          // console.log(coverStatus);
+          console.log(coverStatus);
           var halveSizeWithCss = function () {
             $('.mfp-content').css('max-width', '100%');
             $('.mfp-img').css('max-width', '5f0%');
           };
           $(document).on('click', function() {
             if (coversArray.includes(coverStatus)) {
-              // console.log("this should be half-sized");
+              console.log("this should be half-sized");
               halveSizeWithCss();
             }
           });
         }
-      } // closes callbacks
-    }); // closes magnific popup
-  }); // closes ('book-cover').each
+      }
+    });
+  });
   var idleTime = 0;
   var idleInterval = setInterval(timerIncrement, 1000);
   $(this).mousemove(function (e) {
@@ -102,8 +102,8 @@ $(document).ready(function() {
         idleTime = 0;
       });
     idleTime = 0;
-    } // closes conditional
-  } // closes timerIncrement
-}); // closes initial $(document)ready(function () {
+    }
+  }
+});
 
 </script>

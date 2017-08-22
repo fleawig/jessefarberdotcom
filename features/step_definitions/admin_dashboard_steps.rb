@@ -392,6 +392,6 @@ end
 Then(/^I should see all the pages from the book$/) do
   # This is disabled for now as the click above isn't working!
   # page_names = ['Front', 'Page 1', 'Back']
-  # page_names.each { |name| expect(page).to have_content name }    
+  # page_names.each { |name| expect(page).to have_content name }
 end
 

@@ -12,7 +12,7 @@ When(/^I visit the artist home page$/) do
 end
 
 Then(/^I should see the artist icon links in the footer$/) do
-  artist_footer_links = %w(.fa-instagram .fa-bandcamp .fa-facebook)
+  artist_footer_links = %w[.fa-instagram .fa-bandcamp .fa-facebook]
   artist_footer_links.each { |link| expect(page).to have_css(link) }
 end
 

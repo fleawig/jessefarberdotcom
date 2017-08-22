@@ -1,6 +1,10 @@
 inherit_from: .rubocop_todo.yml
 require: rubocop-rspec
 
+
+Documentation:
+  Enabled: false
+
 AllCops:
   Exclude:
     - db/schema.rb

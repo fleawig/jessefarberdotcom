@@ -16,11 +16,11 @@ module Jessefarberdotcom
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
     # Precompile additional assets
-    config.assets.precompile += %w( .svg .eot .woff .ttf )
+    config.assets.precompile += %w[.svg .eot .woff .ttf]
 
     config.serve_static_assets = true
 
     # Use custom error pages from the app itself, not /public
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
   end
 end

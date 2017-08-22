@@ -101,4 +101,3 @@ Then(/^I am able to sign in as an admin again$/) do
   visit artist_home_path
   expect(page).to have_content 'Admin Dashboard'
 end
-

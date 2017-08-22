@@ -1,5 +1,4 @@
-Given(/^I am any kind of user$/) do
-  
+Given(/^I am any kind of user$/) do  
 end
 
 When(/^I am on the artist home page$/) do
