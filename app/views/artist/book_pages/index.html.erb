@@ -10,7 +10,7 @@
     </div>
   <div class="row justify-content-center body-text">
     <div class="col-lg-6 col-md-8">
-      <p>This series of handmade book projects has been in progress since around 2005. They are usually bound, but in some cases exist as collections of loose pages. Clicking on a cover image below allows you to view the rest of that project.<br />
+      <p>This series of handmade book projects has been in progress since around 2005. They are usually bound, but in some cases exist as portfolios of loose pages. Clicking on a cover image below allows you to view the rest of that project.<br />
       </p>
     </div>
   </div>
@@ -63,16 +63,15 @@ $(document).ready(function() {
       }, 
       callbacks: {
         change: function() {
-          coversArray = ['Front', 'Back'];
           coverStatus = this.currItem.el.attr('data-coverstatus')
-          console.log(coverStatus);
+          // console.log(coverStatus);
           var halveSizeWithCss = function () {
             $('.mfp-content').css('max-width', '100%');
-            $('.mfp-img').css('max-width', '5f0%');
+            $('.mfp-img').css('max-width', '50%');
           };
           $(document).on('click', function() {
-            if (coversArray.includes(coverStatus)) {
-              console.log("this should be half-sized");
+            if ((coverStatus.includes("Front")) || (coverStatus.includes("Back"))) {
+              // console.log("this should be half-sized");
               halveSizeWithCss();
             }
           });
