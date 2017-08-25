@@ -19,10 +19,10 @@
     <% @book_pages.rank(:row_order).each do |book_page| %>
       <% if book_page.page_number.to_i.zero? %>
         <div class="col-md-3 col-sm-4 col-6 book-cover workgrid" >
-        <%= link_to image_tag(book_page.image), book_page.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(book_page)})" +  "&nbsp;&nbsp;&nbsp;" + "#{book_page.year.year}" + "&nbsp;&nbsp;&nbsp;" + "#{book_page.dimensions}</p>", 'data-coverstatus': "#{page_number_or_cover(book_page)}", class: 'img-fluid' %> 
+        <%= link_to image_tag(book_page.image), book_page.image.url, 'data-title': "<p><br />∎  <span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(book_page)})  ∎  #{book_page.year.year}  ∎<br />∎  #{book_page.dimensions}  ∎</p>", 'data-coverstatus': "#{page_number_or_cover(book_page)}", class: 'img-fluid' %> 
           <% book_page.noncover.each do |noncov| %>
             <div class="hide" >
-            <%= link_to image_tag(noncov.image), noncov.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(noncov)})" +  "&nbsp;&nbsp;&nbsp;" + "#{book_page.year.year}" + "&nbsp;&nbsp;&nbsp;" + "#{book_page.dimensions}</p>", 'data-coverstatus': "#{page_number_or_cover(noncov)}", class: 'img-fluid' %> 
+            <%= link_to image_tag(noncov.image), noncov.image.url, 'data-title': "<p><br />∎  <span style='font-family: latolight_italic'>#{book_page.book_title}</span> (#{page_number_or_cover(noncov)})  ∎  #{book_page.year.year}  ∎<br />∎  #{book_page.dimensions}  ∎</p>", 'data-coverstatus': "#{page_number_or_cover(noncov)}", class: 'img-fluid' %> 
             </div>
           <% end %>
         </div>

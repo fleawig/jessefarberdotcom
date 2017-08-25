@@ -11,7 +11,7 @@
   <div class="row align-items-center three-d">
     <% @works.three_d.rank(:row_order).each do |work| %>
       <div class="col-md-3 col-sm-4 col-6 three-d-work workgrid">
-        <%= link_to image_tag(work.image), work.image.url, 'data-title': "<p><br /><span style='font-family: latolight_italic'>#{work.title}</span>,   #{ work.year.year}      #{work.medium}      #{work.dimensions}</p>", class: 'img-fluid' %> 
+        <%= link_to image_tag(work.image), work.image.url, 'data-title': "<p><br />∎  <span style='font-family: latolight_italic'>#{work.title}</span>  ∎  #{ work.year.year}  ∎<br />∎  #{work.medium}  ∎<br />∎  #{work.dimensions}  ∎</p>", class: 'img-fluid' %> 
       </div>
     <% end %>
   </div>
@@ -44,7 +44,7 @@ $(document).ready(function() {
               '<div class="mfp-title"></div>'+
             '</div>'+
           '</div>', // Popup HTML markup. `.mfp-img` div will be replaced with img tag, `.mfp-close` by close button
-      
+      verticalFit: false,
       cursor: null
     }
   });

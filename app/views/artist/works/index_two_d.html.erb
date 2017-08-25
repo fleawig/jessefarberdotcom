@@ -12,7 +12,7 @@
   <div class="row align-items-center two-d">
     <% @works.two_d.rank(:row_order).each do |work| %>
       <div class="col-md-3 col-sm-4 col-6 two-d-work workgrid" >
-        <%= link_to image_tag(work.image), work.image.url, 'data-title': "<br /><span style='font-family: latolight_italic'>#{work.title}</span>,   #{ work.year.year}      #{work.medium}      #{work.dimensions}", class: 'img-fluid' %> 
+        <%= link_to image_tag(work.image), work.image.url, 'data-title': "<p><br />∎  <span style='font-family: latolight_italic'>#{work.title}</span>  ∎  #{ work.year.year}  ∎<br />∎  #{work.medium}  ∎<br />∎  #{work.dimensions}  ∎</p>", class: 'img-fluid' %> 
       </div>
     <% end %>
   </div>
