@@ -30,16 +30,15 @@
    <div class="white-background">
       <h3 id="code-samples">Code Snippets</h3>
       <hr class="lightgreen">
+        <div class="box">
+          <h4>Luhn Algorithm</h4>
+            <p>
+              This ruby program checks a number with the Luhn algorithm, a method for determining valid and invalid numbers for credit cards and other identification purposes. It is meant to prevent users from accidental errors. 
+            </p>
+        </div>
 
-      <div class="box">
-        <h4>Luhn Algorithm</h4>
-          <p>
-            This ruby program checks a number with the Luhn algorithm, a method for determining valid and invalid numbers for credit cards and other identification purposes. It is meant to prevent users from accidental errors. 
-          </p>
-      </div>
-
-      <div class="box">
-    <pre><code class="language-ruby">module Luhn
+        <div class="box">
+          <pre><code class="language-ruby">module Luhn
   def self.is_valid?(number)
     revnumber = number.to_s.reverse
     split_revnumber = revnumber.split('').map { |digit| digit.to_i }
@@ -64,9 +63,16 @@ Luhn.is_valid?(4194560385008504)</code></pre>
         </div>
 
         <br class="clear" />
+        <div class="reverse-wrapper">
 
-        <div class="box">
-    <pre><code class="language-ruby">class Fib_sequence
+          <div class="box reverse-child">
+          <h4>Recursive and Iterative Fibonacci Sequences</h4>
+           <p>
+             This ruby program provides two different methods to find the Fibonacci sequence value for a particular number: one recursive solution, and one iterative solution. It also uses Ruby's Benchmark module to show which method finds the value more efficiently.
+           </p>
+          </div>
+          <div class="box reverse-child">
+      <pre><code class="language-ruby">class Fib_sequence
   def recursive_fib(n)
     if n &lt; 2
       n
@@ -99,22 +105,16 @@ Benchmark.bm do |x|
   x.report(&quot;recursive_fib&quot;) { f.recursive_fib(num) }
   x.report(&quot;iterative_fib&quot;) { f.iterative_fib(num) }
 end</code></pre>
+          </div>
         </div>
 
-        <div class="box">
-        <h4>Recursive and Iterative Fibonacci Sequences</h4>
-         <p>
-           This ruby program provides two different methods to find the Fibonacci sequence value for a particular number: one recursive solution, and one iterative solution. It also uses Ruby's Benchmark module to show which method finds the value more efficiently.
-         </p>
-        </div>
-
-        <br class="clear" />
-        <div class="box">
-          <h4>Linked Lists</h4>
-          <p>
-            This ruby program provides methods for working with a Linked List data structure, including building the list and printing the series of values, reversing the node sequence, and using the Floyd's Cycle Detection Algorithm (aka Tortoise and Hare) to check whether the list contains a loop.
-          </p>
-        </div>
+          <br class="clear" />
+          <div class="box">
+            <h4>Linked Lists</h4>
+            <p>
+              This ruby program provides methods for working with a Linked List data structure, including building the list and printing the series of values, reversing the node sequence, and using the Floyd's Cycle Detection Algorithm (aka Tortoise and Hare) to check whether the list contains a loop.
+            </p>
+          </div>
 
         <div class="box">
     <pre><code class="language-ruby">class LinkedListNode

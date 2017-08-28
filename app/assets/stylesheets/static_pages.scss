@@ -144,6 +144,28 @@
     margin-top: 80px;
   }
 
+  @media (max-width: 768px) {
+    .box {
+      width: 100%;
+      clear: left;
+      margin-left: 0;
+      margin-top: 50px;
+    }
+  }
+  @media (min-width: 769px) {
+    .reverse-wrapper {
+      display:flex;
+      flex-flow: row-reverse;
+    }
+  }
+
+   @media (min-width: 769px) {
+    .reverse-child {
+      margin-right: 5%;
+      margin-left: 0;
+    }
+  }
+
   .clear {
     clear: both;
   }
