@@ -40,7 +40,7 @@ gem 'font-awesome-sass'
 
 gem 'rubocop', require: false
 gem 'rubocop-rspec'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.1.3'
 gem 'pry'
 gem 'simple_form'
 gem 'devise'
