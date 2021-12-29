@@ -12,7 +12,7 @@ Then(/^I should not see any artist links in the header$/) do
 end
 
 When(/^I am on the main artist page$/) do
-  visit artist_home_path
+  visit root_path
 end
 
 Then(/^I should see the artist links in the navbar$/) do
@@ -98,6 +98,6 @@ When(/^I create a new one that uses my actual email address$/) do
 end
 
 Then(/^I am able to sign in as an admin again$/) do
-  visit artist_home_path
+  visit root_path
   expect(page).to have_content 'Admin Dashboard'
 end

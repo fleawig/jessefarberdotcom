@@ -6,20 +6,18 @@ Rails.application.routes.draw do
   resource :admin_dashboard, only: [:show]
   root 'artist/works#index_two_d'
   get 'developer', to: 'static_pages#developer_portfolio', as: 'developer_portfolio'
-  namespace :artist do
-    # Root inside artist namespace displays artist partials and nav with blank
-    # content, since artist controller home action has no content.
-    # root 'static_pages#home', as: 'home'
-    get 'works/2D/:id', to: 'works#show_two_d', as: 'two_d_work'
-    get 'works/2D', to: 'works#index_two_d', as: 'two_d_works'
-    get 'works/3D/:id', to: 'works#show_three_d', as: 'three_d_work'
-    get 'works/3D', to: 'works#index_three_d', as: 'three_d_works'
-    get 'books', to: 'book_pages#index', as: 'books'
-    get 'audio', to: 'static_pages#audio', as: 'audio_works'
-    get 'RNL', to: 'rnl_issues#index', as: 'rnl'
-    get 'CV', to: 'static_pages#cv', as: 'cv'
-    get 'news', to: 'news_items#index', as: 'news'
-  end
+  # Root inside artist namespace displays artist partials and nav with blank
+  # content, since artist controller home action has no content.
+  get 'works/2D/:id', to: 'artist/works#show_two_d', as: 'two_d_work'
+  get 'works/2D', to: 'artist/works#index_two_d', as: 'two_d_works'
+  get 'works/3D/:id', to: 'artist/works#show_three_d', as: 'three_d_work'
+  get 'works/3D', to: 'artist/works#index_three_d', as: 'three_d_works'
+  get 'books', to: 'artist/book_pages#index', as: 'books'
+  get 'audio', to: 'artist/static_pages#audio', as: 'audio_works'
+  get 'RNL', to: 'artist/rnl_issues#index', as: 'rnl'
+  get 'CV', to: 'artist/static_pages#cv', as: 'cv'
+  get 'news', to: 'artist/news_items#index', as: 'news'
+  # end
   namespace :admin do
     resources :works
     resources :book_pages

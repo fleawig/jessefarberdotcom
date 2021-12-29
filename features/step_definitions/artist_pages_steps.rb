@@ -81,7 +81,7 @@ Then(/^I should see the full book or portfolio$/) do
 end
 
 Given(/^I am in the artist site$/) do
-  visit artist_home_path
+  visit root_path
 end
 
 When(/^I click the (\d+)D link$/) do |arg1|
