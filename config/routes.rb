@@ -23,9 +23,8 @@ Rails.application.routes.draw do
     resources :news_items
     get 'books/:book_title', to: 'book_pages#show_book', as: 'show_book'
   end
-end
 
-# These routes are obsolete. We use redirects to handle older links gracefully.
+  # These routes are obsolete. We use redirects to handle older links gracefully.
   namespace :artist do
     get 'works/2D/:id' => redirect('works/2D/%{id}')
     get 'works/2D' => redirect('works/2D')
@@ -37,3 +36,4 @@ end
     get 'CV'=> redirect('CV')
     get 'news'=> redirect('news')
   end
+end
