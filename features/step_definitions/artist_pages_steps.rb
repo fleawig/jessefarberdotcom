@@ -21,7 +21,7 @@ Given(/^there are some (\d+)D works in the database$/) do |arg1|
   select(arg1 + 'D', from: 'Work type')
   click_button('Submit')
   click_link 'Sign Out'
-  click_link '∎ ARTIST ∎'
+  click_link 'JESSE FARBER'
 end
 
 Given(/^I am on the (\d+)D page$/) do |arg1|
@@ -29,6 +29,7 @@ Given(/^I am on the (\d+)D page$/) do |arg1|
 end
 
 When(/^I click on a work$/) do
+  sleep 10
   first('.img-fluid').click
 end
 
@@ -64,7 +65,7 @@ Given(/^there are some books and\/or portfolios in the database$/) do
   fill_in('Dimensions', with: '10 in. x 10 in.')
   click_button('Submit')
   click_link 'Sign Out'
-  click_link '∎ ARTIST ∎'
+  click_link 'JESSE FARBER'
 end
 
 Given(/^I am on the books page$/) do
@@ -72,16 +73,17 @@ Given(/^I am on the books page$/) do
 end
 
 When(/^I click on a book cover or main portfolio image$/) do
+  sleep 10
   first('.img-fluid').click
 end
 
 Then(/^I should see the full book or portfolio$/) do
   sleep 4
-  expect(page).to have_text "1\nFirst Test Book, 2017"
+  expect(page).to have_text "First Test Book (Front)"
 end
 
 Given(/^I am in the artist site$/) do
-  visit artist_home_path
+  visit root_path
 end
 
 When(/^I click the (\d+)D link$/) do |arg1|

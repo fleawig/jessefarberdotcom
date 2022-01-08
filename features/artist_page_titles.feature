@@ -9,7 +9,8 @@ Background:
 
   Scenario: Artist home
     When I am on the artist home page
-    Then I should see the title "Artist | Jesse Farber"
+    # Then I should see the title "Artist | Jesse Farber"
+    Then I should see the title "2D | Jesse Farber"
 
   Scenario: 2D works
     When I am on the 2D page

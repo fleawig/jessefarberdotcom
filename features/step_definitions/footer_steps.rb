@@ -8,7 +8,7 @@ Then(/^I should not see any other links$/) do
 end
 
 When(/^I visit the artist home page$/) do
-  visit artist_home_path
+  visit root_path
 end
 
 Then(/^I should see the artist icon links in the footer$/) do

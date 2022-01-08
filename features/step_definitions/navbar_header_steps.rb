@@ -12,7 +12,7 @@ Then(/^I should not see any artist links in the header$/) do
 end
 
 When(/^I am on the main artist page$/) do
-  visit artist_home_path
+  visit root_path
 end
 
 Then(/^I should see the artist links in the navbar$/) do
@@ -70,7 +70,7 @@ Given(/^an admin user already exists$/) do
 end
 
 When(/^I try to create another admin account$/) do
-  click_link '∎ ARTIST ∎'
+  # click_link '∎ ARTIST ∎'
   click_link 'Sign Out'
   visit new_admin_registration_path
   fill_in 'Email', with: 'jesse@example.com'
@@ -84,7 +84,7 @@ Then(/^I am told that I do not have permission to do that$/) do
 end
 
 Given(/^I delete my admin account$/) do
-  click_link '∎ ARTIST ∎'
+  # click_link '∎ ARTIST ∎'
   visit edit_admin_registration_path
   click_link 'Cancel my account'
 end
@@ -98,6 +98,6 @@ When(/^I create a new one that uses my actual email address$/) do
 end
 
 Then(/^I am able to sign in as an admin again$/) do
-  visit artist_home_path
+  visit root_path
   expect(page).to have_content 'Admin Dashboard'
 end

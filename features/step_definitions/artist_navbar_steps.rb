@@ -1,5 +1,9 @@
+Given(/^I am a normal user$/) do
+  
+end
+
 Given(/^I am on the main Artist page$/) do
-  visit artist_home_path
+  visit root_path
 end
 
 When(/^I click the link 'JESSE FARBER'$/) do
@@ -7,7 +11,8 @@ When(/^I click the link 'JESSE FARBER'$/) do
 end
 
 Then(/^I should be taken back to the start page$/) do
-  expect(page).to have_link '∎ DEVELOPER ∎'
+  # expect(page).to have_link '∎ DEVELOPER ∎'
+  expect(page).to have_current_path(root_path)
 end
 
 When(/^I click the link for (\d+)D works$/) do |arg1|
@@ -16,9 +21,9 @@ end
 
 Then(/^I should be taken to the (\d+)D work page$/) do |arg1|
   if arg1 == '2'
-    expect(page).to have_current_path(artist_two_d_works_path)
+    expect(page).to have_current_path(two_d_works_path)
   elsif arg1 == '3'
-    expect(page).to have_current_path(artist_three_d_works_path)
+    expect(page).to have_current_path(three_d_works_path)
   end
 end
 
@@ -35,7 +40,7 @@ When(/^I click the link for books$/) do
 end
 
 Then(/^I should be taken to the books page$/) do
-  expect(page).to have_current_path(artist_books_path)
+  expect(page).to have_current_path(books_path)
 end
 
 Then(/^I should see a grid of book covers$/) do
@@ -43,7 +48,7 @@ Then(/^I should see a grid of book covers$/) do
 end
 
 Then(/^I should be taken to the CEPH and audio page$/) do
-  expect(page).to have_current_path(artist_audio_works_path)
+  expect(page).to have_current_path(audio_works_path)
 end
 
 Then(/^I should see information about CEPH and audio works$/) do
@@ -51,7 +56,7 @@ Then(/^I should see information about CEPH and audio works$/) do
 end
 
 Then(/^I should be taken to the RNL page$/) do
-  expect(page).to have_current_path(artist_rnl_path)
+  expect(page).to have_current_path(rnl_path)
 end
 
 Then(/^I should see information about RNL issues$/) do
@@ -63,7 +68,7 @@ When(/^I click the link for CV$/) do
 end
 
 Then(/^I should be taken to the CV page$/) do
-  expect(page).to have_current_path(artist_cv_path)
+  expect(page).to have_current_path(cv_path)
 end
 
 Then(/^I should see the CV information$/) do
@@ -76,7 +81,7 @@ When(/^I click the link for NEWS$/) do
 end
 
 Then(/^I should be taken to the News blog page$/) do
-  expect(page).to have_current_path(artist_news_path)
+  expect(page).to have_current_path(news_path)
 end
 
 Then(/^I should see the News posts$/) do

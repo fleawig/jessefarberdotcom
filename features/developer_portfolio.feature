@@ -4,6 +4,5 @@ Feature: Developer Portfolio Page
   In order to learn about and contact Jesse Farber
 
   Scenario: Navigating to page
-    Given I am on the home page
-    When I press the 'Developer' link
-    Then I should land on the Developer portfolio page
+    Given I visit the developer page
+    Then I should see text about Jesse Farber as a software developer
