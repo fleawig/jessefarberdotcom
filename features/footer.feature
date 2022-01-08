@@ -3,11 +3,11 @@ Feature: Footer
   I want to see a footer
   In order to follow additional contextual links
 
-  Scenario: Home page
-    Given I am a normal user
-    When I visit the homepage
-    Then I should see an icon link for email in the footer
-    And I should not see any other links
+  # Scenario: Home page
+  #   Given I am a normal user
+  #   When I visit the homepage
+  #   Then I should see an icon link for email in the footer
+  #   And I should not see any other links
 
   Scenario: Artist pages
     Given I am a normal user

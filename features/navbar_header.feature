@@ -7,7 +7,7 @@ Feature: Navbar
     Given I am a normal user
     When I am on the home page
     Then I should see the header
-    And I should not see any artist links in the header
+    # And I should not see any artist links in the header
 
   Scenario: Artist main page
     Given I am a normal user

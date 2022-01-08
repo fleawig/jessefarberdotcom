@@ -1,7 +1,7 @@
-When(/^I press the 'Developer' link$/) do
-  click_link '∎ DEVELOPER ∎'
+When(/^I visit the developer page$/) do
+  visit developer_portfolio_path
 end
 
-Then(/^I should land on the Developer portfolio page$/) do
-  expect(page).to have_current_path(developer_portfolio_path)
+Then(/^I should see text about Jesse Farber as a software developer$/) do
+  expect(page.body).to have_text 'SOFTWARE DEVELOPER'
 end

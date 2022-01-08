@@ -70,7 +70,7 @@ Given(/^an admin user already exists$/) do
 end
 
 When(/^I try to create another admin account$/) do
-  click_link '∎ ARTIST ∎'
+  # click_link '∎ ARTIST ∎'
   click_link 'Sign Out'
   visit new_admin_registration_path
   fill_in 'Email', with: 'jesse@example.com'
@@ -84,7 +84,7 @@ Then(/^I am told that I do not have permission to do that$/) do
 end
 
 Given(/^I delete my admin account$/) do
-  click_link '∎ ARTIST ∎'
+  # click_link '∎ ARTIST ∎'
   visit edit_admin_registration_path
   click_link 'Cancel my account'
 end

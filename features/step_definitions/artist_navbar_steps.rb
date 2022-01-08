@@ -1,3 +1,7 @@
+Given(/^I am a normal user$/) do
+  
+end
+
 Given(/^I am on the main Artist page$/) do
   visit root_path
 end
@@ -7,7 +11,8 @@ When(/^I click the link 'JESSE FARBER'$/) do
 end
 
 Then(/^I should be taken back to the start page$/) do
-  expect(page).to have_link '∎ DEVELOPER ∎'
+  # expect(page).to have_link '∎ DEVELOPER ∎'
+  expect(page).to have_current_path(root_path)
 end
 
 When(/^I click the link for (\d+)D works$/) do |arg1|
