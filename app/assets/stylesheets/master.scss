@@ -733,3 +733,24 @@ a:focus, a:hover {
 .tab2 {
   margin-left: 55px;
 }
+
+.cv {
+  max-width: 800px;
+}
+
+#cv-table {
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 0;
+  font-size: 85%;
+}
+
+.col-title {
+  width: 90px;
+}
+
+.cv-table td {
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
